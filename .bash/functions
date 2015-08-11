@@ -19,3 +19,12 @@ function git_home_enable() {
 		mv ~/.git.disable ~/.git
 	fi
 }
+
+# status for git tracking in home
+function git_home_status() {
+	if [ -d ~/.git.disable ]; then
+		echo "Disabled"
+	else
+		echo "Enabled"
+	fi
+}
