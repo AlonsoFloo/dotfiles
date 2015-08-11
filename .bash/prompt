@@ -2,7 +2,6 @@
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-
 # get current branch in git repo
 function func_parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`

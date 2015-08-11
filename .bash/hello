@@ -1,1 +1,1 @@
-echo -e "${color_yellow}Uptime: `uptime`"
+echo "Uptime: `uptime`"
