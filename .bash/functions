@@ -1,0 +1,21 @@
+# recursive content search
+function search_content() {
+	if [ "$#" -ne 2 ]; then
+		echo "Usage : $0 [CONTENT] [PATH]"
+	fi
+	grep -rnw $2 -e $1
+}
+
+# disable git tracking for home
+function git_home_disable() {
+	if [ -d ~/.git ]; then
+		mv ~/.git ~/.git.disable
+	fi
+}
+
+# enable git tracking for home
+function git_home_enable() {
+	if [ -d ~/.git.disable ]; then
+		mv ~/.git.disable ~/.git
+	fi
+}

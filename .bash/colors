@@ -1,0 +1,64 @@
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+	export TERM='gnome-256color'
+elif infocmp xterm-256color >/dev/null 2>&1; then
+	export TERM='xterm-256color'
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+color_prompt_enabled=
+case "$TERM" in
+	xterm-color) color_prompt_enabled=yes;;
+esac
+
+if [ !$color_prompt_enabled ] && [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	color_prompt_enabled=yes
+else
+	color_prompt_enabled=
+fi
+
+# Color List
+color_reset=
+color_black=
+color_red=
+color_green=
+color_yellow=
+color_blue=
+color_magenta=
+color_cyan=
+color_white=
+color_bold_black=
+color_bold_red=
+color_bold_green=
+color_bold_yellow=
+color_bold_blue=
+color_bold_magenta=
+color_bold_cyan=
+color_bold_white=
+
+if [ "$color_prompt_enqbled" = yes ]; then
+	color_reset="\[\033[0;37m\]"
+	# regular colors
+	color_black="\[\033[0;30m\]"
+	color_red="\[\033[0;31m\]"
+	color_green="\[\033[0;32m\]"
+	color_yellow="\[\033[0;33m\]"
+	color_blue="\[\033[0;34m\]"
+	color_magenta="\[\033[0;35m\]"
+	color_cyan="\[\033[0;36m\]"
+	color_white="\[\033[0;37m\]"
+	# emphasized (bolded) colors
+	color_bold_black="\[\033[1;30m\]"
+	color_bold_red="\[\033[1;31m\]"
+	color_bold_green="\[\033[1;32m\]"
+	color_bold_yellow="\[\033[1;33m\]"
+	color_bold_blue="\[\033[1;34m\]"
+	color_bold_magenta="\[\033[1;35m\]"
+	color_bold_cyan="\[\033[1;36m\]"
+	color_bold_white="\[\033[1;37m\]"
+fi;
+
+# allow color for grep
+export GREP_OPTIONS="--color=auto"
+
+# unset vqriqbles
+unset color_prompt_enabled

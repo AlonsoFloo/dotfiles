@@ -1,0 +1,23 @@
+[user]
+	name = Florian ALONSO
+	email = alonso.floo@gmail.com
+
+[color]
+	ui = true
+
+[branch]
+	autosetuprebase = always
+
+[core]
+	editor = vim
+
+[merge]
+  tool = meld
+
+[push]
+	default = current
+	followTags = true
+
+[help]
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1

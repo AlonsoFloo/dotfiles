@@ -1,0 +1,10 @@
+# add local bin path
+PATH=$HOME/.bin:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
+[ -d /usr/local/mysql/bin ] && PATH=/usr/local/mysql/bin:$PATH
+[ -d /usr/local/share/npm/bin ] && PATH=/usr/local/share/npm/bin:$PATH
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';

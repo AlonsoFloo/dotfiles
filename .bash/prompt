@@ -1,0 +1,17 @@
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+
+# get current branch in git repo
+function func_parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		echo " $color_cyan(${BRANCH})"
+	else
+		echo ""
+	fi
+}
+
+export PS1="$color_green\u@\h$color_reset:$color_blue\w\`func_parse_git_branch\`${color_blue}$ $color_reset"

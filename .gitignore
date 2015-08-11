@@ -1,0 +1,8 @@
+*
+!.bash
+!.bash/*
+!.bin
+!.bin/*
+!.gitconfig
+!.gitignore
+!README.md
