@@ -9,4 +9,7 @@
 !.bash_logout
 !.bashrc
 !.profile
+!.config
+!.config/terminator
+!.config/terminator/config
 !README.md

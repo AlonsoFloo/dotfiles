@@ -1,0 +1,19 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    background_image = None
+    background_darkness = 0.84
+    background_type = transparent
+    word_chars = "-A-Za-z0-9,./?%&#:_~"
+    cursor_blink = False
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
