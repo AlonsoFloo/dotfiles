@@ -1,5 +1,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+if [ -z "$BASH_VERSION" ]; then
+    return
+fi
 
 # reading the default bashrc
 if [ -f /etc/bashrc ]; then

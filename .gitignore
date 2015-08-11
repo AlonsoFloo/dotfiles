@@ -5,4 +5,8 @@
 !.bin/*
 !.gitconfig
 !.gitignore
+!.bash_profile
+!.bash_logout
+!.bashrc
+!.profile
 !README.md

@@ -10,7 +10,7 @@ case "$TERM" in
 	xterm-color) color_prompt_enabled=yes;;
 esac
 
-if [ !$color_prompt_enabled ] && [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+if [ "$color_prompt_enabled" != yes ] && [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	color_prompt_enabled=yes
 else
 	color_prompt_enabled=
@@ -35,7 +35,7 @@ color_bold_magenta=
 color_bold_cyan=
 color_bold_white=
 
-if [ "$color_prompt_enqbled" = yes ]; then
+if [ "$color_prompt_enabled" = yes ]; then
 	color_reset="\[\033[0;37m\]"
 	# regular colors
 	color_black="\[\033[0;30m\]"

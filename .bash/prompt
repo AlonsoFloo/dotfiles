@@ -6,12 +6,11 @@ shopt -s checkwinsize
 # get current branch in git repo
 function func_parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-	if [ ! "${BRANCH}" == "" ]
-	then
-		echo " $color_cyan(${BRANCH})"
+	if [ ! "${BRANCH}" == "" ]; then
+		echo " (${BRANCH})"
 	else
 		echo ""
 	fi
 }
 
-export PS1="$color_green\u@\h$color_reset:$color_blue\w\`func_parse_git_branch\`${color_blue}$ $color_reset"
+export PS1="$color_green\u@\h$color_reset:$color_blue\w$color_cyan\`func_parse_git_branch\`${color_blue}$ $color_reset"
