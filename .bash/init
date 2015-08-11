@@ -10,7 +10,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Importing files
-for file in ~/.bash/{exports,functions,colors,prompt,aliases,aut-complete,extras,hello}; do
+for file in ~/.bash/{exports,functions,colors,prompt,aliases,auto-complete,extras,hello}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done;
 unset file

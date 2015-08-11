@@ -1,1 +1,1 @@
-echo "LOGGGEEEEDDDD"
+echo -e "${color_yellow}Uptime: `uptime`"

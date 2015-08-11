@@ -12,16 +12,11 @@ fi
 # correct minor errors in the spelling of a directory component in a cd command
 shopt -s cdspell
 
-if [ "${BASH_VERSION%.*}" \< "3.0" ]; then
-    echo "You will need to upgrade to version 3.0 for full \
-          programmable completion features"
-    return
-fi
 shopt -s extglob
 
 complete -A hostname   rsh rcp telnet rlogin ftp ping disk
 complete -A export     printenv
-complete -A variable   export readonly
+complete -A variable   export
 complete -A enabled    builtin
 complete -A alias      alias unalias
 complete -A function   function
