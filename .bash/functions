@@ -5,6 +5,7 @@ function search_content() {
 	fi
 	grep -rnw $2 -e $1
 }
+export -f search_content
 
 # disable git tracking for home
 function git_home_disable() {
@@ -12,6 +13,7 @@ function git_home_disable() {
 		mv ~/.git ~/.git.disable
 	fi
 }
+export -f git_home_disable
 
 # enable git tracking for home
 function git_home_enable() {
@@ -19,6 +21,7 @@ function git_home_enable() {
 		mv ~/.git.disable ~/.git
 	fi
 }
+export -f git_home_enable
 
 # status for git tracking in home
 function git_home_status() {
@@ -28,3 +31,4 @@ function git_home_status() {
 		echo "Enabled"
 	fi
 }
+export -f git_home_status
