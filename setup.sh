@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 cd ~/dotfiles/
-git pull origin master;
-
 
 exlude_files=".|..|.gitignore|README.md|.git|setup.sh"
 for file in `ls -a`

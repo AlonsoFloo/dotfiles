@@ -18,6 +18,10 @@
 	default = current
 	followTags = true
 
+[pull]
+	default = current
+
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
+
