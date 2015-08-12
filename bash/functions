@@ -1,7 +1,8 @@
 # recursive content search
 function search_content() {
 	if [ "$#" -ne 2 ]; then
-		echo "Usage : $0 [CONTENT] [PATH]"
+		echo "Usage : FunctionName [CONTENT] [PATH]"
+		return
 	fi
 	grep -rnw $2 -e $1
 }
