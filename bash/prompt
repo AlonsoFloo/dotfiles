@@ -12,4 +12,4 @@ function func_parse_git_branch() {
 	fi
 }
 
-export PS1="$color_green\u@\h$color_reset:$color_blue\w$color_cyan\`func_parse_git_branch\`${color_blue}$ $color_reset"
+export PS1="${color_PS_open}${color_green}${color_PS_close}\u@\h${color_PS_open}${color_reset}${color_PS_close}:${color_PS_open}${color_blue}${color_PS_close}\w${color_PS_open}${color_cyan}${color_PS_close}\`func_parse_git_branch\`${color_PS_open}${color_blue}${color_PS_close}$ ${color_PS_open}${color_reset}${color_PS_close}"

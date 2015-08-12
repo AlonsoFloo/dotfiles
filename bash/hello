@@ -1,1 +1,19 @@
-echo "Uptime: `uptime`"
+eth0_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
+
+external_ip=
+if [[ -x /usr/bin/curl ]]; then
+	external_ip="$(/usr/bin/curl -s -m 0.5 http://ipecho.net/plain)"
+fi
+
+echo -en "${color_yellow}\n"
+echo -en "\tUptime :`uptime`\n"
+echo -en "\teth0 : $eth0_ip"
+echo -en "\t\tExternal : "
+if [[ -n $external_ip ]]; then
+	echo -en "$external_ip\n"
+else
+	echo -en "\n"
+fi
+echo -en "${color_reset}\n"
+
+unset eth0_ip external_ip
