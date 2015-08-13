@@ -5,7 +5,7 @@ city=
 if [[ -x /usr/bin/curl ]]; then
 	external_ip="$(/usr/bin/curl -s -m 0.5 http://ipecho.net/plain)"
 
-	city="$(curl -s -m 0.5 http://ip-api.com/line/?fields=city)"
+	city="$(myip)"
 fi
 
 echo -en "${color_yellow}\n"
