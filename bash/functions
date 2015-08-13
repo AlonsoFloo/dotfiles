@@ -39,11 +39,14 @@ function extract_archive {
 export -f extract_archive
 
 function backup() {
-	if [ "$#" -ne 1 ]; then
+	if [ "$#" -lt 1 ]; then
 		echo "Usage : backup [PATH]"
 		return
 	fi
-	cp "$1"{,.bak}
+	for f in "$@"
+	do
+		cp "$f"{,.bak}
+	done
 }
 export -f backup
 
@@ -53,4 +56,41 @@ function myip() {
 }
 export -f myip
 
+function imageoptim() {
+	if [ "$#" -lt 1 ]; then
+		echo "Usage : imageoptim [FILE_PATH]"
+		return
+	fi
+	for f in "$@"
+	do
+		cp "$f"{,.ori}
+		echo $f | while IFS= read file
+		do
+			filename=$(basename $file)
+			ext=$(echo ${filename##*.} | tr "[:upper:]" "[:lower:]")
+			if [ -f $file ]; then
+				if ( [ $ext == "png" ] || [ $ext == "jpg" ] || [ $ext == "jpeg" ] ); then
+					JSON=`curl -i --user api:gCrX460inNDnnjiTGuEbof7p3J6DNR_Z --data-binary @$file https://api.tinypng.com/shrink 2>/dev/null`
+					succes=$?
+					if [[ "$succes" -eq 0 ]]; then
+						URL=${JSON/*url\":\"/}
+						URL=${URL/\"*/}
+
+						curl $URL > ${file} 2>/dev/null
+						succes=$?
+					fi
+
+					if [[ "$succes" -ne 0 ]]; then
+						echo "Cannont use the tinypng API for $file"
+					fi
+				else
+					echo "File format error for $file"
+				fi
+			else
+				echo "File doesn't exist : $file"
+			fi
+		done
+	done
+}
+export -f imageoptim
 
