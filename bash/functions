@@ -4,6 +4,6 @@ function search_content() {
 		echo "Usage : FunctionName [CONTENT] [PATH]"
 		return
 	fi
-	grep -rnw $2 -e $1
+	grep -rniw $2 -e $1
 }
 export -f search_content
