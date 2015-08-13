@@ -5,12 +5,19 @@ if [ -z "$BASH_VERSION" ]; then
 fi
 
 # reading the default bashrc
-if [ -f /etc/bashrc ]; then
+if [ -r /etc/bashrc ] && [ -f /etc/bashrc ]; then
       . /etc/bashrc
 fi
 
-# Importing files
+# reading standard files
 for file in ~/.bash/{exports,functions,colors,prompt,aliases,auto-complete,extras,hello}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done;
+
+# reading host file
+file=~/.bash/byhost/`hostname`
+if [[ -r $file ]]; then
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+fi
+
 unset file
