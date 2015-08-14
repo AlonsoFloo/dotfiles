@@ -23,7 +23,9 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 		if [[-x /usr/bin/apt-get ]]; then
 			sudo apt-get install -y zsh
 		else
-			ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+			if [[ ! "$(which brew)" ]]; then
+				ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+			fi
 			brew install zsh zsh-completions
 		fi
 	fi
