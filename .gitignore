@@ -93,3 +93,20 @@ local.properties
 proguard/
 # Log Files
 *.log
+
+
+# --------------------------------
+# xCode
+# --------------------------------
+#user
+visa.xcodeproj/project.xcworkspace/xcuserdata/
+visa.xcodeproj/project.xcworkspace/xcshareddata/
+visa.xcodeproj/xcuserdata/
+.DS_Store
+*~
+
+#link
+*.o
+
+#build
+DerivedData/

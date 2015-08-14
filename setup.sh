@@ -2,7 +2,7 @@
 
 cd ~/dotfiles/
 
-exlude_files=".|..|.gitignore|README.md|.git|setup.sh"
+exlude_files=".|..|.gitignore|README.md|.git|setup.sh|bash"
 for file in `ls -a`
 do
 	if [[ ! "$i" == "*~" ]]; then
