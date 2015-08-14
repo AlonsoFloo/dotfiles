@@ -1,4 +1,3 @@
 # Init dotfiles zsh
-if [ -r ~/dotfiles/init ] && [ -f ~/dotfiles/init ]; then
-	source ~/dotfiles/init
-fi
+export DOTFILES=$HOME/dotfiles
+[ -r $DOTFILES/init ] && [ -f ~/dotfiles/init ] && source $DOTFILES/init

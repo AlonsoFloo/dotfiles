@@ -20,7 +20,7 @@ if [ -n "$ZSH_VERSION" ]; then
 
 	# reading the default bashrc
 	if [ -r /etc/zsh/zshrc ] && [ -f /etc/zsh/zshrc ]; then
-		  . /etc/zsh/zshrc
+		. /etc/zsh/zshrc
 	fi
 
 	shell_interpretor="zsh"
@@ -38,12 +38,12 @@ if [ "$shell_interpretor" != "" ]; then
 
 	# reading standard files
 	for file in "${files[@]}"; do
-		[ -r ~/dotfiles/common/"$file" ] && [ -f ~/dotfiles/common/"$file" ] && source ~/dotfiles/common/"$file"
-		[ -r ~/dotfiles/${shell_interpretor}/"$file" ] && [ -f ~/dotfiles/${shell_interpretor}/"$file" ] && source ~/dotfiles/${shell_interpretor}/"$file"
+		[ -r $DOTFILES/common/"$file" ] && [ -f $DOTFILES/common/"$file" ] && source $DOTFILES/common/"$file"
+		[ -r $DOTFILES/${shell_interpretor}/"$file" ] && [ -f $DOTFILES/${shell_interpretor}/"$file" ] && source $DOTFILES/${shell_interpretor}/"$file"
 	done;
 
 	# reading host file
-	file=~/dotfiles/byhost/`hostname`
+	file=$DOTFILES/byhost/`hostname`
 	if [[ -r $file ]]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi
@@ -60,8 +60,8 @@ current_day="$(($(date +%s) / 60 / 60 / 24))"
 diff=`expr $last_update - $current_day`
 if [ -z "$last_update" ] || [ $diff -ge 5 ]; then
 	current_dir="$(pwd)"
-	cd ~/dotfiles && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
-	~/dotfiles/setup.sh --quiet
+	cd $DOTFILES && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
+	$DOTFILES/setup.sh --quiet
 	echo "$current_day" > 	~/.dotfiles-update
 
 	unset current_dir
