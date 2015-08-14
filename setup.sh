@@ -2,7 +2,7 @@
 
 cd ~/dotfiles/
 
-for file in ~/dotfiles/{bash_logout,bash_profile,bashrc,gitconfig,profile,config}; do
+for file in ~/dotfiles/{bash_logout,bash_profile,bashrc,gitconfig,profile,config,zshrc}; do
 	file="$( basename $file )"
 	if [[ -h ~/.${file} ]]; then
 		rm -f ~/.${file}
@@ -14,3 +14,15 @@ for file in ~/dotfiles/{bash_logout,bash_profile,bashrc,gitconfig,profile,config
 done;
 
 unset file
+
+user_value=""
+echo "Do you want to install ZSH Shell ? (yes/no) "
+read user_value
+if [[ "$user_value" == "yes" ]]; then
+	if [[-x /usr/bin/apt-get ]]; then
+		sudo apt-get install -y zsh
+	else
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		brew install zsh zsh-completions
+	fi
+fi

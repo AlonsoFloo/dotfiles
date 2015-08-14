@@ -1,3 +1,5 @@
+shell_interpretor=""
+
 # Using BASH
 if [ $SHELL == "/bin/bash" ]; then
 	# If not running interactively, don't do anything
@@ -8,11 +10,43 @@ if [ $SHELL == "/bin/bash" ]; then
 		  . /etc/bashrc
 	fi
 
-	# Init custom Bash
-	file=~/dotfiles/bash/init
+	shell_interpretor="bash"
+fi
+
+# Using ZSH
+if [ $SHELL == "/usr/bin/zsh" ]; then
+	# If not running interactively, don't do anything
+	[ -z "$PROMPT" ] && return
+
+	# reading the default bashrc
+	if [ -r /etc/bashrc ] && [ -f /etc/bashrc ]; then
+		  . /etc/bashrc
+	fi
+
+	shell_interpretor="bash"
+fi
+
+if [ "$shell_interpretor" != "" ]; then
+	files="common/exports
+		common/functions
+		${shell_interpretor}/colors
+		${shell_interpretor}/prompt
+		common/aliases
+		${shell_interpretor}/auto-complete
+		${shell_interpretor}/extras
+		common/hello"
+
+	# reading standard files
+	for file in $files; do
+		[ -r ~/dotfiles/"$file" ] && [ -f ~/dotfiles/"$file" ] && source ~/dotfiles/"$file"
+	done;
+
+	# reading host file
+	file=~/dotfiles/byhost/`hostname`
 	if [[ -r $file ]]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi
-
 	unset file
 fi
+
+unset shell_interpretor
