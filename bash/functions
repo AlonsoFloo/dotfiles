@@ -45,7 +45,7 @@ function backup() {
 	fi
 	for f in "$@"
 	do
-		cp "$f"{,.bak}
+		cp -r "$f"{,.bak}
 	done
 }
 export -f backup
@@ -63,7 +63,7 @@ function imageoptim() {
 	fi
 	for f in "$@"
 	do
-		cp "$f"{,.ori}
+		cp -r "$f"{,.ori}
 		echo $f | while IFS= read file
 		do
 			filename=$(basename $file)
