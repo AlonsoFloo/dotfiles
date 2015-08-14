@@ -1,5 +1,5 @@
 # Using BASH
-if [ -n "$BASH_VERSION" ]; then
+if [ $SHELL == "/bin/bash" ]; then
 	if [ -r ~/.bashrc ] && [ -f ~/.bashrc ]; then
 		source ~/.bashrc
 	fi
