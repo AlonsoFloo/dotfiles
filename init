@@ -1,0 +1,19 @@
+# Using BASH
+if [ -n "$BASH_VERSION" ]; then
+	# If not running interactively, don't do anything
+	[ -z "$PS1" ] && return
+
+	# reading the default bashrc
+	if [ -r /etc/bashrc ] && [ -f /etc/bashrc ]; then
+		  . /etc/bashrc
+	fi
+
+	# Init custom Bash
+	current_dir="$( dirname "${BASH_SOURCE[0]}" )"
+	file=$current_dir/bash/init
+	if [[ -r $file ]]; then
+		[ -r "$file" ] && [ -f "$file" ] && source "$file"
+	fi
+
+	unset file current_dir
+fi

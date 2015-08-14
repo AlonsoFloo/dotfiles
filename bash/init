@@ -10,4 +10,4 @@ if [[ -r $file ]]; then
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 fi
 
-unset file
+unset file current_dir
