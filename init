@@ -50,3 +50,19 @@ if [ "$shell_interpretor" != "" ]; then
 fi
 
 unset shell_interpretor
+
+last_update=
+if [ -f ~/.dotfiles-update ]; then
+	last_update="$(cat ~/.dotfiles-update)"
+fi
+current_day="$(($(date +%s) / 60 / 60 / 24))"
+diff=$last_update-$current_day
+if [ -z "$last_update" ] || [ "$diff" -ge 5 ]; then
+	current_dir="$(pwd)"
+	cd ~/dotfiles && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
+	~/dotfiles/setup.sh --quiet
+	echo "$current_day" > 	~/.dotfiles-update
+
+	unset current_dir
+fi
+unset last_update current_day diff
