@@ -20,7 +20,7 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 	echo "Do you want to install ZSH Shell ? (yes/no) "
 	read user_value
 	if [[ "$user_value" == "yes" ]]; then
-		if [[-x /usr/bin/apt-get ]]; then
+		if [[ -x /usr/bin/apt-get ]]; then
 			sudo apt-get install -y zsh
 		else
 			if [[ ! "$(which brew)" ]]; then
