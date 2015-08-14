@@ -93,7 +93,7 @@ function gedit_rm_tmp_files() {
 	find -L . -name '*~' -exec rm -f {} \;
 }
 
-function use_shell() {
+function change_default_shell() {
 	if [ "$#" -ne 1 ]; then
 		echo "Usage : use_shell bash|zsh"
 		return
