@@ -1,0 +1,4 @@
+#oh-my-zsh theme
+ZSH_THEME="bira"
+
+DEFAULT_USER="Florian"

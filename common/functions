@@ -6,7 +6,6 @@ function search_content() {
 	fi
 	grep -rniw $2 -e $1
 }
-export -f search_content
 
 function extract_archive {
 	if [ -z "$1" ]; then
@@ -36,7 +35,6 @@ function extract_archive {
 		fi
 	fi
 }
-export -f extract_archive
 
 function backup() {
 	if [ "$#" -lt 1 ]; then
@@ -48,13 +46,11 @@ function backup() {
 		cp -r "$f"{,.bak}
 	done
 }
-export -f backup
 
 function myip() {
 	external_ip="$(curl -s -m 0.5 http://ipecho.net/plain)"
 	echo $external_ip
 }
-export -f myip
 
 function imageoptim() {
 	if [ "$#" -lt 1 ]; then
@@ -92,12 +88,10 @@ function imageoptim() {
 		done
 	done
 }
-export -f imageoptim
 
 function gedit_rm_tmp_files() {
 	find -L . -name '*~' -exec rm -f {} \;
 }
-export -f gedit_rm_tmp_files
 
 function use_shell() {
 	if [ "$#" -ne 1 ]; then
@@ -107,4 +101,3 @@ function use_shell() {
 	chsh -s $(which $1) $(whoami)
 	$1
 }
-export -f use_shell

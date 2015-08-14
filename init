@@ -1,7 +1,7 @@
 shell_interpretor=""
 
 # Using BASH
-if [ $SHELL == "/bin/bash" ]; then
+if [ -n "$BASH_VERSION" ]; then
 	# If not running interactively, don't do anything
 	[ -z "$PS1" ] && return
 
@@ -14,30 +14,30 @@ if [ $SHELL == "/bin/bash" ]; then
 fi
 
 # Using ZSH
-if [ $SHELL == "/usr/bin/zsh" ]; then
+if [ -n "$ZSH_VERSION" ]; then
 	# If not running interactively, don't do anything
 	[ -z "$PROMPT" ] && return
 
 	# reading the default bashrc
-	if [ -r /etc/bashrc ] && [ -f /etc/bashrc ]; then
-		  . /etc/bashrc
+	if [ -r /etc/zsh/zshrc ] && [ -f /etc/zsh/zshrc ]; then
+		  . /etc/zsh/zshrc
 	fi
 
-	shell_interpretor="bash"
+	shell_interpretor="zsh"
 fi
 
 if [ "$shell_interpretor" != "" ]; then
-	files="common/exports
-		common/functions
-		${shell_interpretor}/colors
-		${shell_interpretor}/prompt
-		common/aliases
-		${shell_interpretor}/auto-complete
-		${shell_interpretor}/extras
-		common/hello"
+	files=( "common/exports"
+			"common/functions"
+			"${shell_interpretor}/colors"
+			"${shell_interpretor}/prompt"
+			"common/aliases"
+			"${shell_interpretor}/auto-complete"
+			"${shell_interpretor}/extras"
+			"common/hello" )
 
 	# reading standard files
-	for file in $files; do
+	for file in "${files[@]}"; do
 		[ -r ~/dotfiles/"$file" ] && [ -f ~/dotfiles/"$file" ] && source ~/dotfiles/"$file"
 	done;
 
@@ -46,7 +46,7 @@ if [ "$shell_interpretor" != "" ]; then
 	if [[ -r $file ]]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi
-	unset file
+	unset file files
 fi
 
 unset shell_interpretor
