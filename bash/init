@@ -1,11 +1,10 @@
 # reading standard files
-current_dir="$( dirname "${BASH_SOURCE[0]}" )"
-for file in $current_dir/{exports,functions,colors,prompt,aliases,auto-complete,extras,hello}; do
+for file in ~/dotfiles/bash/{exports,functions,colors,prompt,aliases,auto-complete,extras,hello}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done;
 
 # reading host file
-file=$current_dir/byhost/`hostname`
+file=~/dotfiles/bash/byhost/`hostname`
 if [[ -r $file ]]; then
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 fi

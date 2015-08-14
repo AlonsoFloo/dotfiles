@@ -2,7 +2,6 @@
 
 cd ~/dotfiles/
 
-current_dir="$( pwd )"
 for file in ~/dotfiles/{bash_logout,bash_profile,bashrc,gitconfig,profile,config}; do
 	file="$( basename $file )"
 	if [[ -h ~/.${file} ]]; then
@@ -14,4 +13,4 @@ for file in ~/dotfiles/{bash_logout,bash_profile,bashrc,gitconfig,profile,config
 	ln -sf ~/dotfiles/${file} ~/.${file}
 done;
 
-unset file current_dir
+unset file

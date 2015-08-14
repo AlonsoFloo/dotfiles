@@ -9,11 +9,10 @@ if [ -n "$BASH_VERSION" ]; then
 	fi
 
 	# Init custom Bash
-	current_dir="$( dirname "${BASH_SOURCE[0]}" )"
-	file=$current_dir/bash/init
+	file=~/dotfiles/bash/init
 	if [[ -r $file ]]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi
 
-	unset file current_dir
+	unset file
 fi
