@@ -93,3 +93,8 @@ function imageoptim() {
 	done
 }
 export -f imageoptim
+
+function gedit_rm_tmp_files() {
+	find -L . -name '*~' -exec rm -f {} \;
+}
+export -f gedit_rm_tmp_files

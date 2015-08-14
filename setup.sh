@@ -1,20 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 cd ~/dotfiles/
 
-exlude_files=".|..|.gitignore|README.md|.git|setup.sh|bash"
-for file in `ls -a`
-do
-	if [[ ! "$i" == "*~" ]]; then
-		if [[ ! ${file} =~ ^(${exlude_files})$ ]]; then
-			if [[ -h ~/.${file} ]]; then
-				rm -f ~/.${file}
-			elif [[ -e ~/.${file} ]]; then
-				mv ~/.${file} ~/.${file}.dotfiles.bak
-			fi
-			
-			ln -sf ~/dotfiles/${file} ~/.${file} 
-		fi
+current_dir="$( pwd )"
+for file in ~/dotfiles/{bash_logout,bash_profile,bashrc,gitconfig,profile,config}; do
+	file="$( basename $file )"
+	if [[ -h ~/.${file} ]]; then
+		rm -f ~/.${file}
+	elif [[ -e ~/.${file} ]]; then
+		mv ~/.${file} ~/.${file}.dotfiles.bak
 	fi
-done
-unset file exlude_files
+
+	ln -sf ~/dotfiles/${file} ~/.${file}
+done;
+
+unset file current_dir
