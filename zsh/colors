@@ -23,3 +23,6 @@ color_bold_white="\e[1;37m"
 
 # allow color for grep
 export GREP_OPTIONS="--color=auto"
+
+# colored manual
+plugins+=(colored-man)

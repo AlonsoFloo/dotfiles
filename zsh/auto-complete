@@ -4,3 +4,26 @@ setopt interactivecomments
 
 # Zsh has a spelling corrector
 setopt CORRECT
+
+# completion plugins
+#plugins+=(git) #uncomment for extra completion
+if type ant > /dev/null;then
+	plugins+=(ant)
+fi
+if type svn > /dev/null;then
+	plugins+=(svn-fast-info)
+fi
+if type mvn > /dev/null;then
+	plugins+=(mvn)
+fi
+if type brew > /dev/null;then
+	plugins+=(brew)
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	# Mac OSX
+	plugins+=(osx)
+fi
+
+# syntax checker
+source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
