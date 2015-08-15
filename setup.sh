@@ -13,6 +13,10 @@ for file in ~/dotfiles/{bash_logout,bashrc,zshrc,zlogout,gitconfig,config}; do
 	ln -sf ~/dotfiles/${file} ~/.${file}
 done;
 
+
+chmod +x ~/dotfiles/zsh/powerline-fonts/install.sh
+~/dotfiles/zsh/powerline-fonts/install.sh	
+
 unset file
 
 if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
@@ -27,6 +31,6 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 				ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			fi
 			brew install zsh zsh-completions
-		fi
+		fi	
 	fi
 fi
