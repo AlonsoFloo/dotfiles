@@ -14,8 +14,8 @@ for file in ~/dotfiles/{bash_logout,bashrc,zshrc,zlogout,gitconfig,config}; do
 done;
 
 
-chmod +x ~/dotfiles/zsh/powerline-fonts/install.sh
-~/dotfiles/zsh/powerline-fonts/install.sh	
+chmod +x ~/dotfiles/powerline-fonts/install.sh
+~/dotfiles/powerline-fonts/install.sh	
 
 unset file
 
