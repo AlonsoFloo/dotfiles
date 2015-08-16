@@ -121,3 +121,8 @@ function retina_downgrade() {
 	done
 	unset f
 }
+
+function = 
+{
+  echo "$@" | bc -l
+}

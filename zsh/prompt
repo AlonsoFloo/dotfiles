@@ -3,3 +3,8 @@
 ZSH_THEME="agnoster"
 
 DEFAULT_USER="Florian"
+
+if [ -n $RPROMPT ];then
+	RPROMPT=" $RPROMPT"
+fi
+RPROMPT="[%D{%L:%M:%S %p}]$RPROMPT"
