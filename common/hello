@@ -3,9 +3,9 @@ eth0_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' 
 external_ip=
 city=
 if [[ -x /usr/bin/curl ]]; then
-	external_ip="$(/usr/bin/curl -s -m 0.5 http://ipecho.net/plain)"
+	external_ip="$(myip)"
 
-	city="$(myip)"
+	city="$(mycity)"
 fi
 
 echo -en "${color_yellow}\n"
@@ -20,9 +20,8 @@ else
 fi
 
 if [[ -n $city ]]; then
-	echo -en "\tLocation : $city"
+	echo -en "\tLocation : $city\n"
 fi
-echo -en "${color_reset}\n"
 
 
-unset eth0_ip external_ip city 
+unset eth0_ip external_ip city

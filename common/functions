@@ -52,6 +52,11 @@ function myip() {
 	echo $external_ip
 }
 
+function mycity() {
+	city="$(curl -s -m 0.5 http://ip-api.com/line/\?fields\=city)"
+	echo $city
+}
+
 function imageoptim() {
 	if [ "$#" -lt 1 ]; then
 		echo "Usage : imageoptim [FILE_PATH..]"
