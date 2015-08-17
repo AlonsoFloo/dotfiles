@@ -4,7 +4,7 @@ function search_content() {
 		echo "Usage : search_content [CONTENT] [PATH]"
 		return
 	fi
-	grep -rniw $2 -e $1
+	grep --color=auto -rniw $2 -e $1
 }
 
 function extract_archive {
