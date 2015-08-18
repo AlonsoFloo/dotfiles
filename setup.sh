@@ -4,12 +4,17 @@ cd ~/dotfiles/
 
 for file in ~/dotfiles/{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,config}; do
 	file="$( basename $file )"
+	
+	if [[ -d ~/.${file} ]]; then
+		cp -rn ~/.${file}/* ~/dotfiles/${file}/
+	fi
+
 	if [[ -h ~/.${file} ]]; then
 		rm -f ~/.${file}
 	elif [[ -e ~/.${file} ]]; then
 		mv ~/.${file} ~/.${file}.dotfiles.bak
 	fi
-
+	
 	ln -sf ~/dotfiles/${file} ~/.${file}
 done;
 
