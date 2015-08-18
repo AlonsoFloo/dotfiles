@@ -8,19 +8,19 @@ if [[ -x /usr/bin/curl ]]; then
 	city="$(mycity)"
 fi
 
-echo -en "${color_yellow}\n"
-echo -en "\tUptime :`uptime`\n"
-echo -en "\teth0 : $eth0_ip"
-echo -en "\t\tExternal : "
+printf "${color_yellow}\n"
+printf "\tUptime :`uptime`\n"
+printf "\teth0 : $eth0_ip"
+printf "\t\tExternal : "
 
 if [[ -n $external_ip ]]; then
-	echo -en "$external_ip\n"
+	printf "$external_ip\n"
 else
-	echo -en "\n"
+	printf "\n"
 fi
 
 if [[ -n $city ]]; then
-	echo -en "\tLocation : $city\n"
+	printf "\tLocation : $city\n"
 fi
 
 
