@@ -2,7 +2,7 @@
 
 cd ~/dotfiles/
 
-for file in ~/dotfiles/{bash_logout,bashrc,zshrc,zlogout,inputrc,gitconfig,config}; do
+for file in ~/dotfiles/{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,config}; do
 	file="$( basename $file )"
 	if [[ -h ~/.${file} ]]; then
 		rm -f ~/.${file}
