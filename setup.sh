@@ -1,12 +1,14 @@
 #!/bin/bash
 
-cd ~/dotfiles/
+DOTFILE_PATH=~/dotfiles/
 
-for file in ~/dotfiles/{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config}; do
+cd ${DOTFILE_PATH}
+
+for file in ${DOTFILE_PATH}{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config}; do
 	file="$( basename $file )"
 	
 	if [[ ! -h ~/.${file} ]] && [[ -d ~/.${file} ]]; then
-		cp -rn ~/.${file}/* ~/dotfiles/${file}/
+		cp -rn ~/.${file}/* ${DOTFILE_PATH}${file}/
 	fi
 
 	if [[ -h ~/.${file} ]]; then
@@ -15,12 +17,12 @@ for file in ~/dotfiles/{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gi
 		mv ~/.${file} ~/.${file}.dotfiles.bak
 	fi
 	
-	ln -sf ~/dotfiles/${file} ~/.${file}
+	ln -sf ${DOTFILE_PATH}${file} ~/.${file}
 done;
 
 
-chmod +x ~/dotfiles/powerline-fonts/install.sh
-~/dotfiles/powerline-fonts/install.sh	
+chmod +x ${DOTFILE_PATH}powerline-fonts/install.sh
+${DOTFILE_PATH}powerline-fonts/install.sh	
 
 unset file
 
