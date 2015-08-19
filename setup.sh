@@ -2,10 +2,10 @@
 
 cd ~/dotfiles/
 
-for file in ~/dotfiles/{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,config}; do
+for file in ~/dotfiles/{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config}; do
 	file="$( basename $file )"
 	
-	if [[ -d ~/.${file} ]]; then
+	if [[ ! -h ~/.${file} ]] && [[ -d ~/.${file} ]]; then
 		cp -rn ~/.${file}/* ~/dotfiles/${file}/
 	fi
 
