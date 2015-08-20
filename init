@@ -52,13 +52,14 @@ fi
 
 unset shell_interpretor
 
-last_update="$(($(date +%s) / 60 / 60 / 24))"
+last_update=0
 if [ -f ~/.dotfiles-update ]; then
 	last_update="$(cat ~/.dotfiles-update)"
 fi
 current_day="$(($(date +%s) / 60 / 60 / 24))"
-diff=`expr $last_update - $current_day`
+diff=`expr $current_day - $last_update`
 if [ -z "$last_update" ] || [ $diff -ge 5 ]; then
+	echo "Updating dotfiles ..."
 	current_dir="$(pwd)"
 	cd $DOTFILES && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
 	$DOTFILES/setup.sh --quiet
