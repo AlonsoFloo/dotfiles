@@ -11,25 +11,26 @@ if [[ `uname` == 'Darwin' ]]; then
 else
     SEGMENT_SEPARATOR_RIGHT=''
 fi
-CLOCK_SYMBOL='⌚' #\u231a
-RAM_SYMBOL='' #
-HDD_SYMBOL='' #
+
+rprompt_date() {
+	CLOCK_SYMBOL='⌚' #\u231a
+	echo -n "%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white}$CLOCK_SYMBOL %D{%L:%M:%S %p} "
+}
 
 rprompt_cpu() {
 	CPU_SYMBOL='⛁' #\u26c1
 	CPU_USAGE="$(ps aux | awk {'sum+=$3;print sum'} | tail -n 1)"
-	if [ $(echo $CPU_USAGE'<'70 | bc -l) ]; then
+	if [ $(echo $CPU_USAGE'<'50 | bc -l) ]; then
 		CPU_USAGE_COLOR_BK="green"
+	elif [ $(echo $CPU_USAGE'<'70 | bc -l) ]; then
+		CPU_USAGE_COLOR_BK="orange"
 	else
 		CPU_USAGE_COLOR_BK="red"
 	fi
-	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_SYMBOL $CPU_USAGE% "
+	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_SYMBOL $CPU_USAGE%% "
 }
 
-if [ -n $RPROMPT ];then
-	RPROMPT=" $RPROMPT"
-fi
-RPROMPT="%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white}$CLOCK_SYMBOL %D{%L:%M:%S %p} \`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
+RPROMPT="\`rprompt_date\`\`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
 
 
 # Setting the PS2
