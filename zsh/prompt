@@ -4,7 +4,26 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER="Florian"
 
+# Setting the right prompt
+# Fix odd char on mac
+if [[ `uname` == 'Darwin' ]]; then
+    SEGMENT_SEPARATOR='\ue0b2'
+else
+    SEGMENT_SEPARATOR=''
+fi
+
 if [ -n $RPROMPT ];then
 	RPROMPT=" $RPROMPT"
 fi
-RPROMPT="[%D{%L:%M:%S %p}]$RPROMPT"
+RPROMPT="%F{white}$SEGMENT_SEPARATOR%F{black}%K{white} %D{%L:%M:%S %p} %{$reset_color%}${RPROMPT}%{%}"
+
+
+# Setting the PS2
+# Fix odd char on mac
+if [[ `uname` == 'Darwin' ]]; then
+    SEGMENT_SEPARATOR='\ue0b0'
+else
+    SEGMENT_SEPARATOR=''
+fi
+
+PS2="%K{white} %{%k%}%F{white}$SEGMENT_SEPARATOR %{%f%}"
