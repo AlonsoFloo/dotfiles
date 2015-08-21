@@ -59,12 +59,17 @@ fi
 current_day="$(($(date +%s) / 60 / 60 / 24))"
 diff=`expr $current_day - $last_update`
 if [ -z "$last_update" ] || [ $diff -ge 5 ]; then
-	echo "Updating dotfiles ..."
-	current_dir="$(pwd)"
-	cd $DOTFILES && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
-	$DOTFILES/setup.sh --quiet
-	echo "$current_day" > 	~/.dotfiles-update
+	echo "Do you want to update your dotfiles ? (y/n)"
+	read user_value
+	if [[ "$user_value" == "y" ]]; then
+		echo "Updating dotfiles ..."
+		current_dir="$(pwd)"
+		cd $DOTFILES && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
+		$DOTFILES/setup.sh --quiet
+		echo "$current_day" > 	~/.dotfiles-update
+		echo "You probably need to commit the submodules :)"
 
-	unset current_dir
+		unset current_dir
+	fi
 fi
 unset last_update current_day diff
