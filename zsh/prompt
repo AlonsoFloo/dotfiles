@@ -7,23 +7,37 @@ DEFAULT_USER="Florian"
 # Setting the right prompt
 # Fix odd char on mac
 if [[ `uname` == 'Darwin' ]]; then
-    SEGMENT_SEPARATOR='\ue0b2'
+    SEGMENT_SEPARATOR_RIGHT='\ue0b2'
 else
-    SEGMENT_SEPARATOR=''
+    SEGMENT_SEPARATOR_RIGHT=''
 fi
+CLOCK_SYMBOL='⌚' #\u231a
+RAM_SYMBOL='' #
+HDD_SYMBOL='' #
+
+rprompt_cpu() {
+	CPU_SYMBOL='⛁' #\u26c1
+	CPU_USAGE="$(ps aux | awk {'sum+=$3;print sum'} | tail -n 1)"
+	if [ $(echo $CPU_USAGE'<'70 | bc -l) ]; then
+		CPU_USAGE_COLOR_BK="green"
+	else
+		CPU_USAGE_COLOR_BK="red"
+	fi
+	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_SYMBOL $CPU_USAGE% "
+}
 
 if [ -n $RPROMPT ];then
 	RPROMPT=" $RPROMPT"
 fi
-RPROMPT="%F{white}$SEGMENT_SEPARATOR%F{black}%K{white} %D{%L:%M:%S %p} %{$reset_color%}${RPROMPT}%{%}"
+RPROMPT="%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white}$CLOCK_SYMBOL %D{%L:%M:%S %p} \`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
 
 
 # Setting the PS2
 # Fix odd char on mac
 if [[ `uname` == 'Darwin' ]]; then
-    SEGMENT_SEPARATOR='\ue0b0'
+    SEGMENT_SEPARATOR_LEFT='\ue0b0'
 else
-    SEGMENT_SEPARATOR=''
+    SEGMENT_SEPARATOR_LEFT=''
 fi
 
-PS2="%K{white} %{%k%}%F{white}$SEGMENT_SEPARATOR %{%f%}"
+PS2="%K{white} %{%k%}%F{white}$SEGMENT_SEPARATOR_LEFT %{%f%}"
