@@ -27,7 +27,16 @@ rprompt_cpu() {
 	else
 		CPU_USAGE_COLOR_BK="red"
 	fi
-	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_SYMBOL $CPU_USAGE%% "
+	CPU_USAGE_LENGHT=${#CPU_USAGE}
+	END_SPACE=""
+	if [ $CPU_USAGE_LENGHT -eq 1 ]; then
+		END_SPACE="   "
+	elif [ $CPU_USAGE_LENGHT -eq 2 ]; then
+		END_SPACE="  "
+	elif [ $CPU_USAGE_LENGHT -eq 3 ]; then
+		END_SPACE=" "
+	fi
+	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_SYMBOL $CPU_USAGE$END_SPACE%% "
 }
 
 RPROMPT="\`rprompt_date\`\`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
