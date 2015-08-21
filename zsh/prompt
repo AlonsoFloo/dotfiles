@@ -14,7 +14,7 @@ fi
 
 rprompt_date() {
 	CLOCK_SYMBOL='⌚' #\u231a
-	echo -n "%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white}$CLOCK_SYMBOL %D{%L:%M:%S %p} "
+	echo -n "%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white}$CLOCK_SYMBOL %D{%L:%M %p} "
 }
 
 rprompt_cpu() {
