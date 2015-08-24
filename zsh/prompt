@@ -20,10 +20,10 @@ rprompt_date() {
 rprompt_cpu() {
 	CPU_SYMBOL='⛁' #\u26c1
 	CPU_USAGE="$(ps aux | awk {'sum+=$3;print sum'} | tail -n 1)"
-	if [ $(echo $CPU_USAGE'<'50 | bc -l) ]; then
+	if [ $(echo $CPU_USAGE'<'50 | bc -l) -eq 1 ]; then
 		CPU_USAGE_COLOR_BK="green"
-	elif [ $(echo $CPU_USAGE'<'70 | bc -l) ]; then
-		CPU_USAGE_COLOR_BK="orange"
+	elif [ $(echo $CPU_USAGE'<'70 | bc -l) -eq 1 ]; then
+		CPU_USAGE_COLOR_BK="yellow"
 	else
 		CPU_USAGE_COLOR_BK="red"
 	fi
