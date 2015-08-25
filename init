@@ -48,6 +48,8 @@ if [ "$shell_interpretor" != "" ]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi
 	unset file files
+	
+	eval `dircolors $DOTFILES/common/dircolors`
 fi
 
 unset shell_interpretor
