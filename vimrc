@@ -14,6 +14,7 @@ set shiftwidth=4 " number of spaces to use for autoindenting
 set softtabstop=4
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
+set paste " dont indent when paste
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12 " Set font
 
