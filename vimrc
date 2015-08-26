@@ -7,7 +7,7 @@ set ignorecase " Ignore case when searching
 set hlsearch " Highlight search terms
 set incsearch " Show search matches as you type
 set title " Change the terminal's title
-set visualbell " Don't beep
+"set visualbell " Don't beep
 set noerrorbells " Don't beep
 
 set tabstop=4 " a tab is four spaces
