@@ -26,6 +26,13 @@ ${DOTFILE_PATH}powerline-fonts/install.sh
 
 unset file
 
+#Needed packages
+if [[ -x /usr/bin/apt-get ]]; then
+	sudo apt-get -qq install -y highlight
+elif [[ "$(which brew)" ]]; then
+	brew install highlight > /dev/null
+fi
+
 if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 	user_value=""
 	echo "Do you want to install ZSH Shell ? (yes/no) "
@@ -38,6 +45,6 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 				ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			fi
 			brew install zsh zsh-completions
-		fi	
+		fi
 	fi
 fi

@@ -31,3 +31,6 @@ alias rm='rm -I'
 
 # cp with progress
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+
+# colorized cat
+alias cath='highlight -O ansi'
