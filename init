@@ -68,10 +68,10 @@ if [ -z "$last_update" ] || [ $diff -ge 5 ]; then
 		current_dir="$(pwd)"
 		cd $DOTFILES && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
 		$DOTFILES/setup.sh --quiet
-		echo "$current_day" > 	~/.dotfiles-update
 		echo "You probably need to commit the submodules :)"
 
 		unset current_dir
 	fi
+	echo "$current_day" > 	~/.dotfiles-update
 fi
 unset last_update current_day diff
