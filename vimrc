@@ -1,7 +1,7 @@
 set encoding=utf-8 " Set encoding
 syntax enable " Enable highlighting
-set number " Always show line numbers
-set mouse+=a " Remove line number selection && allow mouse selection
+set nu " Always show line numbers
+"set mouse+=a " Remove line number selection && allow mouse selection
 set showmatch " Set show matching parenthesis
 set ignorecase " Ignore case when searching
 set hlsearch " Highlight search terms
