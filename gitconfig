@@ -9,6 +9,7 @@
 	graph = log --graph --decorate --oneline
 	filelog = log -u
     fl = log -u
+	sbranch = "!git branch -a | grep"
 	
 [color]
 	ui = true
