@@ -1,0 +1,12 @@
+DEFAULT_USER="flalo"
+
+# Java vars
+export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_22
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Ant GpermSpace
+export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=1024m"
+
+# Enable JPDA in TOMCAT
+export JPDA_ADDRESS=8000
+export JPDA_TRANSPORT=dt_socket
