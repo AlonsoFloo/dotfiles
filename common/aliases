@@ -27,7 +27,6 @@ alias back='cd "$OLDPWD"'
 # others aliases
 alias mkdir='mkdir -pv'
 alias wget='wget -c'
-alias rm='rm -I'
 
 # cp with progress
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
