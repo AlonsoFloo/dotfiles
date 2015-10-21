@@ -49,7 +49,9 @@ if [ "$shell_interpretor" != "" ]; then
 	fi
 	unset file files
 	
-	eval `dircolors $DOTFILES/common/dircolors`
+	if [[ `uname` != 'Darwin' ]]; then
+		val `dircolors $DOTFILES/common/dircolors`
+	fi	
 fi
 
 unset shell_interpretor
