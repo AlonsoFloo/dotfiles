@@ -44,7 +44,7 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 			if [[ ! "$(which brew)" ]]; then
 				ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			fi
-			brew install zsh zsh-completions
+			brew install zsh zsh-completions coreutils
 		fi
 	fi
 fi
