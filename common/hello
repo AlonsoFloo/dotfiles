@@ -20,4 +20,8 @@ fi
 
 printf "\n"
 
+fortune | cowsay -pn
+
+printf "\n\n"
+
 unset external_ip city

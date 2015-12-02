@@ -28,9 +28,9 @@ unset file
 
 #Needed packages
 if [[ -x /usr/bin/apt-get ]]; then
-	sudo apt-get -qq install -y highlight
+	sudo apt-get -qq install -y highlight fortune cowsay
 elif [[ "$(which brew)" ]]; then
-	brew install highlight > /dev/null
+	brew install highlight fortune cowsay > /dev/null
 fi
 
 if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
