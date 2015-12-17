@@ -22,7 +22,9 @@ Feel free to copy my configuration, or fork it. I will accept Pull Reaquest only
 ### Tested on
 
 * Ubuntu 14.04
+* Kbuntu 14.04
 * MacOS Yosemite
+* MacOS El Captain
 
 ## Installation
 
