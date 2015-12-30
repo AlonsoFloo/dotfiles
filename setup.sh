@@ -4,6 +4,7 @@ DOTFILE_PATH=~/dotfiles/
 
 cd ${DOTFILE_PATH}
 
+#setting links
 for file in ${DOTFILE_PATH}{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config}; do
 	file="$( basename $file )"
 	
@@ -20,19 +21,14 @@ for file in ${DOTFILE_PATH}{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputr
 	ln -sf ${DOTFILE_PATH}${file} ~/.${file}
 done;
 
-
+#install fonts
 chmod +x ${DOTFILE_PATH}powerline-fonts/install.sh
-${DOTFILE_PATH}powerline-fonts/install.sh	
+${DOTFILE_PATH}powerline-fonts/install.sh
 
-unset file
+#set confirguration
+${DOTFILE_PATH}set-config.sh
 
-#Needed packages
-if [[ -x /usr/bin/apt-get ]]; then
-	sudo apt-get -qq install -y highlight fortune cowsay
-elif [[ "$(which brew)" ]]; then
-	brew install highlight fortune cowsay > /dev/null
-fi
-
+#install ZSH
 if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 	user_value=""
 	echo "Do you want to install ZSH Shell ? (yes/no) "
@@ -41,10 +37,9 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 		if [[ -x /usr/bin/apt-get ]]; then
 			sudo apt-get install -y zsh
 		else
-			if [[ ! "$(which brew)" ]]; then
-				ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-			fi
 			brew install zsh zsh-completions coreutils
 		fi
 	fi
 fi
+
+unset file
