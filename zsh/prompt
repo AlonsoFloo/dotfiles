@@ -14,7 +14,7 @@ fi
 
 rprompt_date() {
 	CLOCK_SYMBOL='⌚' #\u231a
-	echo -n "%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white} $CLOCK_SYMBOL %D{%L:%M %p} "
+	echo -n "%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white} %D{%L:%M %p} "
 }
 
 rprompt_cpu() {
@@ -30,13 +30,15 @@ rprompt_cpu() {
 	CPU_USAGE_LENGHT=${#CPU_USAGE}
 	END_SPACE=""
 	if [ $CPU_USAGE_LENGHT -eq 1 ]; then
-		END_SPACE="   "
+		END_SPACE="    "
 	elif [ $CPU_USAGE_LENGHT -eq 2 ]; then
-		END_SPACE="  "
+		END_SPACE="   "
 	elif [ $CPU_USAGE_LENGHT -eq 3 ]; then
+		END_SPACE="  "
+	elif [ $CPU_USAGE_LENGHT -eq 4 ]; then
 		END_SPACE=" "
 	fi
-	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_SYMBOL $CPU_USAGE$END_SPACE%% "
+	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_USAGE$END_SPACE%% "
 }
 
 RPROMPT="\`rprompt_date\`\`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
