@@ -7,3 +7,6 @@
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = git@github.com:powerline/fonts.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = git@github.com:seebi/dircolors-solarized.git

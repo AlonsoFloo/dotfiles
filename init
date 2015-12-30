@@ -51,7 +51,7 @@ if [ "$shell_interpretor" != "" ]; then
 
 	# Colored LS	
 	if [[ `uname` != 'Darwin' ]]; then
-		eval `dircolors $DOTFILES/common/dircolors`
+		eval `dircolors $DOTFILES/dircolors-solarized/dircolors.ansi-universal`
 	else
 		export LSCOLORS=exfxcxdxbxegedabagacad
 	fi	
