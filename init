@@ -48,9 +48,12 @@ if [ "$shell_interpretor" != "" ]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi
 	unset file files
-	
+
+	# Colored LS	
 	if [[ `uname` != 'Darwin' ]]; then
 		eval `dircolors $DOTFILES/common/dircolors`
+	else
+		export LSCOLORS=exfxcxdxbxegedabagacad
 	fi	
 fi
 
