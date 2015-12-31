@@ -4,29 +4,17 @@ DOTFILE_PATH=~/dotfiles/
 
 cd ${DOTFILE_PATH}
 
-#setting links
-for file in ${DOTFILE_PATH}{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config}; do
-	file="$( basename $file )"
-	
-	if [[ ! -h ~/.${file} ]] && [[ -d ~/.${file} ]]; then
-		cp -rn ~/.${file}/* ${DOTFILE_PATH}${file}/
-	fi
+#set common confirguration
+source ${DOTFILE_PATH}setup/common.sh
 
-	if [[ -h ~/.${file} ]]; then
-		rm -f ~/.${file}
-	elif [[ -e ~/.${file} ]]; then
-		mv ~/.${file} ~/.${file}.dotfiles.bak
-	fi
-	
-	ln -sf ${DOTFILE_PATH}${file} ~/.${file}
-done;
 
-#install fonts
-chmod +x ${DOTFILE_PATH}powerline-fonts/install.sh
-${DOTFILE_PATH}powerline-fonts/install.sh
-
-#set confirguration
-${DOTFILE_PATH}set-config.sh
+if [[ `uname` == 'Darwin' ]]; then
+	#set ios confirguration
+	source ${DOTFILE_PATH}setup/ios.sh
+else
+	#set linux confirguration
+	source ${DOTFILE_PATH}setup/linux.sh
+fi
 
 #install ZSH
 if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
