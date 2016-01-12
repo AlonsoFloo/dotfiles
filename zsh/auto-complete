@@ -18,7 +18,7 @@ if type mvn > /dev/null;then
 	plugins+=(mvn)
 fi
 if type brew > /dev/null;then
-	plugins+=(brew)
+	plugins+=(brew brew-cask)
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then

@@ -65,7 +65,7 @@ if [ -f ~/.dotfiles-update ]; then
 fi
 current_day="$(($(date +%s) / 60 / 60 / 24))"
 diff=`expr $current_day - $last_update`
-if [ -z "$last_update" ] || [ $diff -ge 5 ]; then
+if [ -z "$last_update" ] || [ $diff -ge 14 ]; then
 	echo "Do you want to update your dotfiles ? (y/n)"
 	read user_value
 	if [[ "$user_value" == "y" ]]; then
