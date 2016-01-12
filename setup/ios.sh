@@ -6,25 +6,6 @@ brew update
 
 #Needed packages
 brew install highlight fortune cowsay
-#brew tap caskroom/cask
-#brew cask install google-chrome
-#brew cask install google-drive
-#brew cask install iterm2
-#brew cask install textwrangler
-#brew cask install transmit
-
-#echo "Also install for personal use ? (y/n)"
-#read personal_value
-#if [[ "$personal_value" == "y" ]]; then
-	#Personal use
-#	brew cask install teamviewer
-#	brew cask install steam
-#	brew cask install skype
-#	brew cask install teamspeak-client
-#fi
-
-#From App Store
-#xCode
 
 
 #Disable the dashboard
