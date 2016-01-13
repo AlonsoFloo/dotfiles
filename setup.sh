@@ -35,14 +35,17 @@ unset file
 #Package to download
 #google-chrome
 #google-drive
-#iterm2
-#transmit
+#iterm2 (mac)
+#transmit (mac)
+#AMPPS
 
 #Personal use
 #teamviewer
 #steam
+#origin (Windows)
 #skype
 #teamspeak-client
+#razer synapse
 
 #From App Store
 #xCode
