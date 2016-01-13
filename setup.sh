@@ -32,14 +32,16 @@ fi
 
 unset file
 
-#Package to download
+##Package to download
 #google-chrome
 #google-drive
 #iterm2 (mac)
 #transmit (mac)
+#ImageOptim (mac)
 #AMPPS
 
-#Personal use
+##Personal use
+#vlc
 #teamviewer
 #steam
 #origin (Windows)
@@ -47,6 +49,6 @@ unset file
 #teamspeak-client
 #razer synapse
 
-#From App Store
+##From App Store
 #xCode
 #textwrangler
