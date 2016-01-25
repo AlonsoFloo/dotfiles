@@ -48,14 +48,15 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 #Show the ~/Library folder
 chflags nohidden ~/Library
 # New windows show home directory.
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+defaults write com.apple.finder PathBarRootAtHome -bool true
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME"
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+defaults write NSGlobalDomain AppleHighlightColor -string "0.752941 0.964706 0.678431"
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
 # Finder: show all filename extensions
