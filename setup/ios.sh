@@ -125,6 +125,13 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
 # Disable inline attachments (just show the icons)
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+# Show contact icon
+defaults write com.apple.mail EnableContactPhotos -bool true
+# Show notification for all boxes
+defaults write com.apple.mail MailUserNotificationScope -int 5
+# Show number of mail in dock, for all boxes
+defaults write com.apple.mail MailDockBadge -int 2
+
 
 ###############################################################################
 # Time Machine                                                                #
