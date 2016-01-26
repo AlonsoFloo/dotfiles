@@ -20,8 +20,6 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -72,7 +70,7 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.5
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 72
+defaults write com.apple.dock tilesize -int 65
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 # Minimize windows into their application’s icon
@@ -146,6 +144,12 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 ###############################################################################
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+###############################################################################
+# Messages                                                                    #
+###############################################################################
+# Disable smart quotes as it’s annoying for messages that contain code
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
 killall Contacts
 killall Calendar
