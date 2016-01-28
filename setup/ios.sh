@@ -12,8 +12,8 @@ brew install highlight fortune cowsay
 # System                                                                      #
 ###############################################################################
 #Change screenshot location
-mkdir -p ~/Desktop/Screenshots
-defaults write com.apple.screencapture location ~/Desktop/Screenshots/
+mkdir -p ~/Documents/Screenshots
+defaults write com.apple.screencapture location ~/Documents/Screenshots/
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 # Automatically quit printer app once the print jobs complete
