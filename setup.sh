@@ -36,7 +36,6 @@ unset file
 #google-chrome
 #google-drive
 #iterm2 (mac)
-#transmit (mac)
 #ImageOptim (mac)
 #AMPPS
 
