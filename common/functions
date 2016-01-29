@@ -131,12 +131,3 @@ function =
 {
   echo "$@" | bc -l
 }
-
-function mac_mount_ntfs() {
-	if [ "$#" -lt 1 ] || [ -n "$(which sips)" ]; then
-		echo "Usage : mac_mount_ntfs DISK_NAME"
-		return
-	fi
-	sudo echo "LABEL=$1 none ntfs rw,auto,nobrowse" > /etc/fstab
-	open /Volumes
-}

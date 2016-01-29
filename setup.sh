@@ -37,9 +37,12 @@ unset file
 #google-drive
 #iterm2 (mac)
 #ImageOptim (mac)
+#Cyberduck (mac)
+#SiweUp (mac)
 #AMPPS
 
 ##Personal use
+#Keepass Desktop (mac)
 #vlc
 #teamviewer
 #steam
