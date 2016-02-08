@@ -59,6 +59,15 @@ fi
 
 unset shell_interpretor
 
+#Exec CUSTOM BASH
+#clean mac screenshots
+if [[ `uname` != 'Darwin' ]]; then
+	find ~/Documents/Screenshots/ -type f -mtime +4 -exec rm {} \;
+fi
+#clean Download Files
+find ~/Downloads -type f -mtime +4 -exec rm {} \;
+
+# UPDATE DOTFILES
 last_update=0
 if [ -f ~/.dotfiles-update ]; then
 	last_update="$(cat ~/.dotfiles-update)"
