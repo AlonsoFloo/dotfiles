@@ -5,7 +5,8 @@ fi
 brew update
 
 #Needed packages
-brew install highlight fortune cowsay
+brew install curl --with-ssl --with-libssh2
+brew install highlight fortune cowsay git-ftp
 
 
 ###############################################################################
