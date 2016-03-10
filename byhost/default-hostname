@@ -1,1 +1,22 @@
-DEFAULT_USER="Slyzz"
+DEFAULT_USER="<USERNAME>"
+
+# Java vars
+export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_22
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Ant GpermSpace
+export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=1024m"
+
+# Catalina Size
+export CATALINA_OPTS="-Xms1024M -Xmx2048M"
+
+# Enable JPDA in TOMCAT
+export JPDA_ADDRESS=8000
+export JPDA_TRANSPORT=dt_socket
+
+#Android SDK HOME
+export ANDROID_HOME=<HOME-PATH>/Library/Android/sdk/platform-tools
+export PATH=$ANDROID_HOME:$PATH
+
+#APIARY KEY
+export APIARY_API_KEY="<TOKEN>"
