@@ -1,0 +1,17 @@
+# Default GitHub
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_personal
+
+# Work GitHub
+Host work.github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_neopixl
+
+# Default GitHub
+Host bitbucket.org
+    HostName bitbucket.org
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_neopixl
