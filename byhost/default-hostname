@@ -15,9 +15,12 @@ export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket
 
 #Android SDK HOME
-export ANDROID_HOME=<HOME-PATH>/Library/Android/sdk/platform-tools
-export ANDROID_HOME_PLATFORM=$ANDROID_HOME/platform-tools
-export PATH=$ANDROID_HOME:$ANDROID_HOME_PLATFORM:$PATH
+export ANDROID_HOME=<HOME-PATH>/Library/Android/sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+#Gradle
+export GRADLE_HOME=<HOME-PATH>/customlibs/gradle-2.11
+export PATH=$GRADLE_HOME/bin:$PATH
 
 #APIARY KEY
 export APIARY_API_KEY="<TOKEN>"
