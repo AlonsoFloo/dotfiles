@@ -16,7 +16,8 @@ export JPDA_TRANSPORT=dt_socket
 
 #Android SDK HOME
 export ANDROID_HOME=<HOME-PATH>/Library/Android/sdk/platform-tools
-export PATH=$ANDROID_HOME:$PATH
+export ANDROID_HOME_PLATFORM=$ANDROID_HOME/platform-tools
+export PATH=$ANDROID_HOME:$ANDROID_HOME_PLATFORM:$PATH
 
 #APIARY KEY
 export APIARY_API_KEY="<TOKEN>"
