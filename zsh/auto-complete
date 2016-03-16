@@ -8,6 +8,7 @@ setopt CORRECT
 # completion plugins
 #plugins+=(git) #uncomment for extra completion
 plugin+=(history history-substring-search)
+plugin+=(sudo)
 if type ant > /dev/null;then
 	plugins+=(ant)
 fi
@@ -19,6 +20,15 @@ if type mvn > /dev/null;then
 fi
 if type brew > /dev/null;then
 	plugins+=(brew)
+fi
+if type pod > /dev/null;then
+	plugins+=(pod)
+fi
+if type gradle > /dev/null;then
+	plugins+=(gradle)
+fi
+if type npm > /dev/null;then
+	plugins+=(npm)
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
