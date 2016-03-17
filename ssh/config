@@ -10,6 +10,12 @@ Host work.github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_neopixl
 
+# Work SHARED GitHub
+Host shared.github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_shared
+
 # Default GitHub
 Host bitbucket.org
     HostName bitbucket.org
