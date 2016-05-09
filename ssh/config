@@ -21,3 +21,9 @@ Host bitbucket.org
     HostName bitbucket.org
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_neopixl
+
+# Default Git Smile
+Host git.smile.fr
+    HostName git.smile.fr
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_neopixl
