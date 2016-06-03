@@ -8,8 +8,11 @@
 	unstage = reset HEAD --
 	graph = log --graph --decorate --oneline
 	filelog = log -u
-    fl = log -u
+	# Search branch by name
 	sbranch = "!git branch -a | grep"
+	commit-details = diff-tree -p
+	# Show changes that have been staged
+	diffc = diff --cached
 	
 [color]
 	ui = true
