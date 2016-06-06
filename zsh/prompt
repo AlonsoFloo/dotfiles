@@ -47,7 +47,7 @@ RPROMPT="\`rprompt_date\`\`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
 # Setting the PS2
 # Fix odd char on mac
 if [[ `uname` == 'Darwin' ]]; then
-    SEGMENT_SEPARATOR_LEFT='\ue0b0'
+    SEGMENT_SEPARATOR_LEFT='' #\ue0b0
 else
     SEGMENT_SEPARATOR_LEFT=''
 fi
