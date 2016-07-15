@@ -107,6 +107,32 @@ function change_default_shell() {
 	$1
 }
 
+function checksum() {
+	if [ "$#" -lt 1 ]; then
+		echo "Usage : checksum [FILE_PATH..]"
+		return
+	fi
+	for f in "$@"
+	do
+		if [ -f $f ]; then
+			sha=`/usr/bin/openssl sha1 -sha ${f} | tr -s "=" | cut -d ' ' -f 2`
+			sha1=`/usr/bin/openssl sha1 -sha1 ${f} | tr -s "=" | cut -d ' ' -f 2`
+			sha256=`/usr/bin/openssl sha1 -sha256 ${f} | tr -s "=" | cut -d ' ' -f 2`
+			sha512=`/usr/bin/openssl sha1 -sha512 ${f} | tr -s "=" | cut -d ' ' -f 2`
+			md5=`/usr/bin/openssl sha1 -md5 ${f} | tr -s "=" | cut -d ' ' -f 2`
+			echo "Checksum for file ${f}"
+			echo "MD5    : ${md5}"
+			echo "SHA    : ${sha}"
+			echo "SHA1   : ${sha1}"
+			echo "SHA256 : ${sha256}"
+			echo "SHA512 : ${sha512}"
+		else
+			echo "File ${f} does not exist"
+		fi
+		echo "-----------------------------------"
+	done
+}
+
 function retina_downgrade() {
 	if [ "$#" -lt 1 ] || [ -n "$(which sips)" ]; then
 		echo "Usage : retina_downgrade [FILE_PATH..] (need sips command)"
