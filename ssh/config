@@ -4,6 +4,12 @@ Host github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_personal
 
+# Default GitLab
+Host gitlab.com
+    HostName gitlab.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_personal
+
 # Work GitHub
 Host work.github.com
     HostName github.com
