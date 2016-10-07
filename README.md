@@ -25,6 +25,7 @@ Feel free to copy my configuration, or fork it. I will accept Pull Reaquest only
 * Kbuntu 14.04
 * MacOS Yosemite
 * MacOS El Captain
+* MacOS Sierra
 
 ## Installation
 
