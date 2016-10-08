@@ -36,6 +36,21 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 # Hotcorner : Bottom left screen corner → Put display to sleep
 defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+#Status bar wanted icon
+defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Displays.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+
+###############################################################################
+# Screen saver                                                                #
+###############################################################################
+defaults write com.apple.screensaver askForPassword -bool true
+defaults write com.apple.screensaver tokenRemovalAction -bool false
+#Delay before asking password
+defaults write com.apple.screensaver askForPasswordDelay -int 5
+#Delay before Going to sleep
+defaults -currentHost write com.apple.screensaver idleTime -int 0
 	
 
 ###############################################################################
@@ -91,6 +106,8 @@ defaults write com.apple.dock autohide -bool false
 defaults write com.apple.dock showhidden -bool true
 #Disable the dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean YES
+#Do not rearange mission control
+defaults write com.apple.dock mru-spaces -bool false
 
 ###############################################################################
 # Safari                                                                      #
@@ -143,17 +160,28 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
+
 ###############################################################################
 # Photos                                                                      #
 ###############################################################################
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+
 ###############################################################################
 # Messages                                                                    #
 ###############################################################################
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+
+###############################################################################
+# SizeUp.app                                                                  #
+###############################################################################
+# Start SizeUp at login
+defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
+# Don’t show the preferences window on next start
+defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 killall Contacts
 killall Calendar
@@ -164,3 +192,4 @@ killall Mail
 killall Dock
 killall SystemUIServer
 killall Finder
+killall cfprefsd
