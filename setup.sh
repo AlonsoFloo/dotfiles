@@ -25,7 +25,7 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 		if [[ -x /usr/bin/apt-get ]]; then
 			sudo apt-get install -y zsh
 		else
-			brew install zsh zsh-completions coreutils
+			brew install zsh coreutils
 		fi
 	fi
 fi
