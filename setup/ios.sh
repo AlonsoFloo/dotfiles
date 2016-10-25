@@ -8,6 +8,11 @@ brew update
 brew install curl --with-ssl --with-libssh2
 brew install highlight fortune cowsay git-ftp
 
+#iOS Dev needed packages
+brew install ruby
+brew install swiftlint
+sudo gem install cocoapods
+
 
 ###############################################################################
 # System                                                                      #
