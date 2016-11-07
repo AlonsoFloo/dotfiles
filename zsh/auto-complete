@@ -19,9 +19,6 @@ fi
 if type mvn > /dev/null;then
 	plugins+=(mvn)
 fi
-if type brew > /dev/null;then
-	plugins+=(brew)
-fi
 if type pod > /dev/null;then
 	plugins+=(pod)
 fi
