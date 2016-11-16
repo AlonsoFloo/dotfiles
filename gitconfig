@@ -14,7 +14,7 @@
 	# Show changes that have been staged
 	diffc = diff --cached
 	# Archive a branch by reacting a tag for it and removing the branch
-	arch = "! f() { git tag archive/$1 $1 && git branch -D $1;}; f"
+	archive-branch = "! f() { git tag archive/$1 $1 && git branch -D $1;}; f"
 	
 [color]
 	ui = true
