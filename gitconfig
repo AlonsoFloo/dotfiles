@@ -15,6 +15,7 @@
 	diffc = diff --cached
 	# Archive a branch by reacting a tag for it and removing the branch
 	archive-branch = "! f() { git tag archive/$1 $1 && git branch -D $1;}; f"
+	unarchive-branch = "! f() { git checkout -b $1 archive/$1;}; f"
 	
 [color]
 	ui = true
