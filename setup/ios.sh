@@ -4,6 +4,9 @@ fi
 
 brew update
 
+#Install cask
+brew tap caskroom/cask
+
 #Needed packages
 brew install curl --with-ssl --with-libssh2
 brew install highlight fortune cowsay git-ftp
@@ -11,6 +14,7 @@ brew install highlight fortune cowsay git-ftp
 #iOS Dev needed packages
 brew install ruby
 brew install swiftlint
+brew cask install provisionql
 sudo gem install cocoapods
 
 
