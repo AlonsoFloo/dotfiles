@@ -22,11 +22,17 @@ Host shared.github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_shared
 
-# Default GitHub
+# Default Bitbucket
 Host bitbucket.org
     HostName bitbucket.org
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_neopixl
+
+# Perso Bitbucket
+Host perso.bitbucket.org
+    HostName bitbucket.org
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_personal
 
 # Default Git Smile
 Host git.smile.fr
