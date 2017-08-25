@@ -40,3 +40,6 @@
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
+
+[include]
+        path = ~/dotfiles/gitconfig_untracked
