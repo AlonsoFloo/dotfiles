@@ -1,4 +1,4 @@
-Include ./config_untracked
+Include ~/dotfiles/untracked/sshconfig
 
 # Default GitHub
 Host github.com

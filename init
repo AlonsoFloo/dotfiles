@@ -44,7 +44,7 @@ if [ "$shell_interpretor" != "" ]; then
 	done;
 
 	# reading host file
-	file=$DOTFILES/byhost/`hostname`
+	file=$DOTFILES/untracked/bashconfig
 	if [[ -r $file ]]; then
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	fi

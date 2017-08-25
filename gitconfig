@@ -42,4 +42,4 @@
 	autocorrect = 1
 
 [include]
-        path = ~/dotfiles/gitconfig_untracked
+        path = ~/dotfiles/untracked/gitconfig
