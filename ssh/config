@@ -1,3 +1,5 @@
+Include ./config_untracked
+
 # Default GitHub
 Host github.com
     HostName github.com
