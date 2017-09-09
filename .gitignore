@@ -1,5 +1,7 @@
 ssh/id_rsa*
 ssh/known_hosts
+untracked/*
+!untracked/bashconfig_exemple
 
 # --------------------------------
 # SVN
