@@ -33,3 +33,11 @@ alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 
 # colorized cat
 alias cath='highlight -O ansi'
+
+#The fuck library
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
+
+# Travis
+[ -f /Users/slyzz/.travis/travis.sh ] && source /Users/slyzz/.travis/travis.sh
