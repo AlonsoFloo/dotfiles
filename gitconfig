@@ -6,7 +6,8 @@
 	st = status
 	br = branch
 	unstage = reset HEAD --
-	graph = log --graph --decorate --oneline --all
+	graph = log --graph --decorate --oneline
+	graphfull = log --graph --decorate --oneline --all
 	filelog = log -u
 	# Search branch by name
 	sbranch = "!git branch -a | grep"
