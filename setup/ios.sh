@@ -16,7 +16,7 @@ brew install highlight fortune cowsay git-ftp thefuck
 brew install ruby
 brew install swiftlint
 brew cask install provisionql
-sudo gem install cocoapods
+sudo gem install -n /usr/local/bin cocoapods
 
 
 ###############################################################################
