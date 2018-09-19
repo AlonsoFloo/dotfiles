@@ -17,6 +17,8 @@
 	# Archive a branch by reacting a tag for it and removing the branch
 	archive-branch = "! f() { git tag archive/$1 $1 && git branch -D $1 && git push origin archive/$1 && git push origin :$1;}; f"
 	unarchive-branch = "! f() { git checkout -b $1 archive/$1;}; f"
+	#Pull all branch from remote
+	offline = "!git fetch --all && for branch in `git branch -r | cut -s -d '/' -f2- | grep -v HEAD | grep -v remote | grep -v origin` ; do echo -e '\n\n\n-----START BRANCH-----' && git checkout $branch && git pull origin $branch && git status && echo '-----FINISH BRANCH-----' ; done"
 	
 [color]
 	ui = true
