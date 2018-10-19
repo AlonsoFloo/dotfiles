@@ -8,14 +8,19 @@
 	unstage = reset HEAD --
 	graph = log --graph --decorate --oneline
 	graphfull = log --graph --decorate --oneline --all
+	# See file history
 	filelog = log -u
 	# Search branch by name
 	sbranch = "!git branch -a | grep"
+	# See te details of a commit
+	commit-details = diff-tree -p
+	# See te details of a commit
 	commit-details = diff-tree -p
 	# Show changes that have been staged
 	diffc = diff --cached
 	# Archive a branch by reacting a tag for it and removing the branch
 	archive-branch = "! f() { git tag archive/$1 $1 && git branch -D $1 && git push origin archive/$1 && git push origin :$1;}; f"
+	# UnArchive a branch by a tag "do not type 'archive/'"
 	unarchive-branch = "! f() { git checkout -b $1 archive/$1;}; f"
 	#Pull all branch from remote
 	offline = "!git fetch --all && for branch in `git branch -r | cut -s -d '/' -f2- | grep -v HEAD | grep -v remote | grep -v origin` ; do echo -e '\n\n\n-----START BRANCH-----' && git checkout $branch && git pull origin $branch && git status && echo '-----FINISH BRANCH-----' ; done"
