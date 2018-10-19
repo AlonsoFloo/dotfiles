@@ -19,7 +19,9 @@
 	unarchive-branch = "! f() { git checkout -b $1 archive/$1;}; f"
 	#Pull all branch from remote
 	offline = "!git fetch --all && for branch in `git branch -r | cut -s -d '/' -f2- | grep -v HEAD | grep -v remote | grep -v origin` ; do echo -e '\n\n\n-----START BRANCH-----' && git checkout $branch && git pull origin $branch && git status && echo '-----FINISH BRANCH-----' ; done"
-	
+	#Clean old branches removed from remote
+	clean-old-branches = "!git fetch && git remote prune origin && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
+
 [color]
 	ui = true
 
