@@ -15,7 +15,8 @@ brew install highlight fortune cowsay git-ftp thefuck
 #iOS Dev needed packages
 brew install ruby
 brew install swiftlint
-brew cask install provisionql
+brew cask install provisionql # Quick view provisionning profile
+brew cask install quicklookapk # Quick view APK file
 sudo gem install -n /usr/local/bin cocoapods
 
 
