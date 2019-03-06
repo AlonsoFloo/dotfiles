@@ -1,55 +1,12 @@
 #oh-my-zsh theme
-#ZSH_THEME="bira"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+
+
+ZSH_THEME="powerlevel9k/powerlevel9k"
+# Nerds font are too bigs
+#POWERLEVEL9K_MODE='nerdfont-complete'
 
 DEFAULT_USER="Florian"
 
-# Setting the right prompt
-# Fix odd char on mac
-if [[ `uname` == 'Darwin' ]]; then
-    SEGMENT_SEPARATOR_RIGHT='\ue0b2'
-else
-    SEGMENT_SEPARATOR_RIGHT=''
-fi
-
-rprompt_date() {
-	CLOCK_SYMBOL='⌚' #\u231a
-	echo -n "%F{white}$SEGMENT_SEPARATOR_RIGHT%F{black}%K{white} %D{%L:%M %p} "
-}
-
-rprompt_cpu() {
-	CPU_SYMBOL='⛁' #\u26c1
-	CPU_USAGE="$(ps aux | awk {'sum+=$3;print sum'} | tail -n 1)"
-	if [ $(echo $CPU_USAGE'<'50 | bc -l) -eq 1 ]; then
-		CPU_USAGE_COLOR_BK="green"
-	elif [ $(echo $CPU_USAGE'<'70 | bc -l) -eq 1 ]; then
-		CPU_USAGE_COLOR_BK="yellow"
-	else
-		CPU_USAGE_COLOR_BK="red"
-	fi
-	CPU_USAGE_LENGHT=${#CPU_USAGE}
-	END_SPACE=""
-	if [ $CPU_USAGE_LENGHT -eq 1 ]; then
-		END_SPACE="    "
-	elif [ $CPU_USAGE_LENGHT -eq 2 ]; then
-		END_SPACE="   "
-	elif [ $CPU_USAGE_LENGHT -eq 3 ]; then
-		END_SPACE="  "
-	elif [ $CPU_USAGE_LENGHT -eq 4 ]; then
-		END_SPACE=" "
-	fi
-	echo -n "%F{$CPU_USAGE_COLOR_BK}$SEGMENT_SEPARATOR_RIGHT%K{$CPU_USAGE_COLOR_BK}%F{black} $CPU_USAGE$END_SPACE%% "
-}
-
-RPROMPT="\`rprompt_date\`\`rprompt_cpu\`%{$reset_color%}${RPROMPT}"
-
-
-# Setting the PS2
-# Fix odd char on mac
-if [[ `uname` == 'Darwin' ]]; then
-    SEGMENT_SEPARATOR_LEFT='' #\ue0b0
-else
-    SEGMENT_SEPARATOR_LEFT=''
-fi
-
-PS2="%K{white} %{%k%}%F{white}$SEGMENT_SEPARATOR_LEFT %{%f%}"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs load time)

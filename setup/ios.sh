@@ -9,7 +9,7 @@ brew upgrade
 brew tap caskroom/cask
 
 #Needed packages
-brew install curl --with-ssl --with-libssh2
+brew install curl
 brew install highlight fortune cowsay git-ftp thefuck
 
 #iOS Dev needed packages
