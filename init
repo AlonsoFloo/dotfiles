@@ -81,7 +81,7 @@ if [ -z "$last_update" ] || [ $diff -ge 14 ]; then
 	if [[ "$user_value" == "y" ]]; then
 		echo "Updating dotfiles ..."
 		current_dir="$(pwd)"
-		cd $DOTFILES && git pull --quiet origin master && git submodule --quiet foreach git pull --quiet origin master && cd "$current_dir"
+		cd $DOTFILES && git pull --quiet origin master && git submodule update --init --recursive && cd "$current_dir"
 		$DOTFILES/setup.sh --quiet
 		echo "You probably need to commit the submodules :)"
 
