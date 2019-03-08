@@ -8,5 +8,10 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 DEFAULT_USER="Florian"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs load time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs load time)
+
+#Do not show the error code number when failed
+POWERLEVEL9K_STATUS_CROSS=true
+#Do not show when the command is a success
+POWERLEVEL9K_STATUS_OK=false
