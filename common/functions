@@ -115,14 +115,12 @@ function checksum() {
 	for f in "$@"
 	do
 		if [ -f $f ]; then
-			sha=`/usr/bin/openssl sha1 -sha ${f} | tr -s "=" | cut -d ' ' -f 2`
 			sha1=`/usr/bin/openssl sha1 -sha1 ${f} | tr -s "=" | cut -d ' ' -f 2`
 			sha256=`/usr/bin/openssl sha1 -sha256 ${f} | tr -s "=" | cut -d ' ' -f 2`
 			sha512=`/usr/bin/openssl sha1 -sha512 ${f} | tr -s "=" | cut -d ' ' -f 2`
 			md5=`/usr/bin/openssl sha1 -md5 ${f} | tr -s "=" | cut -d ' ' -f 2`
 			echo "Checksum for file ${f}"
 			echo "MD5    : ${md5}"
-			echo "SHA    : ${sha}"
 			echo "SHA1   : ${sha1}"
 			echo "SHA256 : ${sha256}"
 			echo "SHA512 : ${sha512}"
