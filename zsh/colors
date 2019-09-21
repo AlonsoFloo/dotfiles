@@ -25,4 +25,4 @@ color_bold_white="\e[1;37m"
 export GREP_OPTIONS="--color=auto"
 
 # colored manual
-plugins+=(colored-man)
+plugins+=(colored-man-pages)
