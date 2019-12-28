@@ -56,11 +56,6 @@ Then you need to edit theses files and set the correct path of your dotfiles dir
 
 I recommend you to use a powerline font in your terminal.
 
-## Custom configuration by host
-
-In the the directory "byhost" you can create a file with the same name as your hostname and put your custom configuration here.
-I will not accept a Pull-request with a custom configuration.
-
 # Working on
 
 * SSH connection with your shell configuration
