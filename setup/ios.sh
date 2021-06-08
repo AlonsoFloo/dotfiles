@@ -28,6 +28,8 @@ mkdir -p ~/Documents/Screenshots
 defaults write com.apple.screencapture location ~/Documents/Screenshots/
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+# Do not create ds file on network disks
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Check for software updates daily, not just once per week
