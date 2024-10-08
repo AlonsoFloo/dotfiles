@@ -4,6 +4,8 @@
 	unstage = reset HEAD --
 	graph = log --graph --decorate --oneline
 	graphfull = log --graph --decorate --oneline --all
+	# Perform a blame but with depth in the history to ignore, replace, creation, copy, etc..
+	blame-deep = blame -w -C -C -C
 	# See file history
 	filelog = log -u
 	# Search branch by name
@@ -26,26 +28,33 @@
 [color]
 	ui = true
 
+[column]
+	ui = auto
+
 [branch]
 	autosetuprebase = always
+	sort = -commiterdate
 
 [core]
 	editor = vim
 
 [merge]
-  tool = meld
+	tool = meld
 
 [push]
 	default = current
 	followTags = true
 
 [pull]
-	default = current
 	rebase = true
 
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
+[rerere]
+	# Persist previous conflict resolutions
+	enabled = true
+
 [include]
-        path = ~/dotfiles/untracked/gitconfig
+    path = ~/dotfiles/untracked/gitconfig
