@@ -33,7 +33,6 @@
 
 [branch]
 	autosetuprebase = always
-	sort = -commiterdate
 
 [core]
 	editor = vim
