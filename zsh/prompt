@@ -1,17 +1,4 @@
 #oh-my-zsh theme
-#ZSH_THEME="agnoster"
-
-
-ZSH_THEME="powerlevel9k/powerlevel9k"
-# Nerds font are too bigs
-#POWERLEVEL9K_MODE='nerdfont-complete'
+ZSH_THEME="agnoster"
 
 DEFAULT_USER="Florian"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir_writable dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs load time)
-
-#Do not show the error code number when failed
-POWERLEVEL9K_STATUS_CROSS=true
-#Do not show when the command is a success
-POWERLEVEL9K_STATUS_OK=false
