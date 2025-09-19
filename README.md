@@ -35,7 +35,7 @@ Simply run this, and Enjoy !!
 
 ```sh
 cd ~
-git clone git@github.com:AlonsoFloo/dotfiles.git --recursive
+git clone https://github.com/AlonsoFloo/dotfiles.git --recursive
 ~/dotfiles/setup.sh
 ```
 
