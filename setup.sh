@@ -31,27 +31,3 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 fi
 
 unset file
-
-##Package to download
-#google-chrome
-#google-drive
-#iterm2 (mac)
-#ImageOptim (mac)
-#Cyberduck (mac)
-#SiweUp (mac)
-#AMPPS
-
-##Personal use
-#Keepass Desktop (mac)
-#vlc
-#teamviewer
-#steam
-#origin (Windows)
-#skype
-#teamspeak-client
-#razer synapse
-
-##From App Store
-#xCode
-#textwrangler
-#Caffeine

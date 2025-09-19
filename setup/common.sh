@@ -14,10 +14,3 @@ for file in ${DOTFILE_PATH}{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputr
 	
 	ln -sf ${DOTFILE_PATH}${file} ~/.${file}
 done;
-
-
-#install custom zsh theme
-ln -s ${DOTFILE_PATH}zsh/theme_powerlevel9k ${DOTFILE_PATH}zsh/oh-my-zsh/custom/themes/powerlevel9k
-#install fonts
-chmod +x ${DOTFILE_PATH}fonts/powerline/install.sh
-${DOTFILE_PATH}fonts/powerline/install.sh

@@ -7,9 +7,3 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = git@github.com:seebi/dircolors-solarized.git
-[submodule "zsh/theme_powerlevel9k"]
-	path = zsh/theme_powerlevel9k
-	url = git@github.com:bhilburn/powerlevel9k.git
-[submodule "fonts/powerline"]
-	path = fonts/powerline
-	url = git@github.com:powerline/fonts.git

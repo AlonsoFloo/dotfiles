@@ -5,19 +5,13 @@ fi
 brew update
 brew upgrade
 
-#Install cask
-brew tap caskroom/cask
-
 #Needed packages
 brew install curl
-brew install highlight fortune cowsay git-ftp thefuck
+brew install highlight git-ftp
 
 #iOS Dev needed packages
 brew install ruby
 brew install swiftlint
-brew cask install provisionql # Quick view provisionning profile
-brew cask install quicklookapk # Quick view APK file
-sudo gem install -n /usr/local/bin cocoapods
 
 
 ###############################################################################
