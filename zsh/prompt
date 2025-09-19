@@ -1,4 +1,4 @@
 #oh-my-zsh theme
-ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 
 DEFAULT_USER="Florian"
