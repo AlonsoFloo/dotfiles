@@ -1,0 +1,7 @@
+# Add 'enhancement' to any pull request that modifies client-side files
+enhancement:
+  - client/**/*
+
+# Add 'documentation' to any pull request that modifies documentation files
+documentation:
+  - docs/**/*

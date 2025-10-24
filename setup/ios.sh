@@ -8,6 +8,7 @@ brew upgrade
 #Needed packages
 brew install curl
 brew install highlight git-ftp
+brew install pre-commit
 
 #iOS Dev needed packages
 brew install ruby
