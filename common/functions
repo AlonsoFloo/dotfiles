@@ -47,66 +47,6 @@ function backup() {
 	done
 }
 
-function myip() {
-	external_ip="$(curl -s -m 0.5 http://ipecho.net/plain)"
-	echo $external_ip
-}
-
-function mycity() {
-	city="$(curl -s -m 0.5 http://ip-api.com/line/\?fields\=city)"
-	echo $city
-}
-
-function imageoptim() {
-	if [ "$#" -lt 1 ]; then
-		echo "Usage : imageoptim [FILE_PATH..]"
-		return
-	fi
-	for f in "$@"
-	do
-		cp -r "$f"{,.ori}
-		echo $f | while IFS= read file
-		do
-			filename=$(basename $file)
-			ext=$(echo ${filename##*.} | tr "[:upper:]" "[:lower:]")
-			if [ -f $file ]; then
-				if ( [ $ext == "png" ] || [ $ext == "jpg" ] || [ $ext == "jpeg" ] ); then
-					JSON=`curl -i --user api:gCrX460inNDnnjiTGuEbof7p3J6DNR_Z --data-binary @$file https://api.tinypng.com/shrink 2>/dev/null`
-					succes=$?
-					if [[ "$succes" -eq 0 ]]; then
-						URL=${JSON/*url\":\"/}
-						URL=${URL/\"*/}
-
-						curl $URL > ${file} 2>/dev/null
-						succes=$?
-					fi
-
-					if [[ "$succes" -ne 0 ]]; then
-						echo "Cannont use the tinypng API for $file"
-					fi
-				else
-					echo "File format error for $file"
-				fi
-			else
-				echo "File doesn't exist : $file"
-			fi
-		done
-	done
-}
-
-function gedit_rm_tmp_files() {
-	find -L . -name '*~' -exec rm -f {} \;
-}
-
-function change_default_shell() {
-	if [ "$#" -ne 1 ]; then
-		echo "Usage : use_shell bash|zsh"
-		return
-	fi
-	chsh -s $(which $1) $(whoami)
-	$1
-}
-
 function checksum() {
 	if [ "$#" -lt 1 ]; then
 		echo "Usage : checksum [FILE_PATH..]"
@@ -129,26 +69,6 @@ function checksum() {
 		fi
 		echo "-----------------------------------"
 	done
-}
-
-function retina_downgrade() {
-	if [ "$#" -lt 1 ] || [ -n "$(which sips)" ]; then
-		echo "Usage : retina_downgrade [FILE_PATH..] (need sips command)"
-		return
-	fi
-	for f in "$@"
-	do
-		outfile=$(dirname "$image")/$(basename "$image" @2x.png).png
-		if [ "$f" -nt "$outfile" ]; then
-		    basename "$outfile"
-
-		    width=$(sips -g "pixelWidth" "$f" | awk 'FNR>1 {print $2}')
-		    height=$(sips -g "pixelHeight" "$f" | awk 'FNR>1 {print $2}')
-		    sips -z $(($height / 2)) $(($width / 2)) "$f" --out "$outfile"
-		fi
-		unset outfile
-	done
-	unset f
 }
 
 function = 

@@ -2,7 +2,7 @@
 #setopt RM_STAR_WAIT
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=5
+export UPDATE_ZSH_DAYS=20
 
 # Starting oh-my-zsh
 export ZSH=$DOTFILES/zsh/oh-my-zsh

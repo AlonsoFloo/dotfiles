@@ -28,10 +28,16 @@ fi
 if type npm > /dev/null;then
 	plugins+=(npm)
 fi
+if type aws > /dev/null;then
+	plugins+=(aws)
+fi
+if type brew > /dev/null;then
+	plugins+=(brew)
+fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# Mac OSX
-	plugins+=(osx)
+	plugins+=(osx macos)
 fi
 
 # syntax checker

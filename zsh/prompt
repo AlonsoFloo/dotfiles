@@ -1,4 +1,5 @@
 #oh-my-zsh theme
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
+ZSH_THEME="sonicradish"
 
 DEFAULT_USER="Florian"
