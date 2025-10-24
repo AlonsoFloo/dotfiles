@@ -80,6 +80,26 @@ And you're all set! The script will create the necessary symbolic links to get e
 	* bash_profile
 	* zshrc
 
+## pre-commit Hooks
+
+This repository uses `pre-commit` to enforce code quality and consistency. The pre-commit hooks are configured in the `.pre-commit-config.yaml` file and are run automatically before each commit.
+
+To use the pre-commit hooks, you need to install `pre-commit` on your local
+machine. The setup script will do this for you, but if you need to do it
+manually, you can use Homebrew on macOS:
+
+```bash
+brew install pre-commit
+```
+
+Once `pre-commit` is installed, you need to install the git hooks:
+
+```bash
+pre-commit install
+```
+
+Now, the pre-commit hooks will run automatically every time you make a commit.
+
 ---
 
 ## 💻 Supported Platforms
