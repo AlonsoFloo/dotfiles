@@ -48,6 +48,7 @@ For example, you can create a `bashconfig` or `sshconfig` file inside the `untra
 
 ## ⚙️ Installation
 
+### Standard
 Getting started is easy! Just follow these steps:
 
 1.  **Clone the repository:**
@@ -63,6 +64,21 @@ Getting started is easy! Just follow these steps:
     ```
 
 And you're all set! The script will create the necessary symbolic links to get everything working.
+
+### Custom
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/AlonsoFloo/dotfiles.git --recursive
+    ```
+
+2. **Then you need to edit theses files and set the correct path of your dotfiles directory**
+
+	* setup.sh
+	* bashrc
+	* bash_profile
+	* zshrc
 
 ---
 
