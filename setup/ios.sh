@@ -229,15 +229,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
-
-###############################################################################
-# SizeUp.app                                                                  #
-###############################################################################
-# Start SizeUp at login
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
-# Don’t show the preferences window on next start
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
-
 killall Contacts
 killall Calendar
 killall Messages
