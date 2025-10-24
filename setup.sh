@@ -2,28 +2,25 @@
 
 DOTFILE_PATH=~/dotfiles/
 
-cd "${DOTFILE_PATH}" || exit
+cd ${DOTFILE_PATH}
 
 #set common confirguration
-# shellcheck source=setup/common.sh
-source ./setup/common.sh
+source ${DOTFILE_PATH}setup/common.sh
 
 
-if [[ "$(uname)" == 'Darwin' ]]; then
+if [[ `uname` == 'Darwin' ]]; then
 	#set ios confirguration
-	# shellcheck source=setup/ios.sh
-	source ./setup/ios.sh
+	source ${DOTFILE_PATH}setup/ios.sh
 else
 	#set linux confirguration
-	# shellcheck source=setup/linux.sh
-	source ./setup/linux.sh
+	source ${DOTFILE_PATH}setup/linux.sh
 fi
 
 #install ZSH
 if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 	user_value=""
 	echo "Do you want to install ZSH Shell ? (yes/no) "
-	read -r user_value
+	read user_value
 	if [[ "$user_value" == "yes" ]]; then
 		if [[ -x /usr/bin/apt-get ]]; then
 			sudo apt-get install -y zsh
