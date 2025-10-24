@@ -1,51 +1,81 @@
-# Dotfiles
+# 🚀 My Personal Dotfiles
 
-## Overview
+Welcome to my personal collection of dotfiles! This repository contains my shell configurations for `bash` and `zsh`, along with settings for various tools I use daily. The goal is to create a consistent and efficient development environment across different machines.
 
-This repo containing my personal shell configuration. You can also find the configuration of certain software like Terminator, Gedit, etc..
-Feel free to copy my configuration, or fork it. I will accept Pull Reaquest only if it doesn't contain personnal data.
+Feel free to explore, get inspired, or even fork this repository to create your own personalized setup.
 
+---
 
-### Containt
+## ✨ Features
 
- * Shell
-	 * Bash
-	 * ZSH
- * Software
-	 * Vim
-	 * Terminator Linux Terminal
- * Submodule
-	 * [Powerline Fonts](https://github.com/powerline/fonts)
-	 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-	 * [ZSH Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+*   **Dual Shell Support:** Configurations for both `bash` and `zsh`.
+*   **Modular Structure:** Neatly organized into separate folders for easy management.
+*   **Customizable Prompts:** Colorful and informative shell prompts.
+*   **Helpful Aliases and Functions:** A collection of shortcuts and helper functions to speed up your workflow.
+*   **Vim and Terminator Customization:** Personalized settings for a better user experience.
+*   **Automated Setup:** A simple setup script to get you up and running quickly.
 
-### Tested on
+---
 
-* Ubuntu 14.04
-* Kbuntu 14.04
-* MacOS
+## 📂 Folder Structure
 
-## Installation
+Here's a breakdown of the repository's structure:
 
-### Standard Installation
+| Path                  | Description                                                                 |
+| --------------------- | --------------------------------------------------------------------------- |
+| `.`                   | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.     |
+| ├── 📂 `bash/`        | `bash`-specific configurations, including prompt, colors, and auto-completion. |
+| ├── 📂 `zsh/`         | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes. |
+| ├── 📂 `common/`      | Shared configurations between `bash` and `zsh` (aliases, functions, exports).|
+| ├── 📂 `config/`      | Configuration files for other applications (e.g., Terminator).              |
+| ├── 📂 `vim/`         | Vim-related files, such as color schemes.                                   |
+| ├── 📂 `setup/`       | Scripts for setting up the dotfiles on different operating systems.         |
+| ├── 📂 `ssh/`         | SSH client configuration.                                                   |
+| ├── 📂 `untracked/`   | For private configurations, not tracked by Git (e.g., machine-specific settings). |
 
-Simply run this, and Enjoy !!
+---
 
-```sh
-cd ~
-git clone https://github.com/AlonsoFloo/dotfiles.git --recursive
-~/dotfiles/setup.sh
-```
+## 🔒 Untracked Configuration
 
-### Custom Installation
+The `untracked/` directory is intentionally left out of version control, making it the perfect place to store sensitive or machine-specific information, such as:
 
-Clone the repository somewhere :
+*   **SSH configurations** with private host details.
+*   **Shell settings** with environment variables or secrets.
 
-> git clone git@github.com:AlonsoFloo/dotfiles.git --recursive
+For example, you can create a `bashconfig` or `sshconfig` file inside the `untracked/` directory to define private aliases, functions, or SSH hosts. These files will be automatically sourced, so you can easily extend the dotfiles without committing personal data to the repository.
 
-Then you need to edit theses files and set the correct path of your dotfiles directory :
+---
 
-* setup.sh
-* bashrc
-* bash_profile
-* zshrc
+## ⚙️ Installation
+
+Getting started is easy! Just follow these steps:
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/AlonsoFloo/dotfiles.git --recursive ~/.dotfiles
+    ```
+
+2.  **Run the setup script:**
+
+    ```bash
+    ~/.dotfiles/setup.sh
+    ```
+
+And you're all set! The script will create the necessary symbolic links to get everything working.
+
+---
+
+## 💻 Supported Platforms
+
+These dotfiles have been tested on the following operating systems:
+
+*   Ubuntu 14.04
+*   Kubuntu 14.04
+*   macOS
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! If you have any improvements or suggestions, feel free to submit a pull request. However, please ensure that your contributions do not contain any personal or sensitive data.
