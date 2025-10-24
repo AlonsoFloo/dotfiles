@@ -23,9 +23,7 @@ Feel free to copy my configuration, or fork it. I will accept Pull Reaquest only
 
 * Ubuntu 14.04
 * Kbuntu 14.04
-* MacOS Yosemite
-* MacOS El Captain
-* MacOS Sierra
+* MacOS
 
 ## Installation
 
@@ -51,11 +49,3 @@ Then you need to edit theses files and set the correct path of your dotfiles dir
 * bashrc
 * bash_profile
 * zshrc
-
-### Fonts
-
-I recommend you to use a powerline font in your terminal.
-
-# Working on
-
-* SSH connection with your shell configuration
