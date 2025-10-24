@@ -1,6 +1,6 @@
 # Add 'root' label to any root file changes
 # Quotation marks are required for the leading asterisk
-root:
+Root:
 - changed-files:
   - any-glob-to-any-file: '*'
 
@@ -15,9 +15,9 @@ SetupChange:
   - any-glob-to-any-file: setup/**
 
 # Add 'feature' label to any PR where the head branch name starts with `feature` or has a `feature` section in the name
-feature:
+Feature:
  - head-branch: ['^feature', 'feature', 'feat']
 
 # Add 'release' label to any PR that is opened against the `main` branch
-release:
+Release:
  - base-branch: 'master'
