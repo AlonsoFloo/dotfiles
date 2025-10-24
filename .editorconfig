@@ -1,9 +1,6 @@
 # ------------------------------------------------------------------------------
-# | EditorConfig for Android Development
+# | EditorConfig
 # ------------------------------------------------------------------------------
-#
-# Inspired by: https://towardsdev.com/taming-your-kotlin-codebase-the-ultimate-editorconfig-guide-for-android-devs-a6a73f176524
-#
 
 # Top-most EditorConfig file
 root = true
@@ -16,24 +13,6 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+indent_size = 4
+indent_style = space
 charset = utf-8
-
-# ---
-# | Kotlin
-# ---
-
-[*.{kt,kts}]
-indent_size = 4
-indent_style = space
-max_line_length = 100
-ij_kotlin_allow_trailing_comma = true
-ij_kotlin_allow_trailing_comma_on_call_site = true
-ij_kotlin_imports_layout=*,android.,androidx.,com.,org.,java.,kotlin.,^
-
-# ---
-# | XML
-# ---
-
-[*.xml]
-indent_size = 4
-indent_style = space
