@@ -71,7 +71,7 @@ function checksum() {
 	done
 }
 
-function = 
+function =
 {
   echo "$@" | bc -l
 }

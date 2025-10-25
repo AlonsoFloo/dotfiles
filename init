@@ -50,12 +50,12 @@ if [ "$shell_interpretor" != "" ]; then
 	fi
 	unset file files
 
-	# Colored LS	
+	# Colored LS
 	if [[ `uname` != 'Darwin' ]]; then
 		eval `dircolors $DOTFILES/dircolors-solarized/dircolors.ansi-universal`
 	else
 		export LSCOLORS=exfxcxdxbxegedabagacad
-	fi	
+	fi
 fi
 
 unset shell_interpretor

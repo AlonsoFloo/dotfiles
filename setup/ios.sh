@@ -60,7 +60,7 @@ defaults write com.apple.screensaver tokenRemovalAction -bool false
 defaults write com.apple.screensaver askForPasswordDelay -int 5
 #Delay before Going to sleep
 defaults -currentHost write com.apple.screensaver idleTime -int 0
-	
+
 
 ###############################################################################
 # Finder                                                                      #
