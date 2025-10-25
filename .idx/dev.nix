@@ -59,7 +59,7 @@
         # Load all submodules
         git-submodules = "git submodule update --init --recursive";
 
-        # Load aliases of git 
+        # Load aliases of git
         git-config-aliases-st = "git config --global alias.st status";
         git-config-aliases-unstage = "git config --global alias.unstage reset HEAD --";
         git-config-aliases-diffc = "git config --global alias.diffc diff --cached";

@@ -4,12 +4,12 @@ Host github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa
 
-# Normal ssh user login 
+# Normal ssh user login
 Host firstip
 	HostName 192.168.1.1
 	User root
     IdentityFile ~/.ssh/id_rsa
-    
+
 # Normal ssh user login  - WITH TUNNEL on port 5900
 Host firstiptunnel
 	HostName 192.168.1.1

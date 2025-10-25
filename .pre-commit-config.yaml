@@ -7,6 +7,9 @@ repos:
     -   id: check-yaml
     -   id: check-toml
     -   id: check-added-large-files
+    -   id: requirements-txt-fixer
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
 -   repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0
     hooks:
@@ -25,3 +28,4 @@ repos:
     rev: v0.11.0.1
     hooks:
     -   id: shellcheck
+        args: ["--severity=warning"]
