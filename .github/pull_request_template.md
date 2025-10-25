@@ -1,12 +1,3 @@
----
-name: Pull Request
-about: Create a pull request to help us improve
-title: 'Pull Request'
-labels: ''
-assignees: ''
-
----
-
 # Pull request
 ## 🎯 What's the mission?
 
