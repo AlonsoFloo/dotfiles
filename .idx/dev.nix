@@ -55,6 +55,9 @@
 
         # Install pre-commit
         pre-commit-install = "pre-commit install";
+
+        # Load all submodules
+        git-submodules = "git submodule update --init --recursive";
       };
     };
   };
