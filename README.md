@@ -54,13 +54,13 @@ Getting started is easy! Just follow these steps:
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/AlonsoFloo/dotfiles.git --recursive ~/.dotfiles
+    git clone https://github.com/AlonsoFloo/dotfiles.git --recursive ~/dotfiles
     ```
 
 2.  **Run the setup script:**
 
     ```bash
-    ~/.dotfiles/setup.sh
+    ~/dotfiles/setup.sh
     ```
 
 And you're all set! The script will create the necessary symbolic links to get everything working.
