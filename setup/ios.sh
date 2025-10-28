@@ -6,14 +6,8 @@ fi
 brew update
 brew upgrade
 
-#Needed packages
-brew install curl
-brew install highlight
-brew install pre-commit
-
-#iOS Dev needed packages
-brew install ruby
-brew install swiftlint
+# Check BrewFile at root folder
+brew bundle check || brew bundle install
 
 
 ###############################################################################
