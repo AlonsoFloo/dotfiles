@@ -37,7 +37,7 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# Mac OSX
-	plugins+=(osx macos)
+	plugins+=(macos)
 fi
 
 # syntax checker
