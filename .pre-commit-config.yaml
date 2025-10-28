@@ -1,3 +1,8 @@
+fail_fast: true
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -10,19 +15,34 @@ repos:
     -   id: requirements-txt-fixer
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
+    -   id: check-executables-have-shebangs
+    -   id: check-shebang-scripts-are-executable
+    -   id: check-case-conflict
+    -   id: check-illegal-windows-names
+    -   id: check-symlinks
+    -   id: destroyed-symlinks
+    -   id: check-merge-conflict
 -   repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0
     hooks:
     -   id: detect-secrets
--   repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.22.1
     hooks:
-    -   id: markdownlint
-        args: [--disable, MD013]
--   repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v9.23.0
+    -   id: gitleaks
+-   repo: https://github.com/hukkin/mdformat
+    rev: 0.7.21
     hooks:
-    -   id: commitlint
+    -   id: mdformat
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-ruff
+          - mdformat-frontmatter
+          - ruff
+-   repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.1.0
+    hooks:
+    -   id: commitizen
         stages: [commit-msg]
 -   repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
