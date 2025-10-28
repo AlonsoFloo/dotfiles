@@ -17,16 +17,3 @@ brew "pre-commit"
 brew "ruby"
 # Tool to enforce Swift style and conventions
 brew "swiftlint"
-
-###############
-###############
-#### VSCODE
-###############
-###############
-#OpenAPI
-vscode "42crunch.vscode-openapi"
-#Mermaid
-vscode "bierner.markdown-mermaid"
-vscode "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
-#Format
-vscode "redhat.vscode-yaml"
