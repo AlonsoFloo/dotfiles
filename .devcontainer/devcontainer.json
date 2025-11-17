@@ -1,5 +1,5 @@
 {
-	"name": "Dotfiles Dev Container",
+	"name": "Default Dev Container",
 	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
@@ -17,7 +17,13 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"editorconfig.editorconfig"
+				"editorconfig.editorconfig",
+				"ms-vscode-remote.remote-containers",
+				"ms-azuretools.vscode-containers",
+				"bierner.markdown-mermaid",
+				"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+				"42Crunch.vscode-openapi",
+				"redhat.vscode-yaml"
 			]
 		}
 	},
