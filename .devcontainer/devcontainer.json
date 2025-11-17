@@ -1,0 +1,26 @@
+{
+	"name": "Dotfiles Dev Container",
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "lts"
+		},
+		"ghcr.io/devcontainers/features/shellcheck:1": {},
+		"ghcr.io/devcontainers/features/gitleaks:1": {},
+		"ghcr.io/devcontainers/features/trivy:1": {},
+		"ghcr.io/prulloac/devcontainer-features/pre-commit:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"editorconfig.editorconfig"
+			]
+		}
+	},
+	"postCreateCommand": "pre-commit install --install-hooks",
+	"remoteUser": "vscode"
+}
