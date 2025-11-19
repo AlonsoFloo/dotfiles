@@ -1,5 +1,6 @@
-ssh/id_rsa*
-ssh/known_hosts
+config/go/
+ssh/id_*
+ssh/known_hosts*
 untracked/*
 !untracked/bashconfig_exemple
 !untracked/gitconfig_example
