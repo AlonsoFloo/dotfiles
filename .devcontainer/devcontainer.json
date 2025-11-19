@@ -1,5 +1,5 @@
 {
-	"name": "Default Dev Container",
+	"name": "dotfiles-devcontainer",
 	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {

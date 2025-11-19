@@ -1,10 +1,32 @@
+# --------------------------------
+# Some configs
+# --------------------------------
 config/go/
-ssh/id_*
-ssh/known_hosts*
+
+# --------------------------------
+# SSH private stuff
+# --------------------------------
+ssh/*
+!ssh/config
+
+# --------------------------------
+# Untracked files
+# --------------------------------
 untracked/*
 !untracked/bashconfig_exemple
 !untracked/gitconfig_example
 !untracked/sshconfig_example
+
+# --------------------------------
+# Gemini
+# --------------------------------
+gemini/*
+!gemini/GEMINI.md
+!gemini/settings.json
+!gemini/antigravity/
+gemini/antigravity/*
+!gemini/antigravity/mcp_config.json
+
 
 # --------------------------------
 # SVN
