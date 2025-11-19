@@ -23,10 +23,11 @@
 				"bierner.markdown-mermaid",
 				"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
 				"42Crunch.vscode-openapi",
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+                "Google.gemini-cli-vscode-ide-companion"
 			]
 		}
 	},
-	"postCreateCommand": "pre-commit install --install-hooks",
+    "postCreateCommand": "pre-commit install --install-hooks && npm install -g @google/gemini-cli",
 	"remoteUser": "vscode"
 }
