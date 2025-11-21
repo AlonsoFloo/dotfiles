@@ -1,9 +1,22 @@
-ssh/id_rsa*
-ssh/known_hosts
+# --------------------------------
+# Some configs
+# --------------------------------
+config/go/
+
+# --------------------------------
+# SSH private stuff
+# --------------------------------
+ssh/*
+!ssh/config
+
+# --------------------------------
+# Untracked files
+# --------------------------------
 untracked/*
 !untracked/bashconfig_exemple
 !untracked/gitconfig_example
 !untracked/sshconfig_example
+
 
 # --------------------------------
 # SVN
