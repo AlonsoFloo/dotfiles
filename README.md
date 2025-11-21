@@ -21,17 +21,18 @@ ______________________________________________________________________
 
 Here's a breakdown of the repository's structure:
 
-| Path                | Description                                                                       |
-| ------------------- | --------------------------------------------------------------------------------- |
-| `.`                 | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
-| ├── 📂 `bash/`      | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
-| ├── 📂 `zsh/`       | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
-| ├── 📂 `common/`    | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`    | Configuration files for other applications (e.g., Terminator).                    |
-| ├── 📂 `vim/`       | Vim-related files, such as color schemes.                                         |
-| ├── 📂 `setup/`     | Scripts for setting up the dotfiles on different operating systems.               |
-| ├── 📂 `ssh/`       | SSH client configuration.                                                         |
-| ├── 📂 `untracked/` | For private configurations, not tracked by Git (e.g., machine-specific settings). |
+| Path                    | Description                                                                       |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| `.`                     | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
+| ├── 📂 `.devcontainer/` | Configuration for Visual Studio Code Devcontainers.                               |
+| ├── 📂 `bash/`          | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
+| ├── 📂 `zsh/`           | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
+| ├── 📂 `common/`        | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
+| ├── 📂 `config/`        | Configuration files for other applications (e.g., Terminator).                    |
+| ├── 📂 `vim/`           | Vim-related files, such as color schemes.                                         |
+| ├── 📂 `setup/`         | Scripts for setting up the dotfiles on different operating systems.               |
+| ├── 📂 `ssh/`           | SSH client configuration.                                                         |
+| ├── 📂 `untracked/`     | For private configurations, not tracked by Git (e.g., machine-specific settings). |
 
 ______________________________________________________________________
 
@@ -47,6 +48,14 @@ For example, you can create a `bashconfig` or `sshconfig` file inside the `untra
 ______________________________________________________________________
 
 ## ⚙️ Installation
+
+### Devcontainer (Recommended)
+
+The easiest way to use these dotfiles is with a [Devcontainer](https://code.visualstudio.com/docs/devcontainers/containers).
+
+1. Open the repository in VS Code.
+1. When prompted, click "Reopen in Container".
+1. The environment will be automatically set up with all dependencies and configurations.
 
 ### Standard
 
@@ -110,6 +119,7 @@ These dotfiles have been tested on the following operating systems:
 - Ubuntu 14.04
 - Kubuntu 14.04
 - macOS
+- Devcontainer (Debian Bullseye)
 
 ______________________________________________________________________
 

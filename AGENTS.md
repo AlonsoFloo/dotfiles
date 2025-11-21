@@ -10,7 +10,7 @@ This is a personal dotfiles repository. It contains configurations for `bash`, `
 
 ### Requirements
 
-- Pre-commit installed
+- Pre-commit installed (handled automatically in Devcontainer)
 
 ### Run manually
 
