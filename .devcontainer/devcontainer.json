@@ -1,33 +1,21 @@
 {
-	"name": "dotfiles-devcontainer",
-	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": true,
-			"configureZshAsDefaultShell": true
-		},
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "lts"
-		},
-		"ghcr.io/devcontainers/features/shellcheck:1": {},
-		"ghcr.io/devcontainers/features/gitleaks:1": {},
-		"ghcr.io/devcontainers/features/trivy:1": {},
-		"ghcr.io/prulloac/devcontainer-features/pre-commit:1": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"editorconfig.editorconfig",
-				"ms-vscode-remote.remote-containers",
-				"ms-azuretools.vscode-containers",
-				"bierner.markdown-mermaid",
-				"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
-				"42Crunch.vscode-openapi",
-				"redhat.vscode-yaml",
+    "name": "dotfiles-devcontainer",
+    "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "editorconfig.editorconfig",
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-containers",
+                "bierner.markdown-mermaid",
+                "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+                "42Crunch.vscode-openapi",
+                "redhat.vscode-yaml",
                 "Google.gemini-cli-vscode-ide-companion"
-			]
-		}
-	},
-    "postCreateCommand": "pre-commit install --install-hooks && npm install -g @google/gemini-cli",
-	"remoteUser": "vscode"
+            ]
+        }
+    },
+    "postCreateCommand": ".devcontainer/setup.sh",
+    "remoteUser": "vscode",
+    "updateRemoteUserUID": false
 }
