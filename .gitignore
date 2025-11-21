@@ -17,16 +17,6 @@ untracked/*
 !untracked/gitconfig_example
 !untracked/sshconfig_example
 
-# --------------------------------
-# Gemini
-# --------------------------------
-gemini/*
-!gemini/GEMINI.md
-!gemini/settings.json
-!gemini/antigravity/
-gemini/antigravity/*
-!gemini/antigravity/mcp_config.json
-
 
 # --------------------------------
 # SVN
