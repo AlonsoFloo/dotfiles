@@ -49,14 +49,6 @@ ______________________________________________________________________
 
 ## ⚙️ Installation
 
-### Devcontainer (Recommended)
-
-The easiest way to use these dotfiles is with a [Devcontainer](https://code.visualstudio.com/docs/devcontainers/containers).
-
-1. Open the repository in VS Code.
-1. When prompted, click "Reopen in Container".
-1. The environment will be automatically set up with all dependencies and configurations.
-
 ### Standard
 
 Getting started is easy! Just follow these steps:
