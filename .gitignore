@@ -2,6 +2,17 @@
 # Some configs
 # --------------------------------
 config/go/
+config/com.raspberrypi.connect/
+config/dconf/
+config/kanshi/
+config/labwc/
+config/pulse/
+config/rpcc/
+config/systemd/
+config/user-dirs.dirs
+config/user-dirs.locale
+config/wf-panel-pi/
+config/xsettingsd/
 
 # --------------------------------
 # SSH private stuff
