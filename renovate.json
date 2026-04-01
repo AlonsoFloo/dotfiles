@@ -9,6 +9,9 @@
     ],
     "automerge": false,
     "pinDigests": true,
+    "pre-commit": {
+        "enabled": true
+    },
     "recreateWhen": "auto",
     "minimumReleaseAge": "1 month",
     "rebaseWhen": "behind-base-branch",
