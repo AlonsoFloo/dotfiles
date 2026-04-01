@@ -5,7 +5,7 @@ default_install_hook_types:
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # pragma: allowlist secret
     hooks:
     -   id: check-json
     -   id: check-xml
@@ -23,15 +23,15 @@ repos:
     -   id: destroyed-symlinks
     -   id: check-merge-conflict
 -   repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0
+    rev: 01886c8a910c64595c47f186ca1ffc0b77fa5458 # pragma: allowlist secret
     hooks:
     -   id: detect-secrets
 -   repo: https://github.com/gitleaks/gitleaks
-    rev: v8.22.1
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e # pragma: allowlist secret
     hooks:
     -   id: gitleaks
 -   repo: https://github.com/hukkin/mdformat
-    rev: 0.7.21
+    rev: 82912cdaea4fb830f751504486a7879c70526547 # pragma: allowlist secret
     hooks:
     -   id: mdformat
         additional_dependencies:
@@ -40,12 +40,12 @@ repos:
           - mdformat-frontmatter
           - ruff
 -   repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.1.0
+    rev: 4fbeae7861663ecf4b4989211eba41c1a3fb1227 # pragma: allowlist secret
     hooks:
     -   id: commitizen
         stages: [commit-msg]
 -   repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.11.0.1
+    rev: 745eface02aef23e168a8afb6b5737818efbea95 # pragma: allowlist secret
     hooks:
     -   id: shellcheck
         args: ["--severity=warning"]
