@@ -1,11 +1,12 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:recommended",
+        "config:best-practices",
         ":maintainLockFilesWeekly",
         "abandonments:recommended",
         "security:minimumReleaseAgeNpm",
-        "group:allNonMajor"
+        "group:allNonMajor",
+        ":assignAndReview(AlonsoFloo)",
     ],
     "automerge": false,
     "pinDigests": true,
