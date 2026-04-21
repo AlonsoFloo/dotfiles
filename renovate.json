@@ -22,5 +22,8 @@
     "prConcurrentLimit": 0,
     "labels": [
         "renovate"
-    ]
+    ],
+    "docker-compose": {
+        "enabled": true
+    }
 }
