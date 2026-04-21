@@ -6,7 +6,7 @@
         "abandonments:recommended",
         "security:minimumReleaseAgeNpm",
         "group:allNonMajor",
-        ":assignAndReview(AlonsoFloo)",
+        ":assignAndReview(AlonsoFloo)"
     ],
     "automerge": false,
     "pinDigests": true,
