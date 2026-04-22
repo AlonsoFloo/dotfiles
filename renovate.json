@@ -12,6 +12,7 @@
     "pinDigests": true,
     "recreateWhen": "auto",
     "minimumReleaseAge": "10 days",
+    "internalChecksFilter": "strict",
     "rebaseWhen": "behind-base-branch",
     "schedule": "on sunday before 6:00am",
     "timezone": "UTC",
