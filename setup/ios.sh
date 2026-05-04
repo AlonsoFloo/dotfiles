@@ -7,11 +7,13 @@ if [[ ! "$(which brew)" ]]; then
 	fi
 fi
 
-brew update
-brew upgrade
+if [[ "$(which brew)" ]]; then
+	brew update
+	brew upgrade
 
-# Check BrewFile at root folder
-brew bundle check || brew bundle install
+	# Check BrewFile at root folder
+	brew bundle check || brew bundle install
+fi
 
 
 ###############################################################################
