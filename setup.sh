@@ -6,7 +6,7 @@ cd ${DOTFILE_PATH} || exit
 
 #set common confirguration
 # shellcheck source=setup/common.sh
-source ${DOTFILE_PATH}setup/common.sh
+source ${DOTFILE_PATH}setup/common.sh "$@"
 
 
 if [[ `uname` == 'Darwin' ]]; then
@@ -26,7 +26,7 @@ if [[ "$#" -ne 1 ]] && [[ "$1" != "--quiet" ]]; then
 	read user_value
 	if [[ "$user_value" == "yes" ]]; then
 		if [[ -x /usr/bin/apt-get ]]; then
-			sudo apt-get install -y zsh
+			execute_with_sudo apt-get install -y zsh
 		else
 			brew install zsh coreutils
 		fi
