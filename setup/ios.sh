@@ -3,12 +3,7 @@ if [[ ! "$(which brew)" ]]; then
 	if [[ "$USE_SUDO" == "yes" ]]; then
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	else
-		echo "Sudo is required for standard Homebrew installation. Attempting local installation in $HOME/.homebrew..."
-		mkdir -p "$HOME/.homebrew" && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$HOME/.homebrew"
-		export PATH="$HOME/.homebrew/bin:$PATH"
-		# Add to bashrc/zshrc for future sessions if not already there
-		grep -q ".homebrew/bin" ~/.zshrc || echo 'export PATH="$HOME/.homebrew/bin:$PATH"' >> ~/.zshrc
-		grep -q ".homebrew/bin" ~/.bashrc || echo 'export PATH="$HOME/.homebrew/bin:$PATH"' >> ~/.bashrc
+		echo "Homebrew is not installed and sudo is disabled. Skipping Homebrew installation."
 	fi
 fi
 
