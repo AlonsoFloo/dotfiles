@@ -1,13 +1,19 @@
 #!/bin/bash
 if [[ ! "$(which brew)" ]]; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	if [[ "$USE_SUDO" == "yes" ]]; then
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	else
+		echo "Homebrew is not installed and sudo is disabled. Skipping Homebrew installation."
+	fi
 fi
 
-brew update
-brew upgrade
+if [[ "$(which brew)" ]]; then
+	brew update
+	brew upgrade
 
-# Check BrewFile at root folder
-brew bundle check || brew bundle install
+	# Check BrewFile at root folder
+	brew bundle check || brew bundle install
+fi
 
 
 ###############################################################################
@@ -26,7 +32,7 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+execute_with_sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable smart dashes as they’re annoying when typing code
@@ -159,7 +165,7 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Underline" "@u"
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+hash tmutil &> /dev/null && execute_with_sudo tmutil disablelocal
 
 
 ###############################################################################
