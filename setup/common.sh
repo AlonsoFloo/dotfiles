@@ -4,9 +4,9 @@
 if [[ -z "$USE_SUDO_PROMPTED" ]]; then
 	export USE_SUDO="no"
 	if [[ "$1" != "--quiet" ]]; then
-		echo "Do you want to use sudo for installation? (yes/no) "
+		echo "Do you want to use sudo for installation? (Y/n) "
 		read -r user_sudo
-		if [[ "$user_sudo" =~ ^[Yy](es)?$ ]]; then
+		if [[ -z "$user_sudo" ]] || [[ "$user_sudo" =~ ^[Yy](es)?$ ]]; then
 			export USE_SUDO="yes"
 		fi
 	fi
