@@ -182,6 +182,14 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
 
+###############################################################################
+# Xcode                                                                       #
+###############################################################################
+# Show the build operation duration in the toolbar
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+
+
+killall Xcode
 killall Contacts
 killall Calendar
 killall Messages
