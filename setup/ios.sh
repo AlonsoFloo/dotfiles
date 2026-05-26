@@ -193,6 +193,18 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 
 
+###############################################################################
+# Keyboard shortcut                                                           #
+###############################################################################
+# Disable and configure the shortcut for "Select the previous input source" (Ctrl + Space)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 \
+'{enabled = 0; value = { parameters = (32, 49, 262144); type = standard; }; }'
+
+# Disable and configure the shortcut for "Select next source in input menu" (Ctrl + Option + Space)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 \
+'{enabled = 0; value = { parameters = (32, 49, 786432); type = standard; }; }'
+
+
 killall Xcode
 killall Contacts
 killall Calendar
