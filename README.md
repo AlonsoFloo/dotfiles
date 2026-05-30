@@ -14,6 +14,8 @@ ______________________________________________________________________
 - **Helpful Aliases and Functions:** A collection of shortcuts and helper functions to speed up your workflow.
 - **Vim and Terminator Customization:** Personalized settings for a better user experience.
 - **Automated Setup:** A simple setup script to get you up and running quickly.
+- **Cloud & Container Ready:** Out-of-the-box support for Google Project IDX and VS Code Devcontainers.
+- **Code Quality:** Integrated pre-commit hooks and Conventional Commits enforcement.
 
 ______________________________________________________________________
 
@@ -25,6 +27,7 @@ Here's a breakdown of the repository's structure:
 | ----------------------- | --------------------------------------------------------------------------------- |
 | `.`                     | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
 | ├── 📂 `.devcontainer/` | Configuration for Visual Studio Code Devcontainers.                               |
+| ├── 📂 `.idx/`          | Configuration for Google Project IDX.                                             |
 | ├── 📂 `bash/`          | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
 | ├── 📂 `zsh/`           | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
 | ├── 📂 `common/`        | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
@@ -33,6 +36,7 @@ Here's a breakdown of the repository's structure:
 | ├── 📂 `setup/`         | Scripts for setting up the dotfiles on different operating systems.               |
 | ├── 📂 `ssh/`           | SSH client configuration.                                                         |
 | ├── 📂 `untracked/`     | For private configurations, not tracked by Git (e.g., machine-specific settings). |
+| ├── 📄 `Brewfile`       | List of Homebrew packages to install on macOS.                                    |
 
 ______________________________________________________________________
 
@@ -102,16 +106,20 @@ pre-commit install
 
 Now, the pre-commit hooks will run automatically every time you make a commit.
 
+## Conventional Commits
+
+This repository follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for commit messages. This is enforced by a pre-commit hook and a GitHub Actions workflow to maintain a clear and readable project history.
+
 ______________________________________________________________________
 
 ## 💻 Supported Platforms
 
-These dotfiles have been tested on the following operating systems:
+These dotfiles have been tested on the following platforms:
 
-- Ubuntu 14.04
-- Kubuntu 14.04
 - macOS
+- Linux (Ubuntu, Debian)
 - Devcontainer (Debian Bullseye)
+- Google Project IDX
 
 ______________________________________________________________________
 
