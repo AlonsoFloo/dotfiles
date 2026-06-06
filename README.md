@@ -13,7 +13,9 @@ ______________________________________________________________________
 - **Customizable Prompts:** Colorful and informative shell prompts.
 - **Helpful Aliases and Functions:** A collection of shortcuts and helper functions to speed up your workflow.
 - **Vim and Terminator Customization:** Personalized settings for a better user experience.
-- **Automated Setup:** A simple setup script to get you up and running quickly.
+- **Automated Setup:** A simple setup script with sudo-less installation support to get you up and running quickly.
+- **Periodic Update Checks:** Automatic checks for dotfiles updates every 14 days to keep your environment current.
+- **macOS System Optimizations:** Pre-configured system defaults and keyboard shortcuts for a better development experience on macOS.
 - **Cloud & Container Ready:** Out-of-the-box support for Google Project IDX and VS Code Devcontainers.
 - **Code Quality:** Integrated pre-commit hooks and Conventional Commits enforcement.
 
@@ -23,20 +25,21 @@ ______________________________________________________________________
 
 Here's a breakdown of the repository's structure:
 
-| Path                    | Description                                                                       |
-| ----------------------- | --------------------------------------------------------------------------------- |
-| `.`                     | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
-| ├── 📂 `.devcontainer/` | Configuration for Visual Studio Code Devcontainers.                               |
-| ├── 📂 `.idx/`          | Configuration for Google Project IDX.                                             |
-| ├── 📂 `bash/`          | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
-| ├── 📂 `zsh/`           | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
-| ├── 📂 `common/`        | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`        | Configuration files for other applications (e.g., Terminator).                    |
-| ├── 📂 `vim/`           | Vim-related files, such as color schemes.                                         |
-| ├── 📂 `setup/`         | Scripts for setting up the dotfiles on different operating systems.               |
-| ├── 📂 `ssh/`           | SSH client configuration.                                                         |
-| ├── 📂 `untracked/`     | For private configurations, not tracked by Git (e.g., machine-specific settings). |
-| ├── 📄 `Brewfile`       | List of Homebrew packages to install on macOS.                                    |
+| Path                          | Description                                                                       |
+| ----------------------------- | --------------------------------------------------------------------------------- |
+| `.`                           | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
+| ├── 📂 `.devcontainer/`       | Configuration for Visual Studio Code Devcontainers.                               |
+| ├── 📂 `.idx/`                | Configuration for Google Project IDX.                                             |
+| ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
+| ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
+| ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
+| ├── 📂 `config/`              | Configuration files for other applications (e.g., Terminator).                    |
+| ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
+| ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
+| ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
+| ├── 📂 `untracked/`           | For private configurations, not tracked by Git (e.g., machine-specific settings). |
+| ├── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
+| ├── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
 
 ______________________________________________________________________
 
@@ -69,7 +72,13 @@ Getting started is easy! Just follow these steps:
    ~/dotfiles/setup.sh
    ```
 
+   The setup script is interactive and will ask if you want to use `sudo` for certain installation steps. If you decline, it will skip those steps or attempt a sudo-less installation where possible.
+
 And you're all set! The script will create the necessary symbolic links to get everything working.
+
+### Automatic Updates
+
+The dotfiles are configured to periodically check for updates. Every 14 days, when you start your shell, you will be prompted to update your dotfiles. If you choose to update, it will automatically pull the latest changes and re-run the setup script.
 
 ### Custom
 
