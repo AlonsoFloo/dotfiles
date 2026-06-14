@@ -40,7 +40,7 @@ repos:
           - mdformat-frontmatter
           - ruff
 -   repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.2 # pragma: allowlist secret
+    rev: v4.16.3 # pragma: allowlist secret
     hooks:
     -   id: commitizen
         stages: [commit-msg]
