@@ -23,5 +23,11 @@
     ],
     "pre-commit": {
         "enabled": true
-    }
+    },
+    "packageRules": [
+        {
+            "matchManagers": ["pre-commit"],
+            "pinDigests": false
+        }
+    ]
 }
