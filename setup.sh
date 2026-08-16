@@ -19,4 +19,8 @@ else
 	source ${DOTFILE_PATH}setup/linux.sh
 fi
 
+# Post install configuration
+# shellcheck source=setup/common_postinstall.sh
+source ${DOTFILE_PATH}setup/common_postinstall.sh "$@"
+
 unset file

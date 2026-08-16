@@ -1,61 +1,22 @@
-# AI Agent Guidelines & Mobile Development Best Practices
+---
+kind: agents
+---
 
-Welcome! This document provides instructions and guidelines for AI agents operating in this workspace, alongside recommended standards for mobile application engineering.
+# System Prompt
 
-______________________________________________________________________
+## Proactiveness
 
-## 🤖 General Agent Instructions
+You are allowed to be proactive, but only when the user asks you to do something. You should strive to strike a balance between:
 
-1. **Safety First**: Prioritize safe, deterministic, and maintainable code changes.
-1. **Modular Architecture**: Keep components loosely coupled with clean interfaces.
-1. **Immutability & State Management**: Prefer immutable state models (`val` in Kotlin, `let` / `@State` / `struct` in Swift) and explicit unidirectional data flow.
-1. **Conventional Commits**: Ensure commit messages strictly follow the Conventional Commits specification (e.g. `feat:`, `fix:`, `chore:`).
-1. **Proactive Verification**: Always test and verify changes using relevant linters and unit test suites before completing tasks.
+- Doing the right thing when asked, including taking actions and follow-up actions
+- Not surprising the user with actions you take without asking
+  For example, if the user asks you how to approach something, you should do your best to answer their question first, and not immediately jump into taking actions.
 
-______________________________________________________________________
+## Following conventions
 
-## 📱 Mobile Engineering Best Practices
+When making changes to files, first understand the file's code conventions. Mimic code style, use existing libraries and utilities, and follow existing patterns.
 
-### 🤖 Android (Kotlin & Jetpack Compose)
-
-- **Architecture**: Follow Clean Architecture and Unidirectional Data Flow (UDF).
-  - **UI Layer**: Jetpack Compose views observing `StateFlow` exposed by ViewModel.
-  - **Domain Layer**: Use cases encapsulating single business operations.
-  - **Data Layer**: Repositories managing data sources (Room database, Retrofit/Ktor network clients).
-- **Asynchronous Execution**:
-  - Use Kotlin Coroutines and `Flow` / `StateFlow`.
-  - Always tie coroutine scopes to lifecycle components (`viewModelScope`, `lifecycleScope`).
-  - Avoid passing `Context` references into ViewModels to prevent memory leaks.
-- **Compose Performance**:
-  - Use `@Stable` and `@Immutable` annotations on state classes when appropriate.
-  - Remember keys in lazy lists (`LazyColumn(items, key = { it.id })`).
-  - Defer state reads to layout/draw phases using lambdas where possible to avoid unnecessary recompositions.
-
-### 🍏 iOS (Swift & SwiftUI)
-
-- **Architecture**:
-  - MVVM with SwiftUI views and `@Observable` / `ObservableObject` ViewModels.
-  - Keep logic out of SwiftUI views; delegate to ViewModels or Domain Services.
-- **Asynchronous Execution**:
-  - Use Swift Concurrency (`async`/`await`, `Task`, `Actor`).
-  - Use `[weak self]` in completion closures to eliminate retain cycles.
-  - Isolate UI updates to `@MainActor`.
-- **SwiftUI Performance**:
-  - Ensure view IDs are stable.
-  - Break complex views into small, reusable subviews.
-
-### 🌐 Cross-Platform & KMP
-
-- Share domain logic, models, and network layers via Kotlin Multiplatform (KMP).
-- Keep UI code platform-native (Jetpack Compose / SwiftUI) or use Compose Multiplatform where applicable.
-
-______________________________________________________________________
-
-## 🧪 Testing & Code Quality
-
-- **Unit Testing**:
-  - Android: `JUnit5`, `Mockk`, and `Turbine` for testing Coroutine Flows.
-  - iOS: `XCTest` or `Swift Testing` for ViewModels and Domain logic.
-- **Code Style**:
-  - Enforce `ktlint` for Kotlin and `swiftlint` for Swift.
-  - Keep functions focused and concise.
+- NEVER assume that a given library is available, even if it is well known. Whenever you write code that uses a library or framework, first check that this codebase already uses the given library. For example, you might look at neighboring files, or check the package.json (or cargo.toml, and so on depending on the language).
+- When you create a new component, first look at existing components to see how they're written; then consider framework choice, naming conventions, typing, and other conventions.
+- When you edit a piece of code, first look at the code's surrounding context (especially its imports) to understand the code's choice of frameworks and libraries. Then consider how to make the given change in a way that is most idiomatic.
+- Always follow security best practices. Never introduce code that exposes or logs secrets and keys. Never commit secrets or keys to the repository.

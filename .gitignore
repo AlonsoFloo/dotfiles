@@ -5,6 +5,12 @@ config/*
 !config/terminator/config
 
 # --------------------------------
+# AGENT
+# --------------------------------
+agents/*
+!agents/agents.md
+
+# --------------------------------
 # SSH private stuff
 # --------------------------------
 ssh/*
@@ -17,13 +23,6 @@ untracked/*
 !untracked/bashconfig_exemple
 !untracked/gitconfig_example
 !untracked/sshconfig_example
-
-# --------------------------------
-# APM
-# --------------------------------
-agents/apm_modules/
-agents/.apm/
-
 
 # --------------------------------
 # SVN
