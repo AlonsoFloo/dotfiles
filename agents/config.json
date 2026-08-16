@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "name": "canonical-agent-config",
+  "description": "Canonical base configuration layer for AI agent tools with mobile development recommendations",
+  "agent": {
+    "default_model": "gpt-4o",
+    "fallback_model": "claude-3-5-sonnet",
+    "temperature": 0.2,
+    "max_tokens": 4096,
+    "system_prompt_file": "system-prompt.md",
+    "instructions_file": "agents.md"
+  },
+  "mobile_development": {
+    "android": {
+      "language": "Kotlin",
+      "ui_framework": "Jetpack Compose",
+      "architecture": "MVVM / Clean Architecture (UI -> ViewModel -> UseCase -> Repository)",
+      "async_framework": "Coroutines & Flow",
+      "dependency_injection": "Hilt / Koin",
+      "testing": "JUnit5, Mockk, Turbine, Compose UI Test",
+      "min_sdk": 24,
+      "code_style": "ktlint / official Kotlin style guide"
+    },
+    "ios": {
+      "language": "Swift",
+      "ui_framework": "SwiftUI",
+      "architecture": "MVVM / Clean Architecture",
+      "async_framework": "Swift Concurrency (async/await, Actors)",
+      "dependency_injection": "Factory / Swift Dependencies",
+      "testing": "XCTest / Swift Testing framework",
+      "code_style": "SwiftLint"
+    },
+    "cross_platform": {
+      "framework": "Kotlin Multiplatform (KMP)",
+      "shared_layers": ["Domain", "Data", "Business Logic"]
+    }
+  },
+  "code_quality": {
+    "enforce_conventional_commits": true,
+    "enforce_unit_tests": true,
+    "prefer_immutable_state": true,
+    "memory_management": "Prevent memory leaks (avoid strong self in iOS closures, avoid Context references in Android ViewModels)",
+    "performance": "Minimize main-thread work, optimize recompositions/redraws, handle image caching efficiently"
+  },
+  "tools": {
+    "package_manager": "apm",
+    "linting": [
+      "shellcheck",
+      "ktlint",
+      "swiftlint"
+    ],
+    "version_control": "git"
+  }
+}

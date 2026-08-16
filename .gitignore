@@ -18,6 +18,12 @@ untracked/*
 !untracked/gitconfig_example
 !untracked/sshconfig_example
 
+# --------------------------------
+# APM
+# --------------------------------
+agents/apm_modules/
+agents/.apm/
+
 
 # --------------------------------
 # SVN

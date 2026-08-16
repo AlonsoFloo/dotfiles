@@ -22,7 +22,7 @@ execute_with_sudo() {
 }
 
 #setting links
-for file in "${DOTFILE_PATH}"{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config,ssh}; do
+for file in "${DOTFILE_PATH}"{bash_logout,bashrc,bash_profile,zshrc,zlogout,inputrc,gitconfig,vimrc,vim,config,ssh,agents}; do
 	file="$( basename "$file" )"
 
 	if [[ ! -h ~/."${file}" ]] && [[ -d ~/."${file}" ]]; then
@@ -37,3 +37,28 @@ for file in "${DOTFILE_PATH}"{bash_logout,bashrc,bash_profile,zshrc,zlogout,inpu
 
 	ln -sf "${DOTFILE_PATH}""${file}" ~/."${file}"
 done;
+
+export PATH="$HOME/.local/bin:$HOME/.apm/bin:$PATH"
+
+# Install APM if missing
+if ! command -v apm &>/dev/null; then
+	echo "Installing APM (Agent Package Manager)..."
+	if [[ "$USE_SUDO" == "yes" ]]; then
+		curl -fsSL https://aka.ms/apm-unix | sh || true
+	else
+		mkdir -p "$HOME/.local/bin"
+		curl -fsSL https://aka.ms/apm-unix | APM_INSTALL_DIR="$HOME/.local/bin" sh || true
+	fi
+fi
+
+# Manage local agent skills
+if command -v apm &>/dev/null; then
+	echo "Managing APM skills in ${DOTFILE_PATH}agents..."
+	cd "${DOTFILE_PATH}agents" || exit 1
+	if [[ -f "${DOTFILE_PATH}agents/apm.yml" ]]; then
+		apm update --yes || apm update || true
+	else
+		apm install https://github.com/AlonsoFloo/skills#main --target agent-skills || true
+	fi
+	cd "${DOTFILE_PATH}" || exit 1
+fi

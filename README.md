@@ -28,6 +28,7 @@ Here's a breakdown of the repository's structure:
 | Path                          | Description                                                                       |
 | ----------------------------- | --------------------------------------------------------------------------------- |
 | `.`                           | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
+| ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
 | ├── 📂 `.devcontainer/`       | Configuration for Visual Studio Code Devcontainers.                               |
 | ├── 📂 `.idx/`                | Configuration for Google Project IDX.                                             |
 | ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |

@@ -17,3 +17,7 @@ brew "pre-commit"
 brew "ruby"
 # Tool to enforce Swift style and conventions
 brew "swiftlint"
+
+# Agent Package Manager
+tap "microsoft/apm"
+brew "microsoft/apm/apm"
