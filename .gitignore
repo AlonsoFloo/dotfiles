@@ -8,12 +8,12 @@ config/*
 # AGENT
 # --------------------------------
 agents/*
-!agents/agents.md
+!agents/AGENTS.md
+!agents/system-prompt.md
 
 # --------------------------------
 # APM
 # --------------------------------
-apm_modules/
 apm_modules/
 
 # --------------------------------
