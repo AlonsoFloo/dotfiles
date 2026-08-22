@@ -2,11 +2,70 @@
   "$schema": "https://opencode.ai/config.json",
   "provider": {
     "openrouter": {
+      "whitelist": [
+        "nvidia/nemotron-3-ultra-550b-a55b:free"
+      ],
       "models": {
         "nvidia/nemotron-3-ultra-550b-a55b:free": {}
       }
     }
   },
+  "disabled_providers": [
+    "openai",
+    "gemini",
+    "anthropic",
+    "google",
+    "opencode"
+  ],
   "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-  "autoCommit": false
+  "share": "disabled",
+  "autoCommit": false,
+  "snapshots": true,
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      "apm_modules/**",
+      "dist/**",
+      "build/**",
+      "coverage/**",
+      ".cache/**"
+    ]
+  },
+  "permission": {
+    "read": {
+      "*.env": "deny",
+      "**/*.env.*": "deny",
+      "secrets/*": "deny",
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      ".git/*": "deny",
+      "*.sqlite": "deny",
+      "*.db": "deny",
+      "*": "allow"
+    },
+    "edit": "ask",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "bash": {
+      "rm -r*": "deny",
+      "sudo *": "ask",
+      "chown *": "deny",
+      "chmod *": "deny",
+      "mkfs*": "deny",
+      "*": "ask"
+    },
+    "task": "allow",
+    "external_directory": "ask",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "codesearch": "allow",
+    "todowrite": "allow",
+    "todoread": "allow",
+    "question": "allow",
+    "skill": "allow",
+    "lsp": "ask",
+    "doom_loop": "ask",
+    "mymcp_*": "ask"
+  }
 }
