@@ -18,7 +18,6 @@ nvm use --lts
 
 # 3. Install user-specific Python and Node.js packages
 pip install --user pre-commit
-npm install -g @google/gemini-cli
 
 # 4. Add pip's user-level bin directory to the PATH for the current and future sessions.
 export PATH="$HOME/.local/bin:$PATH"
