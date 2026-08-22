@@ -45,21 +45,6 @@ Getting started is easy! Just follow these steps:
 
 And you're all set! The script will create the necessary symbolic links to get everything working.
 
-### Custom installation
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/AlonsoFloo/dotfiles.git --recursive
-   ```
-
-1. **Then you need to edit theses files and set the correct path of your dotfiles directory**
-
-   - setup.sh
-   - bashrc
-   - bash_profile
-   - zshrc
-
 ### Untracked Configuration
 
 The `untracked/` directory is intentionally left out of version control, making it the perfect place to store sensitive or machine-specific information, such as:
