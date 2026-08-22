@@ -14,8 +14,24 @@ else
 fi
 cd "$HOME/dotfiles"
 
-echo "=== 2. Testing setup/setup.sh --quiet ==="
+echo "=== 2. Testing setup/setup.sh --quiet with pre-existing file and symlink backup ==="
+# Create pre-existing file and symlink in ~ to test .dotfiles.bak content copy
+echo "dummy_content" > "$HOME/dummy_target.txt"
+ln -sf "$HOME/dummy_target.txt" "$HOME/.bashrc"
+echo "custom_vimrc" > "$HOME/.vimrc"
+
 ~/dotfiles/setup/setup.sh --quiet
+
+if [ ! -f "$HOME/.bashrc.dotfiles.bak" ] || [ "$(cat "$HOME/.bashrc.dotfiles.bak")" != "dummy_content" ]; then
+    echo "Backup of symlink .bashrc failed or did not copy actual file content!"
+    exit 1
+fi
+
+if [ ! -f "$HOME/.vimrc.dotfiles.bak" ] || [ "$(cat "$HOME/.vimrc.dotfiles.bak")" != "custom_vimrc" ]; then
+    echo "Backup of file .vimrc failed or did not copy actual content!"
+    exit 1
+fi
+echo "[OK] Symlink and file content backup to .dotfiles.bak verified."
 
 echo "=== 3. Testing Linux setup and verifying macOS setup files presence ==="
 test -f ~/dotfiles/setup/linux.sh || { echo "Linux setup script missing!"; exit 1; }
