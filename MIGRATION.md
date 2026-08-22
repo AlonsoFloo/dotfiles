@@ -5,11 +5,11 @@ This guide outlines the steps required to migrate an existing local dotfiles ins
 ## Key Changes
 
 1. Dotfiles configurations are now located in `~/dotfiles/src/`.
-2. `setup.sh` is located at the root of the repository (`~/dotfiles/setup.sh`).
-3. `untracked/` remains at the root of the repository (`~/dotfiles/untracked/`).
-4. Git submodules have been moved under `src/` (`src/dircolors-solarized`, `src/zsh/oh-my-zsh`, `src/zsh/zsh-syntax-highlighting`).
-5. `.bashrc` and `.bash_profile` in `src/` are symbolic links pointing to `src/zshrc`.
-6. `zshrc` exports both `DOTFILES_REPO=$HOME/dotfiles` and `DOTFILES=$HOME/dotfiles/src`.
+1. `setup.sh` is located at the root of the repository (`~/dotfiles/setup.sh`).
+1. `untracked/` remains at the root of the repository (`~/dotfiles/untracked/`).
+1. Git submodules have been moved under `src/` (`src/dircolors-solarized`, `src/zsh/oh-my-zsh`, `src/zsh/zsh-syntax-highlighting`).
+1. `.bashrc` and `.bash_profile` in `src/` are symbolic links pointing to `src/zshrc`.
+1. `zshrc` exports both `DOTFILES_REPO=$HOME/dotfiles` and `DOTFILES=$HOME/dotfiles/src`.
 
 ## Migration Steps on an Existing Machine
 
@@ -24,7 +24,7 @@ Run the following commands in your terminal:
    git submodule update --init --recursive
    ```
 
-2. **Move any untracked configurations to the root `untracked/` directory if needed:**
+1. **Move any untracked configurations to the root `untracked/` directory if needed:**
 
    ```bash
    mkdir -p ~/dotfiles/untracked
@@ -32,13 +32,13 @@ Run the following commands in your terminal:
    mv ~/dotfiles/src/untracked/* ~/dotfiles/untracked/ 2>/dev/null || true
    ```
 
-3. **Re-run the setup script to refresh all home directory symlinks and backups:**
+1. **Re-run the setup script to refresh all home directory symlinks and backups:**
 
    ```bash
    ~/dotfiles/setup.sh
    ```
 
-4. **Reload your shell configuration:**
+1. **Reload your shell configuration:**
 
    ```bash
    source ~/.zshrc   # for zsh

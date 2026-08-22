@@ -64,22 +64,22 @@ pre-commit install
 
 ## 📂 Repository Structure
 
-| Path                          | Description                                                                       |
-| ----------------------------- | --------------------------------------------------------------------------------- |
-| `.`                           | Repository root directory.                                                        |
-| ├── 📂 `src/`                 | Main configuration files like `.zshrc` (`.bashrc`/`.bash_profile` linked), etc.   |
-| │   ├── 📂 `agents/`          | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
-| │   ├── 📂 `bash/`            | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
-| │   ├── 📂 `zsh/`             | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
-| │   ├── 📂 `common/`          | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| │   ├── 📂 `config/`          | Configuration files for other applications (e.g., OpenCode).                      |
-| │   ├── 📂 `vim/`             | Vim-related files, such as color schemes.                                         |
-| │   ├── 📂 `ssh/`             | SSH client configuration.                                                         |
-| │   └── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                             |
-| ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
-| │   └── 📄 `Brewfile`         | List of Homebrew packages to install on macOS.                                    |
-| ├── 📂 `untracked/`           | For private configurations, not tracked by Git (e.g., machine-specific settings). |
-| └── 📄 `setup.sh`             | Main setup script located at the root for easy execution.                         |
+| Path                            | Description                                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------- |
+| `.`                             | Repository root directory.                                                        |
+| ├── 📂 `src/`                   | Main configuration files like `.zshrc` (`.bashrc`/`.bash_profile` linked), etc.   |
+| │ ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
+| │ ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
+| │ ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
+| │ ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
+| │ ├── 📂 `config/`              | Configuration files for other applications (e.g., OpenCode).                      |
+| │ ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
+| │ ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
+| │ └── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
+| ├── 📂 `setup/`                 | Scripts for setting up the dotfiles on different operating systems.               |
+| │ └── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
+| ├── 📂 `untracked/`             | For private configurations, not tracked by Git (e.g., machine-specific settings). |
+| └── 📄 `setup.sh`               | Main setup script located at the root for easy execution.                         |
 
 ## 💻 Tested Platforms
 
