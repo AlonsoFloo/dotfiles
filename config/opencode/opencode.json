@@ -64,6 +64,7 @@
       "tail *": "allow",
       "head *": "allow",
       "ls *": "allow",
+      "ls -la *": "allow",
       "tree *": "allow",
       "pwd": "allow",
       "aws *": "allow",
@@ -77,6 +78,7 @@
       "git log *": "allow",
       "git show *": "allow",
       "git branch *": "allow",
+      "git rev-parse *": "allow",
       "*": "ask"
     },
     "task": "allow",
