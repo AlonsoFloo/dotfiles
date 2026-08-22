@@ -123,8 +123,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 - [] Rename the main branch to `main`
 - [] Move all dotfiles into a root folder `dotfiles` leaving repo handling separated.
-  - Folder to be moved in `dotfiles`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh`
+  - Folder to be moved in `dotfiles`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh` (carefull, folder `zsh` contain git submodules that need to be moved with it)
   - File to be moved `dotfiles`: `bash_logout`, `bash_profile`, `bashrc`, `gitconfig`, `init`, `vim`, `inputrc`, `vimrc`, `zlogout`, `zshrc`
+  - Submodule to be moved in `dotfiles`: `dircolor-solarized`
   - Updated all references of theses to use the new location
 - [] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
   - File to be moved `Brewfile`
