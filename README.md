@@ -119,4 +119,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 - ZSH syntax Highlighting : [https://github.com/zsh/zsh-syntax-highlighting](https://github.com/zsh/zsh-syntax-highlighting)
 - Dircolor solarized : [https://github.com/seebi/dircolors-solarized](https://github.com/seebi/dircolors-solarized)
 
+## TODO
+
+- [] Rename the main branch to `main`
+- [] Move all dotfiles into a root folder `dotfiles` leaving repo handling separated.
+  - Folder to be moved in `dotfiles`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh`
+  - File to be moved `dotfiles`: `bash_logout`, `bash_profile`, `bashrc`, `gitconfig`, `init`, `vim`, `inputrc`, `vimrc`, `zlogout`, `zshrc`
+  - Updated all references of theses to use the new location
+- [] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
+  - File to be moved `Brewfile`
+  - Updated all references of theses to use the new location.
+
 ______________________________________________________________________
