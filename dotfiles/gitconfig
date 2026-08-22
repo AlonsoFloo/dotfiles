@@ -56,4 +56,4 @@
 	enabled = true
 
 [include]
-    path = ~/dotfiles/untracked/gitconfig
+    path = ~/dotfiles/dotfiles/untracked/gitconfig

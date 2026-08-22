@@ -1,0 +1,3 @@
+# Init dotfiles Bash
+export DOTFILES=$HOME/dotfiles/dotfiles
+[ -r $DOTFILES/init ] && [ -f $DOTFILES/init ] && source $DOTFILES/init
