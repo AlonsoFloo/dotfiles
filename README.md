@@ -115,5 +115,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 - [] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
   - File to be moved `Brewfile`
   - Updated all references of theses to use the new location.
+- [] Create workflow that tests changes
+- [] Remove terminator configuration
 
 ______________________________________________________________________
