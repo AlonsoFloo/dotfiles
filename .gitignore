@@ -3,6 +3,7 @@
 # --------------------------------
 config/*
 !config/terminator/config
+!config/opencode/
 
 # --------------------------------
 # AGENT
