@@ -1,9 +1,9 @@
-[submodule "zsh/zsh-syntax-highlighting"]
-	path = dotfiles/zsh/zsh-syntax-highlighting
+[submodule "src/zsh/zsh-syntax-highlighting"]
+	path = src/zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/oh-my-zsh"]
-	path = dotfiles/zsh/oh-my-zsh
+[submodule "src/zsh/oh-my-zsh"]
+	path = src/zsh/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule "dircolors-solarized"]
-	path = dotfiles/dircolors-solarized
+[submodule "src/dircolors-solarized"]
+	path = src/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git

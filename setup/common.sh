@@ -31,7 +31,7 @@ for file in "${DOTFILE_PATH}"{bash_logout,bashrc,bash_profile,zshrc,zlogout,inpu
 
 	if [[ -e ~/."${file}" ]] || [[ -h ~/."${file}" ]]; then
 		rm -rf ~/."${file}".dotfiles.bak
-		cp -rL ~/."${file}" ~/."${file}".dotfiles.bak 2>/dev/null || true
+		cp -rL ~/."${file}" ~/."${file}".dotfiles.bak
 		rm -rf ~/."${file}"
 	fi
 

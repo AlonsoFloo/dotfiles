@@ -14,13 +14,13 @@ else
 fi
 cd "$HOME/dotfiles"
 
-echo "=== 2. Testing setup/setup.sh --quiet with pre-existing file and symlink backup ==="
+echo "=== 2. Testing setup.sh --quiet with pre-existing file and symlink backup ==="
 # Create pre-existing file and symlink in ~ to test .dotfiles.bak content copy
 echo "dummy_content" > "$HOME/dummy_target.txt"
 ln -sf "$HOME/dummy_target.txt" "$HOME/.bashrc"
 echo "custom_vimrc" > "$HOME/.vimrc"
 
-~/dotfiles/setup/setup.sh --quiet
+~/dotfiles/setup.sh --quiet
 
 if [ ! -f "$HOME/.bashrc.dotfiles.bak" ] || [ "$(cat "$HOME/.bashrc.dotfiles.bak")" != "dummy_content" ]; then
     echo "Backup of symlink .bashrc failed or did not copy actual file content!"
@@ -57,7 +57,7 @@ SYMLINKS=(
 
 for file in "${SYMLINKS[@]}"; do
     target=$(readlink ~/.${file} || true)
-    expected="$HOME/dotfiles/dotfiles/${file}"
+    expected="$HOME/dotfiles/src/${file}"
     if [ "$target" != "$expected" ]; then
         echo "Symlink ~/.${file} target invalid! Expected: $expected, Got: $target"
         exit 1
@@ -65,13 +65,13 @@ for file in "${SYMLINKS[@]}"; do
     echo "[OK] Symlink ~/.${file} points to $target"
 done
 
-echo "=== 5. Testing Untracked configuration ==="
+echo "=== 5. Testing Untracked configuration at repository root ==="
 # Initialize update timestamp to bypass interactive update prompt in tests
 current_day="$(($(date +%s) / 60 / 60 / 24))"
 echo "$current_day" > ~/.dotfiles-update
 
-mkdir -p ~/dotfiles/dotfiles/untracked
-echo "export TEST_UNTRACKED_VAR='untracked_works'" > ~/dotfiles/dotfiles/untracked/bashconfig
+mkdir -p ~/dotfiles/untracked
+echo "export TEST_UNTRACKED_VAR='untracked_works'" > ~/dotfiles/untracked/bashconfig
 
 # Run bash subshell to verify untracked sourcing
 BASH_UNTRACKED=$(PS1=1 bash -i -c "echo __START__; echo \$TEST_UNTRACKED_VAR" 2>/dev/null | grep -A 1 "__START__" | tail -n 1)
@@ -103,7 +103,7 @@ echo "[OK] Bash execution & aliases working."
 echo "=== 7. Testing Zsh configuration & plugins ==="
 if command -v zsh &>/dev/null; then
     ZSH_TEST=$(PROMPT=1 zsh -i -c "echo \$ZSH" 2>/dev/null | tail -n 1)
-    if [ "$ZSH_TEST" != "$HOME/dotfiles/dotfiles/zsh/oh-my-zsh" ]; then
+    if [ "$ZSH_TEST" != "$HOME/dotfiles/src/zsh/oh-my-zsh" ]; then
         echo "Zsh \$ZSH export incorrect! Got: '$ZSH_TEST'"
         exit 1
     fi
@@ -113,10 +113,10 @@ else
 fi
 
 echo "=== 8. Testing .config folder contents (Coverage check > 80%) ==="
-TOTAL_CONFIG_FILES=$(find ~/dotfiles/dotfiles/config -type f | wc -l)
+TOTAL_CONFIG_FILES=$(find ~/dotfiles/src/config -type f | wc -l)
 LINKED_CONFIG_FILES=$(find ~/.config/ -type f | wc -l)
 
-echo "Found $TOTAL_CONFIG_FILES total config files in dotfiles/config, $LINKED_CONFIG_FILES accessible via ~/.config"
+echo "Found $TOTAL_CONFIG_FILES total config files in src/config, $LINKED_CONFIG_FILES accessible via ~/.config"
 if [ "$TOTAL_CONFIG_FILES" -eq 0 ] || [ "$LINKED_CONFIG_FILES" -lt "$TOTAL_CONFIG_FILES" ]; then
     echo "Config coverage check failed! Total: $TOTAL_CONFIG_FILES, Linked: $LINKED_CONFIG_FILES"
     exit 1

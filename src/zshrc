@@ -1,0 +1,4 @@
+# Init dotfiles zsh/bash
+export DOTFILES_REPO=$HOME/dotfiles
+export DOTFILES=$HOME/dotfiles/src
+[ -r $DOTFILES/init ] && [ -f $DOTFILES/init ] && source $DOTFILES/init

@@ -38,7 +38,7 @@ Getting started is easy! Just follow these steps:
 1. **Run the setup script:**
 
    ```bash
-   ~/dotfiles/setup/setup.sh
+   ~/dotfiles/setup.sh
    ```
 
    The setup script is interactive and will ask if you want to use `sudo` for certain installation steps. If you decline, it will skip those steps or attempt a sudo-less installation where possible.
@@ -66,20 +66,20 @@ pre-commit install
 
 | Path                          | Description                                                                       |
 | ----------------------------- | --------------------------------------------------------------------------------- |
-| `.`                           | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
-| ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
-| ├── 📂 `.devcontainer/`       | Configuration for Visual Studio Code Devcontainers.                               |
-| ├── 📂 `.idx/`                | Configuration for Google Project IDX.                                             |
-| ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
-| ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
-| ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`              | Configuration files for other applications (e.g., OpenCode).                      |
-| ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
+| `.`                           | Repository root directory.                                                        |
+| ├── 📂 `src/`                 | Main configuration files like `.zshrc` (`.bashrc`/`.bash_profile` linked), etc.   |
+| │   ├── 📂 `agents/`          | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
+| │   ├── 📂 `bash/`            | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
+| │   ├── 📂 `zsh/`             | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
+| │   ├── 📂 `common/`          | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
+| │   ├── 📂 `config/`          | Configuration files for other applications (e.g., OpenCode).                      |
+| │   ├── 📂 `vim/`             | Vim-related files, such as color schemes.                                         |
+| │   ├── 📂 `ssh/`             | SSH client configuration.                                                         |
+| │   └── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                             |
 | ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
-| ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
+| │   └── 📄 `Brewfile`         | List of Homebrew packages to install on macOS.                                    |
 | ├── 📂 `untracked/`           | For private configurations, not tracked by Git (e.g., machine-specific settings). |
-| ├── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
-| ├── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
+| └── 📄 `setup.sh`             | Main setup script located at the root for easy execution.                         |
 
 ## 💻 Tested Platforms
 
@@ -107,12 +107,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## TODO
 
 - [] Rename the main branch to `main`
-- [x] Move all dotfiles into a root folder `dotfiles` leaving repo handling separated.
-  - Folder to be moved in `dotfiles`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh` (carefull, folder `zsh` contain git submodules that need to be moved with it)
-  - File to be moved `dotfiles`: `bash_logout`, `bash_profile`, `bashrc`, `gitconfig`, `init`, `vim`, `inputrc`, `vimrc`, `zlogout`, `zshrc`
-  - Submodule to be moved in `dotfiles`: `dircolor-solarized`
+- [x] Move all dotfiles into a root folder `src` leaving repo handling separated.
+  - Folder to be moved in `src`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh` (carefull, folder `zsh` contain git submodules that need to be moved with it)
+  - File to be moved `src`: `bash_logout`, `bash_profile`, `bashrc`, `gitconfig`, `init`, `vim`, `inputrc`, `vimrc`, `zlogout`, `zshrc`
+  - Submodule to be moved in `src`: `dircolor-solarized`
   - Updated all references of theses to use the new location
-- [x] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
+- [x] Move setup scripts into `setup` folder leaving repo handling separated (keep `setup.sh` at root for easy setup).
   - File to be moved `Brewfile`
   - Updated all references of theses to use the new location.
 - [] Create workflow that tests changes
