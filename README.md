@@ -12,7 +12,7 @@ Feel free to explore, get inspired, or even fork this repository to create your 
 - **Modular Structure:** Neatly organized into separate folders for easy management.
 - **Customizable Prompts:** Colorful and informative shell prompts.
 - **Helpful Aliases and Functions:** A collection of shortcuts and helper functions to speed up your workflow.
-- **Vim and Terminator Customization:** Personalized settings for a better user experience.
+- **Vim Customization:** Personalized settings for a better user experience.
 - **Automated Setup:** A simple setup script with sudo-less installation support to get you up and running quickly.
 - **Periodic Update Checks:** Automatic checks for dotfiles updates every 14 days to keep your environment current.
 - **macOS System Optimizations:** Pre-configured system defaults and keyboard shortcuts for a better development experience on macOS.
@@ -38,7 +38,7 @@ Getting started is easy! Just follow these steps:
 1. **Run the setup script:**
 
    ```bash
-   ~/dotfiles/setup.sh
+   ~/dotfiles/setup/setup.sh
    ```
 
    The setup script is interactive and will ask if you want to use `sudo` for certain installation steps. If you decline, it will skip those steps or attempt a sudo-less installation where possible.
@@ -73,7 +73,7 @@ pre-commit install
 | ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
 | ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
 | ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`              | Configuration files for other applications (e.g., Terminator).                    |
+| ├── 📂 `config/`              | Configuration files for other applications (e.g., OpenCode).                      |
 | ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
 | ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
 | ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
@@ -107,12 +107,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## TODO
 
 - [] Rename the main branch to `main`
-- [] Move all dotfiles into a root folder `dotfiles` leaving repo handling separated.
+- [x] Move all dotfiles into a root folder `dotfiles` leaving repo handling separated.
   - Folder to be moved in `dotfiles`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh` (carefull, folder `zsh` contain git submodules that need to be moved with it)
   - File to be moved `dotfiles`: `bash_logout`, `bash_profile`, `bashrc`, `gitconfig`, `init`, `vim`, `inputrc`, `vimrc`, `zlogout`, `zshrc`
   - Submodule to be moved in `dotfiles`: `dircolor-solarized`
   - Updated all references of theses to use the new location
-- [] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
+- [x] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
   - File to be moved `Brewfile`
   - Updated all references of theses to use the new location.
 - [] Create workflow that tests changes
