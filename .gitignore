@@ -2,7 +2,6 @@
 # Some configs
 # --------------------------------
 config/*
-!config/terminator/config
 !config/opencode/opencode.json
 
 # --------------------------------

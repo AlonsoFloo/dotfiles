@@ -12,7 +12,7 @@ Feel free to explore, get inspired, or even fork this repository to create your 
 - **Modular Structure:** Neatly organized into separate folders for easy management.
 - **Customizable Prompts:** Colorful and informative shell prompts.
 - **Helpful Aliases and Functions:** A collection of shortcuts and helper functions to speed up your workflow.
-- **Vim and Terminator Customization:** Personalized settings for a better user experience.
+- **Vim Customization:** Personalized settings for a better user experience.
 - **Automated Setup:** A simple setup script with sudo-less installation support to get you up and running quickly.
 - **Periodic Update Checks:** Automatic checks for dotfiles updates every 14 days to keep your environment current.
 - **macOS System Optimizations:** Pre-configured system defaults and keyboard shortcuts for a better development experience on macOS.
@@ -88,7 +88,7 @@ pre-commit install
 | ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
 | ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
 | ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`              | Configuration files for other applications (e.g., Terminator).                    |
+| ├── 📂 `config/`              | Configuration files for other applications (e.g., OpenCode).                      |
 | ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
 | ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
 | ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
