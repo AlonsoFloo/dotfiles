@@ -4,7 +4,7 @@ Welcome to my personal collection of dotfiles! This repository contains my shell
 
 Feel free to explore, get inspired, or even fork this repository to create your own personalized setup.
 
-______________________________________________________________________
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## ✨ Features
 
@@ -19,45 +19,13 @@ ______________________________________________________________________
 - **Cloud & Container Ready:** Out-of-the-box support for Google Project IDX and VS Code Devcontainers.
 - **Code Quality:** Integrated pre-commit hooks and Conventional Commits enforcement.
 
-______________________________________________________________________
+## Getting Started
 
-## 📂 Folder Structure
+### Prerequisites
 
-Here's a breakdown of the repository's structure:
+- None
 
-| Path                          | Description                                                                       |
-| ----------------------------- | --------------------------------------------------------------------------------- |
-| `.`                           | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
-| ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
-| ├── 📂 `.devcontainer/`       | Configuration for Visual Studio Code Devcontainers.                               |
-| ├── 📂 `.idx/`                | Configuration for Google Project IDX.                                             |
-| ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
-| ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
-| ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`              | Configuration files for other applications (e.g., Terminator).                    |
-| ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
-| ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
-| ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
-| ├── 📂 `untracked/`           | For private configurations, not tracked by Git (e.g., machine-specific settings). |
-| ├── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
-| ├── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
-
-______________________________________________________________________
-
-## 🔒 Untracked Configuration
-
-The `untracked/` directory is intentionally left out of version control, making it the perfect place to store sensitive or machine-specific information, such as:
-
-- **SSH configurations** with private host details.
-- **Shell settings** with environment variables or secrets.
-
-For example, you can create a `bashconfig` or `sshconfig` file inside the `untracked/` directory to define private aliases, functions, or SSH hosts. These files will be automatically sourced, so you can easily extend the dotfiles without committing personal data to the repository.
-
-______________________________________________________________________
-
-## ⚙️ Installation
-
-### Standard
+### Installation
 
 Getting started is easy! Just follow these steps:
 
@@ -77,11 +45,7 @@ Getting started is easy! Just follow these steps:
 
 And you're all set! The script will create the necessary symbolic links to get everything working.
 
-### Automatic Updates
-
-The dotfiles are configured to periodically check for updates. Every 14 days, when you start your shell, you will be prompted to update your dotfiles. If you choose to update, it will automatically pull the latest changes and re-run the setup script.
-
-### Custom
+### Custom installation
 
 1. **Clone the repository:**
 
@@ -96,33 +60,43 @@ The dotfiles are configured to periodically check for updates. Every 14 days, wh
    - bash_profile
    - zshrc
 
-## pre-commit Hooks
+### Untracked Configuration
 
-This repository uses `pre-commit` to enforce code quality and consistency. The pre-commit hooks are configured in the `.pre-commit-config.yaml` file and are run automatically before each commit.
+The `untracked/` directory is intentionally left out of version control, making it the perfect place to store sensitive or machine-specific information, such as:
 
-To use the pre-commit hooks, you need to install `pre-commit` on your local
-machine. The setup script will do this for you, but if you need to do it
-manually, you can use Homebrew on macOS:
+- **SSH configurations** with private host details.
+- **Shell settings** with environment variables or secrets.
 
-```bash
-brew install pre-commit
-```
+For example, you can create a `bashconfig` or `sshconfig` file inside the `untracked/` directory to define private aliases, functions, or SSH hosts. These files will be automatically sourced, so you can easily extend the dotfiles without committing personal data to the repository.
 
-Once `pre-commit` is installed, you need to install the git hooks:
+### Contribution setup (CONTRIBUTOR ONLY)
+
+When working on this repository a few setup are required, you need to run:
 
 ```bash
 pre-commit install
 ```
 
-Now, the pre-commit hooks will run automatically every time you make a commit.
+## 📂 Repository Structure
 
-## Conventional Commits
+| Path                          | Description                                                                       |
+| ----------------------------- | --------------------------------------------------------------------------------- |
+| `.`                           | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
+| ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
+| ├── 📂 `.devcontainer/`       | Configuration for Visual Studio Code Devcontainers.                               |
+| ├── 📂 `.idx/`                | Configuration for Google Project IDX.                                             |
+| ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
+| ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
+| ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
+| ├── 📂 `config/`              | Configuration files for other applications (e.g., Terminator).                    |
+| ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
+| ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
+| ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
+| ├── 📂 `untracked/`           | For private configurations, not tracked by Git (e.g., machine-specific settings). |
+| ├── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
+| ├── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
 
-This repository follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for commit messages. This is enforced by a pre-commit hook and a GitHub Actions workflow to maintain a clear and readable project history.
-
-______________________________________________________________________
-
-## 💻 Supported Platforms
+## 💻 Tested Platforms
 
 These dotfiles have been tested on the following platforms:
 
@@ -131,8 +105,18 @@ These dotfiles have been tested on the following platforms:
 - Devcontainer (Debian Bullseye)
 - Google Project IDX
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## License
+
+[MIT](LICENSE)
+
+## References
+
+- OhMyZsh : [https://github.com/ohmyzsh/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+- ZSH syntax Highlighting : [https://github.com/zsh/zsh-syntax-highlighting](https://github.com/zsh/zsh-syntax-highlighting)
+- Dircolor solarized : [https://github.com/seebi/dircolors-solarized](https://github.com/seebi/dircolors-solarized)
+
 ______________________________________________________________________
-
-## 🤝 Contributing
-
-Pull requests are welcome! If you have any improvements or suggestions, feel free to submit a pull request. However, please ensure that your contributions do not contain any personal or sensitive data.
