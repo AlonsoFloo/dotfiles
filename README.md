@@ -124,14 +124,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
    rm -rf zsh
    rm -rf dircolors-solarized
+   mv ssh/* src/ssh
+   mv config/* src/config
    ```
 
 1. **Move config if needed**
 
-   - Move back the files from old `config` in `src/config`
-   - `rm -rf config`
+   - If you have some config, you can remove them `rm -rf config`
    - If rm `agents` contain only skills `rm -rf agents`
-   - If you have some ssh config, `mv ssh/* src/ssh` then `rm -rf ssh`
+   - If you have some ssh config, you can remove them `rm -rf ssh`
 
 1. **Re-run the setup script to refresh all home directory symlinks and backups:**
 
