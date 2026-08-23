@@ -118,4 +118,21 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 - [] Create workflow that tests changes
 - [] Remove terminator configuration
 
+## Migration 2026 of folders
+
+1. **Pull the latest changes and update git submodules:**
+
+   ```bash
+   cd ~/dotfiles
+   git pull origin master
+   git submodule sync --recursive
+   git submodule update --init --recursive
+   ```
+
+1. **Re-run the setup script to refresh all home directory symlinks and backups:**
+
+   ```bash
+   ~/dotfiles/setup.sh
+   ```
+
 ______________________________________________________________________
