@@ -66,6 +66,7 @@
     "grep": "allow",
     "list": "allow",
     "bash": {
+      "*": "ask",
       "rm -r*": "deny",
       "sudo *": "ask",
       "chown *": "deny",
@@ -123,8 +124,7 @@
       "pre-commit": "allow",
       "pre-commit *": "allow",
       "pre-commit run": "allow",
-      "pre-commit run *": "allow",
-      "*": "ask"
+      "pre-commit run *": "allow"
     },
     "task": "allow",
     "external_directory": "ask",
