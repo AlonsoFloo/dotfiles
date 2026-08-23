@@ -110,6 +110,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Migration 2026 of folders
 
+1. **Pre-requisite**
+
+   - Check if your folder `config` have untracked files or folder. backup them
+
 1. **Pull the latest changes and update git submodules:**
 
    ```bash
@@ -117,7 +121,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
    git pull origin master
    git submodule sync --recursive
    git submodule update --init --recursive
+
+   rm -rf zsh
+   rm -rf dircolors-solarized
    ```
+
+1. **Move config if needed**
+
+   - Move back the files from old `config` in `src/config`
+   - `rm -rf config`
+   - If rm `agents` contain only skills `rm -rf agents`
+   - If you have some ssh config, `mv ssh/* src/ssh` then `rm -rf ssh`
 
 1. **Re-run the setup script to refresh all home directory symlinks and backups:**
 
