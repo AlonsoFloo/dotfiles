@@ -1,12 +1,9 @@
 [submodule "src/zsh/zsh-syntax-highlighting"]
 	path = src/zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-    branch = master
 [submodule "src/zsh/oh-my-zsh"]
 	path = src/zsh/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-    branch = master
 [submodule "src/dircolors-solarized"]
 	path = src/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
-    branch = master
