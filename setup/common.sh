@@ -29,10 +29,10 @@ for file in "${DOTFILE_PATH}"{bash_logout,bashrc,bash_profile,zshrc,zlogout,inpu
 		cp -rn ~/."${file}"/* "${DOTFILE_PATH}""${file}"/
 	fi
 
-	if [[ -h ~/."${file}" ]]; then
-		rm -f ~/."${file}"
-	elif [[ -e ~/."${file}" ]]; then
-		mv ~/."${file}" ~/."${file}".dotfiles.bak
+	if [[ -e ~/."${file}" ]] || [[ -h ~/."${file}" ]]; then
+		rm -rf ~/."${file}".dotfiles.bak
+		cp -rL ~/."${file}" ~/."${file}".dotfiles.bak
+		rm -rf ~/."${file}"
 	fi
 
 	ln -sf "${DOTFILE_PATH}""${file}" ~/."${file}"

@@ -12,8 +12,8 @@ if [[ "$(which brew)" ]]; then
 		brew update
 		brew upgrade
 
-		# Check BrewFile at root folder
-		brew bundle check || brew bundle install
+		# Check BrewFile in setup folder
+		brew bundle check --file="${DOTFILES_REPO}/setup/Brewfile" || brew bundle --file="${DOTFILES_REPO}/setup/Brewfile" install
 	else
 		echo "Sudo is disabled. Skipping Homebrew update/upgrade/bundle."
 	fi

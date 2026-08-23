@@ -7,8 +7,6 @@
 brew "curl"
 # Convert source code to formatted text with syntax highlighting
 brew "highlight"
-# Vulnerability scanner for container images and filesystems
-brew "grype"
 # Vulnerability scanner for container images, file systems, and Git repos
 brew "trivy"
 # Framework for managing multi-language pre-commit hooks
@@ -17,7 +15,8 @@ brew "pre-commit"
 brew "ruby"
 # Tool to enforce Swift style and conventions
 brew "swiftlint"
+# Python
+brew "python3"
 
 # Agent Package Manager
-tap "microsoft/apm"
-brew "microsoft/apm/apm"
+brew "apm"

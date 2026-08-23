@@ -12,7 +12,7 @@ Feel free to explore, get inspired, or even fork this repository to create your 
 - **Modular Structure:** Neatly organized into separate folders for easy management.
 - **Customizable Prompts:** Colorful and informative shell prompts.
 - **Helpful Aliases and Functions:** A collection of shortcuts and helper functions to speed up your workflow.
-- **Vim and Terminator Customization:** Personalized settings for a better user experience.
+- **Vim Customization:** Personalized settings for a better user experience.
 - **Automated Setup:** A simple setup script with sudo-less installation support to get you up and running quickly.
 - **Periodic Update Checks:** Automatic checks for dotfiles updates every 14 days to keep your environment current.
 - **macOS System Optimizations:** Pre-configured system defaults and keyboard shortcuts for a better development experience on macOS.
@@ -64,22 +64,22 @@ pre-commit install
 
 ## 📂 Repository Structure
 
-| Path                          | Description                                                                       |
-| ----------------------------- | --------------------------------------------------------------------------------- |
-| `.`                           | Main configuration files like `.bash_profile`, `.zshrc`, `.vimrc`, etc.           |
-| ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
-| ├── 📂 `.devcontainer/`       | Configuration for Visual Studio Code Devcontainers.                               |
-| ├── 📂 `.idx/`                | Configuration for Google Project IDX.                                             |
-| ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
-| ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
-| ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
-| ├── 📂 `config/`              | Configuration files for other applications (e.g., Terminator).                    |
-| ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
-| ├── 📂 `setup/`               | Scripts for setting up the dotfiles on different operating systems.               |
-| ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
-| ├── 📂 `untracked/`           | For private configurations, not tracked by Git (e.g., machine-specific settings). |
-| ├── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
-| ├── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
+| Path                            | Description                                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------- |
+| `.`                             | Repository root directory.                                                        |
+| ├── 📂 `src/`                   | Main configuration files like `.zshrc` (`.bashrc`/`.bash_profile` linked), etc.   |
+| │ ├── 📂 `agents/`              | Base configuration (`config.json`), system prompts, and APM skills for AI agents. |
+| │ ├── 📂 `bash/`                | `bash`-specific configurations, including prompt, colors, and auto-completion.    |
+| │ ├── 📂 `zsh/`                 | `zsh`-specific configurations, leveraging Oh My Zsh for plugins and themes.       |
+| │ ├── 📂 `common/`              | Shared configurations between `bash` and `zsh` (aliases, functions, exports).     |
+| │ ├── 📂 `config/`              | Configuration files for other applications (e.g., OpenCode).                      |
+| │ ├── 📂 `vim/`                 | Vim-related files, such as color schemes.                                         |
+| │ ├── 📂 `ssh/`                 | SSH client configuration.                                                         |
+| │ └── 📂 `dircolors-solarized/` | Solarized color schemes for `ls`.                                                 |
+| ├── 📂 `setup/`                 | Scripts for setting up the dotfiles on different operating systems.               |
+| │ └── 📄 `Brewfile`             | List of Homebrew packages to install on macOS.                                    |
+| ├── 📂 `untracked/`             | For private configurations, not tracked by Git (e.g., machine-specific settings). |
+| └── 📄 `setup.sh`               | Main setup script located at the root for easy execution.                         |
 
 ## 💻 Tested Platforms
 
@@ -107,15 +107,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## TODO
 
 - [] Rename the main branch to `main`
-- [] Move all dotfiles into a root folder `dotfiles` leaving repo handling separated.
-  - Folder to be moved in `dotfiles`: `agents`, `bash`, `common`, `config`, `ssh`, `vim`, `zsh` (carefull, folder `zsh` contain git submodules that need to be moved with it)
-  - File to be moved `dotfiles`: `bash_logout`, `bash_profile`, `bashrc`, `gitconfig`, `init`, `vim`, `inputrc`, `vimrc`, `zlogout`, `zshrc`
-  - Submodule to be moved in `dotfiles`: `dircolor-solarized`
-  - Updated all references of theses to use the new location
-- [] Move all setup files and folder into a root folder `setup` leaving repo handling separated.
-  - File to be moved `Brewfile`
-  - Updated all references of theses to use the new location.
-- [] Create workflow that tests changes
-- [] Remove terminator configuration
+
+## Migration 2026 of folders
+
+1. **Pull the latest changes and update git submodules:**
+
+   ```bash
+   cd ~/dotfiles
+   git pull origin master
+   git submodule sync --recursive
+   git submodule update --init --recursive
+   ```
+
+1. **Re-run the setup script to refresh all home directory symlinks and backups:**
+
+   ```bash
+   ~/dotfiles/setup.sh
+   ```
 
 ______________________________________________________________________
