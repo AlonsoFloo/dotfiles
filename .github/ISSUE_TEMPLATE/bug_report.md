@@ -1,0 +1,26 @@
+---
+name: Bug Report
+about: Create a report to help us improve
+title: 'fix: '
+labels: bug
+---
+
+## Description
+
+A clear and concise description of the bug.
+
+## Steps to Reproduce
+
+1.
+1.
+1.
+
+Actual behavior:
+
+## Expected Behavior
+
+A description of what you expected to happen.
+
+## Additional Context
+
+Add any other context or screenshots about the problem here.
