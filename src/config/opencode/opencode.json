@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
+  "providers": {
     "openrouter": {
       "whitelist": [
         "nvidia/nemotron-3-ultra-550b-a55b:free"
@@ -21,16 +21,10 @@
     "google",
     "opencode"
   ],
-  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "model": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+  "autoupdate": true,
   "share": "disabled",
-  "autoCommit": false,
   "snapshots": true,
-  "max_read_size": 100000,
-  "max_line_length": 2000,
-  "auto_resize": true,
-  "max_width": 1080,
-  "max_height": 1920,
-  "max_base64_bytes": 2000000,
   "watcher": {
     "ignore": [
       "node_modules/**",
@@ -46,97 +40,262 @@
       ".swiftpm/**"
     ]
   },
-  "permission": {
-    "read": {
-      "*.env": "deny",
-      "**/*.env.*": "deny",
-      "secrets/*": "deny",
-      "**/*.pem": "deny",
-      "**/*.key": "deny",
-      ".git/*": "deny",
-      "*.sqlite": "deny",
-      "*.db": "deny",
-      "**/*.tfstate": "deny",
-      "**/*.tfvars": "deny",
-      "**/.keystore": "deny",
-      "*": "allow"
+  "tool_output": {
+    "max_lines": 2000,
+    "max_bytes": 100000
+  },
+  "media": {
+    "image": {
+      "auto_resize": true,
+      "max_width": 1080,
+      "max_height": 1920,
+      "max_base64_bytes": 2000000
+    }
+  },
+  "permissions": [
+    {
+      "action": "read",
+      "resource": "*.env",
+      "effect": "deny"
     },
-    "edit": "ask",
-    "glob": "allow",
-    "grep": "allow",
-    "list": "allow",
-    "bash": {
-      "*": "ask",
-      "rm -r*": "deny",
-      "sudo *": "ask",
-      "chown *": "deny",
-      "chmod *": "deny",
-      "mkfs*": "deny",
-      "npm test": "allow",
-      "npm test *": "allow",
-      "npm run": "allow",
-      "npm run *": "allow",
-      "gradlew": "allow",
-      "gradlew *": "allow",
-      "./gradlew": "allow",
-      "./gradlew *": "allow",
-      "mvn": "allow",
-      "mvn *": "allow",
-      "make": "allow",
-      "make *": "allow",
-      "cargo test": "allow",
-      "cargo test *": "allow",
-      "cat": "allow",
-      "cat *": "allow",
-      "tail": "allow",
-      "tail *": "allow",
-      "head": "allow",
-      "head *": "allow",
-      "ls": "allow",
-      "ls *": "allow",
-      "ls -la": "allow",
-      "ls -la *": "allow",
-      "tree": "allow",
-      "tree *": "allow",
-      "pwd": "allow",
-      "aws": "allow",
-      "aws *": "allow",
-      "mv *": "ask",
-      "cp *": "ask",
-      "rm": "ask",
-      "rm *": "ask",
-      "grep": "allow",
-      "grep *": "allow",
-      "find": "allow",
-      "find *": "allow",
-      "git status": "allow",
-      "git status *": "allow",
-      "git diff": "allow",
-      "git diff *": "allow",
-      "git log": "allow",
-      "git log *": "allow",
-      "git show": "allow",
-      "git show *": "allow",
-      "git branch": "allow",
-      "git branch *": "allow",
-      "git rev-parse": "allow",
-      "git rev-parse *": "allow",
-      "pre-commit": "allow",
-      "pre-commit *": "allow",
-      "pre-commit run": "allow",
-      "pre-commit run *": "allow"
+    {
+      "action": "read",
+      "resource": "*.env.*",
+      "effect": "deny"
     },
-    "task": "allow",
-    "external_directory": "ask",
-    "webfetch": "allow",
-    "websearch": "allow",
-    "codesearch": "allow",
-    "todowrite": "allow",
-    "todoread": "allow",
-    "question": "allow",
-    "skill": "allow",
-    "lsp": "allow",
-    "doom_loop": "ask",
-    "mymcp_*": "ask"
-  }
+    {
+      "action": "read",
+      "resource": "secrets/*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "**/*.pem",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "**/*.key",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "**/*.keystore",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "**/*.tfstate",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "**/*.tfvars",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": ".git/*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "pwd",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "ls *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tree *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "cat *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "head *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tail *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "grep *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "find *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git log *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git show *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git branch *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git rev-parse *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "npm test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "npm run *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gradlew *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "./gradlew *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "mvn *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "make *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "cargo test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "pre-commit *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "rm *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "mv *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "cp *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "sudo *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "rm -r*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "chown *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "chmod *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "mkfs*",
+      "effect": "deny"
+    },
+    {
+      "action": "subagent",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "webfetch",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "websearch",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "question",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "lsp",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "todowrite",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "codesearch",
+      "resource": "*",
+      "effect": "allow"
+    }
+  ],
+  "codesearch": "allow",
+  "todowrite": "allow",
+  "todoread": "allow",
+  "doom_loop": "ask"
 }
