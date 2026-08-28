@@ -12,16 +12,25 @@
         "maxRetries": 10,
         "retryDelay": 5000
       }
+    },
+    "google": {
+      "package": "@opencode-ai/ai/providers/google",
+      "env": ["GOOGLE_GENERATIVE_AI_API_KEY"],
+      "models": {
+        "gemini-3.1-flash-lite": {
+          "name": "FREE. Gemini 3.1 Flash Lite"
+        }
+      }
     }
   },
+  "enabled_providers": ["openrouter", "google"],
   "disabled_providers": [
     "openai",
-    "gemini",
     "anthropic",
-    "google",
+    "gemini",
     "opencode"
   ],
-  "model": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
   "autoupdate": true,
   "share": "disabled",
   "snapshots": true,
