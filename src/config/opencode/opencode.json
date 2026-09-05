@@ -20,6 +20,10 @@
         "gemini-3.1-flash-lite": {
           "name": "FREE. Gemini 3.1 Flash Lite"
         }
+      },
+      "options": {
+        "maxRetries": 10,
+        "retryDelay": 20000
       }
     }
   },
