@@ -1,7 +1,7 @@
 [alias]
 	st = status
 	br = branch
-	unstage = reset HEAD --
+	unstage = restore --staged
 	graph = log --graph --decorate --oneline
 	graphfull = log --graph --decorate --oneline --all
 	# Perform a blame but with depth in the history to ignore, replace, creation, copy, etc..
@@ -10,8 +10,6 @@
 	filelog = log -u
 	# Search branch by name
 	sbranch = "!git branch -a | grep"
-	# See te details of a commit
-	commit-details = diff-tree -p
 	# See te details of a commit
 	commit-details = diff-tree -p
 	# Show changes that have been staged
@@ -24,6 +22,11 @@
 	offline = "!git fetch --all && for branch in `git branch -r | cut -s -d '/' -f2- | grep -v HEAD | grep -v remote | grep -v origin` ; do echo -e '\n\n\n-----START BRANCH-----' && git checkout $branch && git pull origin $branch && git status && echo '-----FINISH BRANCH-----' ; done"
 	#Clean old branches removed from remote
 	clean-old-branches = "!git fetch && git remote prune origin && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
+    # Squash all commits since the base branch into a single commit
+    # Usage implicit main: git squash-base
+    # Usage explicit base: git squash-base <base-branch>
+    # Usage with commit message: git squash-base <base-branch> -m "Commit message"
+	squash-base = "!f() { base=\"main\"; if [ $# -gt 0 ] && ! echo \"$1\" | grep -q '^-'; then base=\"$1\"; shift; fi; git reset $(git merge-base \"$base\" HEAD) && git add -A && git commit \"$@\"; }; f"
 
 [color]
 	ui = true
@@ -54,6 +57,7 @@
 [rerere]
 	# Persist previous conflict resolutions
 	enabled = true
+    autoUpdate = true
 
 [include]
     path = ~/dotfiles/untracked/gitconfig
