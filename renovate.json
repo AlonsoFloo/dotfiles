@@ -13,6 +13,7 @@
     "recreateWhen": "auto",
     "minimumReleaseAge": "10 days",
     "internalChecksFilter": "strict",
+    "semanticCommits": "enabled",
     "rebaseWhen": "behind-base-branch",
     "schedule": "on monday before 5:00pm",
     "timezone": "UTC",
@@ -27,10 +28,41 @@
     "git-submodules": {
         "enabled": true
     },
-    "packageRules": [
-        {
-            "matchManagers": ["pre-commit"],
-            "pinDigests": false
+    "apm": {
+        "enabled": true,
+        "lockFileMaintenance": {
+            "enabled": false
         }
+    },
+    "npm": {
+        "lockFileMaintenance": {
+            "enabled": false
+        }
+    },
+    "vulnerabilityAlerts": {
+      "enabled": true
+    },
+    "packageRules": [
+      {
+        "matchManagers": ["pre-commit"],
+        "pinDigests": false
+      },
+      {
+        "matchUpdateTypes": ["patch"],
+        "matchManagers": ["npm", "pip", "dockerfile"],
+        "automerge": true,
+        "automergeType": "pr"
+      },
+      {
+        "matchManagers": ["github-actions", "pre-commit", "apm"],
+        "matchUpdateTypes": ["minor", "patch"],
+        "automerge": true,
+        "automergeType": "pr"
+      },
+      {
+        "matchManagers": ["apm"],
+        "automerge": true,
+        "groupName": "APM dependencies"
+      }
     ]
 }
