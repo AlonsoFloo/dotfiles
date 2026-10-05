@@ -2,6 +2,7 @@
 # Some configs
 # --------------------------------
 src/config/*
+!src/config/.gitkeep
 !src/config/opencode/opencode.json
 
 # --------------------------------
