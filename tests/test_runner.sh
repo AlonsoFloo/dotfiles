@@ -113,6 +113,11 @@ else
 fi
 
 echo "=== 8. Testing .config folder contents (Coverage check > 80%) ==="
+if [ ! -d ~/dotfiles/src/config ]; then
+    echo "Config directory ~/dotfiles/src/config does not exist!"
+    exit 1
+fi
+
 TOTAL_CONFIG_FILES=$(find ~/dotfiles/src/config -type f | wc -l)
 LINKED_CONFIG_FILES=$(find ~/.config/ -type f | wc -l)
 
