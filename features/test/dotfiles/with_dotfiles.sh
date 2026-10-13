@@ -5,7 +5,7 @@ set -e
 # shellcheck source=/dev/null
 source dev-container-features-test-lib
 
-check "host gitconfig is forwarded" test -L /usr/local/share/dotfiles-forward/active/gitconfig
+check "host gitconfig is mounted" test -f /usr/local/share/dotfiles-untracked/gitconfig
 check "git identity name" bash -c "[ \"\$(git config user.name)\" = 'Feature Test' ]"
 check "git identity email" bash -c "[ \"\$(git config user.email)\" = 'feature-test@example.com' ]"
 check "commit uses the identity" bash -c "cd \"\$(mktemp -d)\" && git init -q && git commit -q --allow-empty -m test && [ \"\$(git log -1 --format=%ae)\" = 'feature-test@example.com' ]"

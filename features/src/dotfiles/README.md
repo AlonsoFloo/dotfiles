@@ -16,16 +16,15 @@ Add it to every container you build, in your VS Code **user** settings:
 
 The dotfiles keep private settings in `~/dotfiles/untracked` (`gitconfig` with `[user]`, `sshconfig`), which VS Code does not bring into the container. The dotfiles `bashrc`/`zshrc` export its path as `DOTFILES_UNTRACKED`, and the Feature:
 
-- bind mounts `${localEnv:DOTFILES_UNTRACKED}` to `/usr/local/share/dotfiles-forward/host`;
-- at each start, links its `gitconfig` and `sshconfig`, when present, into `/usr/local/share/dotfiles-forward/active`;
-- includes that `gitconfig` from the system git config, so the git identity is set even if `~/.gitconfig` changes (`~/.gitconfig` still wins);
-- includes that `sshconfig` from `/etc/ssh/ssh_config.d/dotfiles.conf` for private SSH hosts.
+- bind mounts `${localEnv:DOTFILES_UNTRACKED}` to `/usr/local/share/dotfiles-untracked`;
+- includes its `gitconfig` from the system git config, so the git identity is set even if `~/.gitconfig` changes (`~/.gitconfig` still wins);
+- includes its `sshconfig` from `/etc/ssh/ssh_config.d/dotfiles.conf` for private SSH hosts.
 
-Private keys are never copied: SSH uses the agent VS Code forwards from the host.
+Private keys are never copied: SSH uses the agent VS Code forwards from the host. A missing `gitconfig` or `sshconfig` is ignored by git and ssh.
 
 ## Host without dotfiles
 
-When `DOTFILES_UNTRACKED` is not set on the host, the mount falls back to `/var/tmp` (exists on macOS and Linux, so Docker never refuses it), no `gitconfig`/`sshconfig` is found there, and nothing is forwarded. The container is created normally.
+When `DOTFILES_UNTRACKED` is not set on the host, the mount falls back to `/var/tmp` (exists on macOS and Linux, so Docker never refuses it). There is no `gitconfig`/`sshconfig` there, so nothing is forwarded and the container is created normally.
 
 ## Requirements
 

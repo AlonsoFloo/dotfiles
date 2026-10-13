@@ -7,11 +7,10 @@
   "mounts": [
     {
       "source": "${localEnv:DOTFILES_UNTRACKED:/var/tmp}",
-      "target": "/usr/local/share/dotfiles-forward/host",
+      "target": "/usr/local/share/dotfiles-untracked",
       "type": "bind"
     }
   ],
-  "postStartCommand": "/usr/local/share/dotfiles-forward/link.sh",
   "installsAfter": [
     "ghcr.io/devcontainers/features/git",
     "ghcr.io/devcontainers/features/common-utils"

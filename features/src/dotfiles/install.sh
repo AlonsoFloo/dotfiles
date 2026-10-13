@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
 # Dev container Feature: forwards the host git and SSH config of these dotfiles.
-# Runs as root at image build time and only wires git and ssh to stable paths
-# under ${FORWARD_DIR}/active. link.sh fills them at container start, when the
-# host untracked/ folder is mounted, or leaves them empty on a host without dotfiles.
-# git ignores a missing include and ssh a missing Include, so empty is harmless.
+# Runs as root at image build time. The host untracked/ folder is only mounted at
+# runtime (falling back to /var/tmp on a host without dotfiles), so git and ssh
+# include files from the mount by path. A missing file is ignored by both
+# (git skips a missing include, ssh a missing Include), so nothing to do at start.
 set -euo pipefail
 
-FORWARD_DIR="/usr/local/share/dotfiles-forward"
-USERNAME="${_REMOTE_USER:-root}"
-
-mkdir -p "${FORWARD_DIR}/active"
-install -m 0755 "$(dirname "$0")/link.sh" "${FORWARD_DIR}/link.sh"
-chown "${USERNAME}:" "${FORWARD_DIR}/active"
+UNTRACKED_MOUNT="/usr/local/share/dotfiles-untracked"
 
 # Git identity at system level: survives anything rewriting ~/.gitconfig, and
 # ~/.gitconfig (copied from the host by VS Code) still takes precedence.
 # Written by hand when git is not installed yet (it may come later in the build).
 if command -v git >/dev/null 2>&1; then
-	git config --system --add include.path "${FORWARD_DIR}/active/gitconfig"
+	git config --system --add include.path "${UNTRACKED_MOUNT}/gitconfig"
 else
-	printf '[include]\n\tpath = %s\n' "${FORWARD_DIR}/active/gitconfig" >>/etc/gitconfig
+	printf '[include]\n\tpath = %s\n' "${UNTRACKED_MOUNT}/gitconfig" >>/etc/gitconfig
 fi
 
 # Private SSH hosts. Keys are never copied: ssh uses the agent VS Code forwards.
 mkdir -p /etc/ssh/ssh_config.d
-echo "Include ${FORWARD_DIR}/active/sshconfig" >/etc/ssh/ssh_config.d/dotfiles.conf
+echo "Include ${UNTRACKED_MOUNT}/sshconfig" >/etc/ssh/ssh_config.d/dotfiles.conf
