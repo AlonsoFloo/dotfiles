@@ -1,58 +1,31 @@
 #!/usr/bin/env bash
-# Dev container Feature: installs these dotfiles for the container's remote user.
-# Runs as root at image build time; the host ~/dotfiles/untracked is only
-# mounted at runtime, so its files are linked here and resolve once started.
+# Dev container Feature: forwards the host git and SSH config of these dotfiles.
+# Runs as root at image build time. The host ~/dotfiles/untracked is bind mounted
+# at runtime only, so everything below points at the mount and resolves on start.
+# Missing files are fine: git ignores a missing include and ssh a missing Include.
 set -euo pipefail
 
-REPOSITORY="${REPOSITORY:-https://github.com/AlonsoFloo/dotfiles.git}"
-BRANCH="${BRANCH:-master}"
-DEFAULTSHELL="${DEFAULTSHELL:-zsh}"
-
+UNTRACKED_MOUNT="/usr/local/share/dotfiles-untracked"
 USERNAME="${_REMOTE_USER:-root}"
 USER_HOME="${_REMOTE_USER_HOME:-$(getent passwd "${USERNAME}" | cut -d: -f6)}"
-TARGET="${USER_HOME}/dotfiles"
-UNTRACKED_MOUNT="/usr/local/share/dotfiles-untracked"
 
-# Packages the dotfiles rely on
-missing_packages=()
-for package in git zsh; do
-	command -v "${package}" >/dev/null 2>&1 || missing_packages+=("${package}")
-done
-if [[ ${#missing_packages[@]} -gt 0 ]]; then
-	if ! command -v apt-get >/dev/null 2>&1; then
-		echo "(!) Missing ${missing_packages[*]} and apt-get is not available" >&2
-		exit 1
-	fi
-	apt-get update -qq
-	DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates "${missing_packages[@]}"
-	rm -rf /var/lib/apt/lists/*
-fi
+# 1. Git identity. System level so it survives anything rewriting ~/.gitconfig;
+#    ~/.gitconfig (copied from the host by VS Code) still takes precedence.
+git config --system --add include.path "${UNTRACKED_MOUNT}/gitconfig"
 
-# Clone with submodules (oh-my-zsh, zsh-syntax-highlighting, dircolors)
-rm -rf "${TARGET}"
-git clone --depth 1 --branch "${BRANCH}" --recurse-submodules --shallow-submodules "${REPOSITORY}" "${TARGET}"
+# 2. Same path as on the host, so the `[include] path = ~/dotfiles/untracked/gitconfig`
+#    of the copied ~/.gitconfig and the `Include ~/dotfiles/untracked/sshconfig`
+#    of the dotfiles SSH config resolve too.
+mkdir -p "${USER_HOME}/dotfiles"
+ln -sfn "${UNTRACKED_MOUNT}" "${USER_HOME}/dotfiles/untracked"
+chown -h "${USERNAME}:" "${USER_HOME}/dotfiles" "${USER_HOME}/dotfiles/untracked"
 
-# Private host files (gitconfig identity, sshconfig, bashconfig), resolved at runtime
-for file in gitconfig sshconfig bashconfig; do
-	ln -sfn "${UNTRACKED_MOUNT}/${file}" "${TARGET}/untracked/${file}"
-done
+# 3. Private SSH hosts. Keys are never copied: ssh uses the agent VS Code forwards.
+mkdir -p /etc/ssh/ssh_config.d
+echo "Include ${UNTRACKED_MOUNT}/sshconfig" >/etc/ssh/ssh_config.d/dotfiles.conf
 
-chown -R "${USERNAME}:" "${TARGET}"
-
-# Link the dotfiles as the user, without sudo and without the interactive prompt
-su "${USERNAME}" -s /bin/bash -c "cd '${TARGET}' && USE_SUDO_PROMPTED=yes USE_SUDO=no ./setup.sh --quiet"
-
-# A fresh install is up to date: do not ask to update on the first shell
-echo "$(($(date +%s) / 60 / 60 / 24))" >"${USER_HOME}/.dotfiles-update"
-chown "${USERNAME}:" "${USER_HOME}/.dotfiles-update"
-
-# Login shell
-shell_path="$(command -v "${DEFAULTSHELL}")"
-chsh -s "${shell_path}" "${USERNAME}"
-
-# GitHub SSH host keys (https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
+# 4. GitHub SSH host keys (https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
 known_hosts="/etc/ssh/ssh_known_hosts"
-mkdir -p "$(dirname "${known_hosts}")"
 if ! grep -qs "^github.com ssh-ed25519 " "${known_hosts}"; then
 	cat >>"${known_hosts}" <<'KEYS'
 github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
@@ -61,4 +34,4 @@ github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+V
 KEYS
 fi
 
-echo "Dotfiles installed in ${TARGET} for ${USERNAME}"
+echo "Dotfiles git and SSH forwarding configured for ${USERNAME}"

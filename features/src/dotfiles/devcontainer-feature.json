@@ -1,35 +1,14 @@
 {
   "id": "dotfiles",
   "version": "1.0.0",
-  "name": "AlonsoFloo dotfiles",
-  "description": "Installs AlonsoFloo/dotfiles (zsh, Oh My Zsh, git and ssh config) for the container user, and mounts the host ~/dotfiles/untracked so the git identity and private SSH config work as on the host.",
+  "name": "AlonsoFloo dotfiles forwarding",
+  "description": "Forwards the host git identity and SSH config kept in ~/dotfiles/untracked into the container, so commit and push work as on the host. Does not install the dotfiles.",
   "documentationURL": "https://github.com/AlonsoFloo/dotfiles/tree/master/features/src/dotfiles",
-  "options": {
-    "repository": {
-      "type": "string",
-      "default": "https://github.com/AlonsoFloo/dotfiles.git",
-      "description": "Dotfiles repository to clone."
-    },
-    "branch": {
-      "type": "string",
-      "default": "master",
-      "description": "Branch to clone."
-    },
-    "defaultShell": {
-      "type": "string",
-      "enum": ["zsh", "bash"],
-      "default": "zsh",
-      "description": "Login shell for the container user."
-    }
-  },
   "mounts": [
     {
       "source": "${localEnv:HOME}/dotfiles/untracked",
       "target": "/usr/local/share/dotfiles-untracked",
       "type": "bind"
     }
-  ],
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
   ]
 }
