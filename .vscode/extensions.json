@@ -1,7 +1,6 @@
 {
     "recommendations": [
         "editorconfig.editorconfig",
-        "ms-vscode-remote.remote-containers",
         "ms-azuretools.vscode-containers",
         "bierner.markdown-mermaid",
         "bpruitt-goddard.mermaid-markdown-syntax-highlighting",

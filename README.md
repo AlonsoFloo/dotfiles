@@ -16,7 +16,7 @@ Feel free to explore, get inspired, or even fork this repository to create your 
 - **Automated Setup:** A simple setup script with sudo-less installation support to get you up and running quickly.
 - **Periodic Update Checks:** Automatic checks for dotfiles updates every 14 days to keep your environment current.
 - **macOS System Optimizations:** Pre-configured system defaults and keyboard shortcuts for a better development experience on macOS.
-- **Cloud & Container Ready:** Out-of-the-box support for Google Project IDX and VS Code Devcontainers.
+- **Cloud Ready:** Out-of-the-box support for Google Project IDX.
 - **Code Quality:** Integrated pre-commit hooks and Conventional Commits enforcement.
 
 ## Getting Started
@@ -87,7 +87,6 @@ These dotfiles have been tested on the following platforms:
 
 - macOS
 - Linux (Ubuntu, Debian)
-- Devcontainer (Debian Bullseye)
 - Google Project IDX
 
 ## Contributing
