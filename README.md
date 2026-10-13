@@ -47,7 +47,7 @@ And you're all set! The script will create the necessary symbolic links to get e
 
 ### Dev containers
 
-A [dev container Feature](features/src/dotfiles/README.md) forwards the git identity and SSH config from `untracked/` into any dev container. Add `ghcr.io/alonsofloo/dotfiles/dotfiles:1` to `dev.containers.defaultFeatures` in your VS Code user settings.
+A [dev container Feature](devcontainer-feature/src/dotfiles/README.md) forwards the git identity and SSH config from `untracked/` into any dev container. Add `ghcr.io/alonsofloo/dotfiles/dotfiles:1` to `dev.containers.defaultFeatures` in your VS Code user settings.
 
 ### Untracked Configuration
 
