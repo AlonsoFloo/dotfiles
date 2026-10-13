@@ -45,6 +45,10 @@ Getting started is easy! Just follow these steps:
 
 And you're all set! The script will create the necessary symbolic links to get everything working.
 
+### Dev containers
+
+A [dev container Feature](features/src/dotfiles/README.md) installs these dotfiles in any dev container. Add `ghcr.io/alonsofloo/dotfiles/dotfiles:1` to `dev.containers.defaultFeatures` in your VS Code user settings.
+
 ### Untracked Configuration
 
 The `untracked/` directory is intentionally left out of version control, making it the perfect place to store sensitive or machine-specific information, such as:
