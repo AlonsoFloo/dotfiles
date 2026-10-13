@@ -2,13 +2,18 @@
   "id": "dotfiles",
   "version": "1.0.0",
   "name": "AlonsoFloo dotfiles forwarding",
-  "description": "Forwards the host git identity and SSH config kept in ~/dotfiles/untracked into the container, so commit and push work as on the host. Does not install the dotfiles.",
+  "description": "Forwards the host git identity and SSH config kept in the dotfiles untracked/ folder into the container, so commit and push work as on the host. Does not install the dotfiles, and does nothing on a host without them.",
   "documentationURL": "https://github.com/AlonsoFloo/dotfiles/tree/master/features/src/dotfiles",
   "mounts": [
     {
-      "source": "${localEnv:HOME}/dotfiles/untracked",
-      "target": "/usr/local/share/dotfiles-untracked",
+      "source": "${localEnv:DOTFILES_UNTRACKED:/var/tmp}",
+      "target": "/usr/local/share/dotfiles-forward/host",
       "type": "bind"
     }
+  ],
+  "postStartCommand": "/usr/local/share/dotfiles-forward/link.sh",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/git",
+    "ghcr.io/devcontainers/features/common-utils"
   ]
 }

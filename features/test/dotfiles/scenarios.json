@@ -1,0 +1,16 @@
+{
+  "with_dotfiles": {
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:26-bookworm@sha256:e287df8a60ca9298259c15c655edba69bb9506eacb4006da4d70308953697635",
+    "remoteUser": "node",
+    "features": {
+      "dotfiles": {}
+    }
+  },
+  "without_dotfiles": {
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:26-bookworm@sha256:e287df8a60ca9298259c15c655edba69bb9506eacb4006da4d70308953697635",
+    "remoteUser": "node",
+    "features": {
+      "dotfiles": {}
+    }
+  }
+}
