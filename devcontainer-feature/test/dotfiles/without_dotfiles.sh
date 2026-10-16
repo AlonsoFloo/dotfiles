@@ -6,6 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # Same include as with the dotfiles, to prove the empty fallback is harmless.
+# shellcheck disable=SC2088 # literal ~, expanded by git as in the dotfiles gitconfig
 git config --global include.path "~/dotfiles/untracked/gitconfig"
 
 check "nothing forwarded" bash -c "[ ! -s ~/dotfiles/untracked/gitconfig ]"

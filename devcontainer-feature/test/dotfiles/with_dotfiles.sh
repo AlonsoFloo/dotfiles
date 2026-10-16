@@ -6,6 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # What VS Code copies from a host using the dotfiles: ~/.gitconfig including the file.
+# shellcheck disable=SC2088 # literal ~, expanded by git as in the dotfiles gitconfig
 git config --global include.path "~/dotfiles/untracked/gitconfig"
 
 check "host gitconfig available at the same path" grep -q "Feature Test" ~/dotfiles/untracked/gitconfig
