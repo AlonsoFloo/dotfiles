@@ -1,1 +1,5 @@
 Include ~/dotfiles/untracked/sshconfig
+
+# Load a key into the agent the first time it is used (see src/common/ssh-agent)
+Host *
+    AddKeysToAgent yes
