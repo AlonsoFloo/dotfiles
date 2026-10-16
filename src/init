@@ -35,7 +35,6 @@ if [ "$shell_interpretor" != "" ]; then
 			"aliases"
 			"auto-complete"
 			"extras"
-			"ssh-agent"
 			"hello" )
 
 	# reading standard files

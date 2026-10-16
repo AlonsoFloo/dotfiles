@@ -1,3 +1,7 @@
+# Load a key into the SSH agent the first time it is used (recommended)
+# Host *
+#     AddKeysToAgent yes
+
 # Default GitHub
 Host github.com
     HostName github.com
