@@ -1,14 +1,18 @@
 #!/bin/bash
-# Host has dotfiles: run with DOTFILES_UNTRACKED pointing at fixtures/untracked.
+# Host has dotfiles: run with DOTFILES_GITCONFIG pointing at fixtures/gitconfig.
 set -e
 
 # shellcheck source=/dev/null
 source dev-container-features-test-lib
 
-check "host gitconfig is mounted" test -f /usr/local/share/dotfiles-untracked/gitconfig
+# What VS Code copies from a host using the dotfiles: ~/.gitconfig including the file.
+git config --global include.path "~/dotfiles/untracked/gitconfig"
+
+check "host gitconfig available at the same path" grep -q "Feature Test" ~/dotfiles/untracked/gitconfig
+check "only the gitconfig is mounted" bash -c "[ \"\$(grep -c dotfiles /proc/self/mountinfo)\" = 1 ]"
 check "git identity name" bash -c "[ \"\$(git config user.name)\" = 'Feature Test' ]"
 check "git identity email" bash -c "[ \"\$(git config user.email)\" = 'feature-test@example.com' ]"
 check "commit uses the identity" bash -c "cd \"\$(mktemp -d)\" && git init -q && git commit -q --allow-empty -m test && [ \"\$(git log -1 --format=%ae)\" = 'feature-test@example.com' ]"
-check "private ssh host resolved" bash -c "ssh -G homelab | grep -qx 'hostname 192.168.1.10'"
+check "unused without the include" bash -c "[ -z \"\$(HOME=\$(mktemp -d) git config user.email)\" ]"
 
 reportResults

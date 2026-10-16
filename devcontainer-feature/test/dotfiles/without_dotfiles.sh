@@ -1,13 +1,16 @@
 #!/bin/bash
-# Host without dotfiles: run with DOTFILES_UNTRACKED unset (mount falls back to /var/tmp).
+# Host without dotfiles: run with DOTFILES_GITCONFIG unset (mount falls back to /dev/null).
 set -e
 
 # shellcheck source=/dev/null
 source dev-container-features-test-lib
 
-check "no host gitconfig" test ! -e /usr/local/share/dotfiles-untracked/gitconfig
-check "git still works" git --version
+# Same include as with the dotfiles, to prove the empty fallback is harmless.
+git config --global include.path "~/dotfiles/untracked/gitconfig"
+
+check "nothing forwarded" bash -c "[ ! -s ~/dotfiles/untracked/gitconfig ]"
+check "git config still valid" git config --list
 check "no git identity added" bash -c "[ -z \"\$(git config user.email)\" ]"
-check "ssh config still valid" bash -c "ssh -G github.com >/dev/null"
+check "commit fails as on a bare host" bash -c "cd \"\$(mktemp -d)\" && git init -q && ! git -c user.useConfigOnly=true commit -q --allow-empty -m test"
 
 reportResults
