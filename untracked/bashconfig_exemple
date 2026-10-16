@@ -7,3 +7,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 #Android SDK HOME
 export ANDROID_HOME=<HOME-PATH>/Library/Android/sdk
 export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+# SSH agent (WSL/Linux), so VS Code can forward your key to dev containers
+# [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" >/dev/null
+# ssh-add -q ~/.ssh/id_rsa
