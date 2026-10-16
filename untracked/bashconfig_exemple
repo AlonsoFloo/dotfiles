@@ -8,15 +8,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 export ANDROID_HOME=<HOME-PATH>/Library/Android/sdk
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 
-# SSH agent (recommended on WSL/Linux, where none runs by default).
-# Reuses one agent per machine, so VS Code can forward it to dev containers.
-# Pair it with `AddKeysToAgent yes` in sshconfig to load your key on first use.
-# ssh-add -l >/dev/null 2>&1
-# if [ $? -eq 2 ]; then
-# 	export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
-# 	ssh-add -l >/dev/null 2>&1
-# 	if [ $? -eq 2 ]; then
-# 		rm -f "$SSH_AUTH_SOCK"
-# 		eval "$(ssh-agent -s -a "$SSH_AUTH_SOCK")" >/dev/null
-# 	fi
-# fi
+# SSH agent (WSL/Linux), so VS Code can forward your key to dev containers
+# [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" >/dev/null
+# ssh-add -q ~/.ssh/id_rsa
