@@ -17,6 +17,3 @@ brew "ruby"
 brew "swiftlint"
 # Python
 brew "python3"
-
-# Agent Package Manager
-brew "apm"
