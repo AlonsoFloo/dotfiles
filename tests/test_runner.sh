@@ -20,7 +20,8 @@ echo "dummy_content" > "$HOME/dummy_target.txt"
 ln -sf "$HOME/dummy_target.txt" "$HOME/.bashrc"
 echo "custom_vimrc" > "$HOME/.vimrc"
 
-~/dotfiles/setup.sh --quiet
+# Enable sudo without the prompt so the CLI tools are installed too
+USE_SUDO="yes" USE_SUDO_PROMPTED="yes" ~/dotfiles/setup.sh --quiet
 
 if [ ! -f "$HOME/.bashrc.dotfiles.bak" ] || [ "$(cat "$HOME/.bashrc.dotfiles.bak")" != "dummy_content" ]; then
     echo "Backup of symlink .bashrc failed or did not copy actual file content!"
@@ -32,6 +33,24 @@ if [ ! -f "$HOME/.vimrc.dotfiles.bak" ] || [ "$(cat "$HOME/.vimrc.dotfiles.bak")
     exit 1
 fi
 echo "[OK] Symlink and file content backup to .dotfiles.bak verified."
+
+echo "=== 2b. Testing CLI tools installation ==="
+for tool in apm android kotlin; do
+    if ! PATH="$HOME/.local/bin:/usr/local/bin:$PATH" command -v "$tool" &>/dev/null; then
+        echo "CLI tool '$tool' was not installed!"
+        exit 1
+    fi
+    echo "[OK] $tool installed at $(PATH="$HOME/.local/bin:/usr/local/bin:$PATH" command -v "$tool")"
+done
+
+# Install scripts must not write into the symlinked dotfiles (e.g. PATH lines in ~/.bashrc)
+if [ -d ~/dotfiles/.git ] && [ -n "$(git -C ~/dotfiles status --porcelain --ignore-submodules -- src)" ]; then
+    echo "Install scripts modified tracked dotfiles:"
+    git -C ~/dotfiles status --porcelain --ignore-submodules -- src
+    git -C ~/dotfiles diff -- src
+    exit 1
+fi
+echo "[OK] CLI tools installed without modifying the dotfiles."
 
 echo "=== 3. Testing Linux setup and verifying macOS setup files presence ==="
 test -f ~/dotfiles/setup/linux.sh || { echo "Linux setup script missing!"; exit 1; }

@@ -37,3 +37,37 @@ for file in "${DOTFILE_PATH}"{bash_logout,bashrc,bash_profile,zshrc,zlogout,inpu
 
 	ln -sf "${DOTFILE_PATH}""${file}" ~/."${file}"
 done;
+
+# Install APM if missing
+if ! command -v apm &>/dev/null; then
+	echo "Installing APM (Agent Package Manager)..."
+	if [[ "$USE_SUDO" == "yes" ]]; then
+		curl -fsSL https://aka.ms/apm-unix | sh || true
+	else
+		echo "Sudo is disabled. Skipping APM installation."
+	fi
+fi
+
+# Install Android CLI if missing
+if ! command -v android &>/dev/null; then
+	echo "Installing Android CLI..."
+	if [[ "$USE_SUDO" == "yes" ]]; then
+		android_os="$(uname -s | tr '[:upper:]' '[:lower:]')"
+		android_arch="$(uname -m)"
+		[[ "$android_arch" == "aarch64" ]] && android_arch="arm64"
+		curl -fsSL "https://dl.google.com/android/cli/latest/${android_os}_${android_arch}/install_root.sh" | bash || true
+		unset android_os android_arch
+	else
+		echo "Sudo is disabled. Skipping Android CLI installation."
+	fi
+fi
+
+# Install Kotlin Toolchain if missing
+if ! command -v kotlin &>/dev/null; then
+	echo "Installing Kotlin Toolchain..."
+	if [[ "$USE_SUDO" == "yes" ]]; then
+		curl -fsSL https://kotl.in/install.sh | sh || true
+	else
+		echo "Sudo is disabled. Skipping Kotlin Toolchain installation."
+	fi
+fi
