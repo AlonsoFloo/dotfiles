@@ -7,8 +7,7 @@ setopt CORRECT
 
 # completion plugins
 #plugins+=(git) #uncomment for extra completion
-plugins+=(history history-substring-search)
-plugins+=(sudo)
+plugins+=(history)
 if type ant > /dev/null;then
 	plugins+=(ant)
 fi
