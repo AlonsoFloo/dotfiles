@@ -4,6 +4,9 @@
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=20
 
+# syntax checker, bundled with oh-my-zsh: must stay the last plugin
+plugins+=(zsh-syntax-highlighting)
+
 # Starting oh-my-zsh
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 source $ZSH/oh-my-zsh.sh

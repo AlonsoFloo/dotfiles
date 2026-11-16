@@ -5,7 +5,7 @@ export DOTFILE_PATH=~/dotfiles/src/
 
 cd ${DOTFILES_REPO} || exit
 
-# Fetch submodules (oh-my-zsh, zsh-syntax-highlighting, dircolors) when the repo
+# Fetch submodules (oh-my-zsh, dircolors) when the repo
 # was cloned without --recursive, e.g. by VS Code dev containers "dotfiles.repository".
 git submodule update --init --recursive || echo "Unable to fetch git submodules, zsh plugins may be missing"
 
