@@ -100,7 +100,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## References
 
 - OhMyZsh : [https://github.com/ohmyzsh/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
-- ZSH syntax Highlighting : [https://github.com/zsh/zsh-syntax-highlighting](https://github.com/zsh/zsh-syntax-highlighting)
 - Dircolor solarized : [https://github.com/seebi/dircolors-solarized](https://github.com/seebi/dircolors-solarized)
 
 ## TODO

@@ -39,6 +39,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# Mac OSX
 	plugins+=(macos)
 fi
-
-# syntax checker
-source $DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
